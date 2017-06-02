@@ -1,0 +1,18 @@
+[
+	{
+		"UnlocalizedName": "rubedo",
+		"Weight": 1,
+		"MaxStackSize": 3,
+		"SaturationLevel": "Raw",
+		"Effects": [
+			"MoveSpeed", 20, 1
+			"NightVision", 40, 1
+		]
+		"Description": [
+			"ЕТО ЛУЧШАЯ",
+			"ЕДА",
+			"НА ВСЕЙ ЧЕРТОВОЙ ПЛАНЕТЕ"
+		]
+		"Texture": "Rubedo"
+	}
+]
