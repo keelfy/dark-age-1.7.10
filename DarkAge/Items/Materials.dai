@@ -1,8 +1,12 @@
 [
 	{
+		"UnlocalizedName": "blueprint1",
+		"Texture": "bp1"
+	},
+    {
 		"UnlocalizedName": "flax",
 		"Texture": "Flax"
-	},
+    },
 	{
 		"UnlocalizedName": "flaxCloth",
 		"Texture": "FlaxCloth"
