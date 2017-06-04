@@ -1,6 +1,6 @@
 package noppes.npcs.containers;
 
-import keelfy.witcher.item.Armor;
+import keelfy.darkage.item.Armor;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;

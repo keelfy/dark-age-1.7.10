@@ -4,9 +4,9 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import keelfy.witcher.client.renderer.RendererBlock;
-import keelfy.witcher.tileentity.DATileEntity;
-import keelfy.witcher.util.DAUtil;
+import keelfy.darkage.client.renderer.RendererBlock;
+import keelfy.darkage.tileentity.DATileEntity;
+import keelfy.darkage.util.DAUtil;
 import keelfy.witcherBlocks.WitcherBlocks;
 import keelfy.witcherBlocks.block.BlockLootBag;
 import keelfy.witcherBlocks.register.BlockRegister;

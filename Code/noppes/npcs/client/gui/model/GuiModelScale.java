@@ -120,7 +120,7 @@ public class GuiModelScale extends GuiModelInterface implements ISliderListener{
 
 	@Override
 	public void mousePressed(GuiNpcSlider slider) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

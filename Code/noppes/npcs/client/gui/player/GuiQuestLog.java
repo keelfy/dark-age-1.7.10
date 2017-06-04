@@ -237,7 +237,7 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener,I
 	}
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	

@@ -148,7 +148,7 @@ public class GuiNpcMobSpawnerSelector extends SubGuiInterface implements IGuiDat
 	
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

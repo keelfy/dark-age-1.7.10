@@ -112,7 +112,7 @@ public class GuiNpcRemoteEditor extends GuiNPCInterface implements IScrollData, 
     }
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	@Override

@@ -1,7 +1,7 @@
 package keelfy.witcherBlocks.tileentity;
 
-import keelfy.witcher.tileentity.DATileEntity;
-import keelfy.witcher.util.DAUtil;
+import keelfy.darkage.tileentity.DATileEntity;
+import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

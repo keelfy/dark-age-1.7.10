@@ -1,9 +1,9 @@
 package keelfy.witcherBlocks.block;
 
-import keelfy.witcher.DarkAge;
-import keelfy.witcher.handler.GuiHandler.GUI;
-import keelfy.witcher.util.DAUtil;
-import keelfy.witcher.util.DATab;
+import keelfy.darkage.DarkAge;
+import keelfy.darkage.handler.GuiHandler.GUI;
+import keelfy.darkage.util.DATab;
+import keelfy.darkage.util.DAUtil;
 import keelfy.witcherBlocks.tileentity.TileEntityLootBag;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -27,7 +27,7 @@ public class BlockLootBag extends BlockContainer {
 		super(Material.cloth);
 		
         setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
-		setCreativeTab(DATab.wcBlock);
+		setCreativeTab(DATab.tabBlock);
 		setBlockUnbreakable();
 	}
     

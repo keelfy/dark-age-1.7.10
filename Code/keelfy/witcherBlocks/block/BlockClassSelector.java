@@ -1,9 +1,9 @@
 package keelfy.witcherBlocks.block;
 
-import keelfy.witcher.DarkAge;
-import keelfy.witcher.handler.GuiHandler.GUI;
-import keelfy.witcher.util.DAUtil;
-import keelfy.witcher.util.DATab;
+import keelfy.darkage.DarkAge;
+import keelfy.darkage.handler.GuiHandler.GUI;
+import keelfy.darkage.util.DATab;
+import keelfy.darkage.util.DAUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +17,7 @@ public class BlockClassSelector extends Block {
     public BlockClassSelector() {
         super(Material.iron);
 
-        this.setCreativeTab(DATab.wcMain);
+        this.setCreativeTab(DATab.tabDA);
     }
 
     @Override

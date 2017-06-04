@@ -115,16 +115,16 @@ public class CommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public void openGui(EntityNPCInterface npc, EnumGuiType gui) {
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void openGui(EntityNPCInterface npc, EnumGuiType gui, int x, int y, int z) {
-		// TODO Auto-generated method stub
+		
 	}
 
 
@@ -133,12 +133,12 @@ public class CommonProxy implements IGuiHandler {
 	}
 
 	public void openGui(EntityPlayer player, Object guiscreen) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	public void spawnParticle(EntityLivingBase player, String string, Object... ob) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -151,7 +151,7 @@ public class CommonProxy implements IGuiHandler {
 	}
 
 	public void registerItem(Item item) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

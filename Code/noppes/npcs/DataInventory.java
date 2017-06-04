@@ -171,7 +171,7 @@ public class DataInventory implements IInventory{
 	}
 	@Override
 	public int getSizeInventory() {
-		// TODO Auto-generated method stub
+		
 		return 15;
 	}
 	@Override
@@ -315,17 +315,17 @@ public class DataInventory implements IInventory{
 	}
 	@Override
 	public void markDirty() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	@Override
 	public void openInventory() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	@Override
 	public void closeInventory() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

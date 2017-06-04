@@ -1,8 +1,8 @@
 package keelfy.witcherBlocks.client;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
-import keelfy.witcher.handler.client.ResourceHandler;
-import keelfy.witcher.util.DAUtil;
+import keelfy.darkage.handler.client.ResourceHandler;
+import keelfy.darkage.util.DAUtil;
 import keelfy.witcherBlocks.CommonProxy;
 import keelfy.witcherBlocks.WitcherBlocks;
 import keelfy.witcherBlocks.client.renderer.RendererLootBag;

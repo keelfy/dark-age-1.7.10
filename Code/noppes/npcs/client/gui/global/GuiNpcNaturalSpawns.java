@@ -184,7 +184,7 @@ public class GuiNpcNaturalSpawns extends GuiNPCInterface2 implements IGuiData, I
 
 	@Override
 	public void mousePressed(GuiNpcSlider guiNpcSlider) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -54,7 +54,7 @@ public class SubGuiNpcResistanceProperties extends SubGuiInterface implements IS
 
 	@Override
 	public void mousePressed(GuiNpcSlider slider) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

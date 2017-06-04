@@ -1,6 +1,6 @@
 package keelfy.witcherBlocks.block;
 
-import keelfy.witcher.util.DATab;
+import keelfy.darkage.util.DATab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
@@ -20,7 +20,7 @@ public class BlockLightMushroom extends Block implements IPlantable {
 		this.setTickRandomly(true);
 		this.setLightLevel(3F);
 		this.setLightOpacity(0);
-		this.setCreativeTab(DATab.wcBlock);
+		this.setCreativeTab(DATab.tabBlock);
 		float f = 0.2F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 	}

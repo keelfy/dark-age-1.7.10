@@ -1,6 +1,8 @@
 
 package noppes.npcs.client.gui.roles;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
@@ -15,8 +17,6 @@ import noppes.npcs.constants.EnumPacketServer;
 import noppes.npcs.containers.ContainerNPCTraderSetup;
 import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.roles.RoleTrader;
-
-import org.lwjgl.opengl.GL11;
 
 public class GuiNpcTraderSetup extends GuiContainerNPCInterface2 implements ITextfieldListener{
 	
@@ -67,8 +67,8 @@ public class GuiNpcTraderSetup extends GuiContainerNPCInterface2 implements ITex
     	super.drawGuiContainerBackgroundLayer(f, i, j);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		for(int slot = 0; slot < 18; slot++){
-			int x = guiLeft + slot%3 * 94 + 7;
-			int y = guiTop + slot/3 * 22 + 4;
+			int x = guiLeft + slot % 3 * 94 + 7;
+			int y = guiTop + slot / 3 * 22 + 4;
 
 	        mc.renderEngine.bindTexture(this.slot);
 	        GL11.glColor4f(1, 1, 1, 1);

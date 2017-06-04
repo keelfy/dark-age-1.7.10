@@ -136,16 +136,16 @@ public class ConfigLoader {
 					out.write(name + "=" + field.get(null).toString() + System.getProperty( "line.separator" ));
 					out.write(System.getProperty( "line.separator" ));
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

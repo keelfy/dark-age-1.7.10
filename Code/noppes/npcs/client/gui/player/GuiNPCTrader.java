@@ -1,7 +1,9 @@
 package noppes.npcs.client.gui.player;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
 import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -11,9 +13,6 @@ import noppes.npcs.client.gui.util.GuiContainerNPCInterface;
 import noppes.npcs.containers.ContainerNPCTrader;
 import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.roles.RoleTrader;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 public class GuiNPCTrader extends GuiContainerNPCInterface{
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/trader.png");
@@ -44,15 +43,29 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
 
         mc.renderEngine.bindTexture(slot);
 		for(int slot = 0; slot < 18; slot++){
-			int x = guiLeft + slot%3 * 72 + 10;
-			int y = guiTop + slot/3 * 21 + 6;
+			int x = guiLeft + slot % 3 * 72 + 10;
+			int y = guiTop + slot / 3 * 21 + 6;
 			
 			ItemStack item = role.inventoryCurrency.items.get(slot);
 			ItemStack item2 = role.inventoryCurrency.items.get(slot + 18);
+			ItemStack item3 = role.inventoryCurrency.items.get(slot + 36);
+			
+			if(item2 == null){
+				item2 = item3;
+				item3 = null;
+			}
+			
 			if(item == null){
 				item = item2;
 				item2 = null;
 			}
+			
+			if(NoppesUtilPlayer.compareItems(item2, item3, false, false)){
+				item2 = item2.copy();
+				item2.stackSize += item3.stackSize;
+				item3 = null;
+			}
+			
 			if(NoppesUtilPlayer.compareItems(item, item2, false, false)){
 				item = item.copy();
 				item.stackSize += item2.stackSize;
@@ -70,6 +83,12 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
 	            	itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item2, x, y + 1);
 		        	itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item2, x, y + 1);
 	            }
+	            
+	            if(item3 != null){
+	            	itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item3, x + 36, y + 1);
+		        	itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item3, x + 36, y + 1);
+	            }
+	            
 		        GL11.glColor4f(1, 1, 1, 1);
 		        itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item, x + 18, y + 1);
 		        itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item, x + 18, y + 1);

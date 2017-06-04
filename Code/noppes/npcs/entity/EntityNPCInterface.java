@@ -1,8 +1,8 @@
 package noppes.npcs.entity;
 
 import io.netty.buffer.ByteBuf;
-import keelfy.witcher.entity.player.DAPlayer;
-import keelfy.witcher.event.custom.NPCAttackEntityEvent;
+import keelfy.darkage.entity.player.DAPlayer;
+import keelfy.darkage.event.custom.NPCAttackEntityEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
