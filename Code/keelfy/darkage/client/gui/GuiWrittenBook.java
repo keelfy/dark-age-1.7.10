@@ -9,8 +9,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.darkage.DarkAge;
 import keelfy.darkage.handler.client.FileHandler;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
 import keelfy.darkage.item.smartlib.SLBook;
 import keelfy.darkage.item.smartlib.SLPage;
 import keelfy.darkage.util.DAUtil;
@@ -56,7 +54,7 @@ public class GuiWrittenBook extends GuiScreen {
         this.fh = DarkAge.instance.fileHandler;
         
         if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-        	bookGuiTextures = Texture.get(WCT.GUI, "book");
+        	bookGuiTextures = new ResourceLocation("minecraft", "textures/gui/book.png");
         	
 	        if (is.hasTagCompound()) {
 	            NBTTagCompound nbttagcompound = is.getTagCompound();

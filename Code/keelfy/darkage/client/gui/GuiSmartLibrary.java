@@ -1,29 +1,22 @@
 package keelfy.darkage.client.gui;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.DarkAge;
 import keelfy.darkage.handler.client.FileHandler;
-import keelfy.darkage.handler.registers.ItemRegister;
 import keelfy.darkage.item.smartlib.SLBook;
-import keelfy.darkage.item.smartlib.SLLine;
-import keelfy.darkage.item.smartlib.SLPage;
+import keelfy.darkage.network.server.GiveBookMessage;
 import keelfy.darkage.util.DAUtil;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSlot;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
 
 /**
  * @author keelfy
@@ -135,7 +128,7 @@ public class GuiSmartLibrary extends GuiScreen {
 	    	switch (buttonPressed.id){
 	    		case BTN_LOAD:
 	    			if (this.tempBook != null){
-	    				this.getBooks(1, tempBook);
+	    				PacketDispatcher.getInstance().sendToServer(new GiveBookMessage(1, tempBook));
 	    				mc.displayGuiScreen((GuiScreen)null);
 	        		}
 	    			break;
@@ -149,37 +142,6 @@ public class GuiSmartLibrary extends GuiScreen {
 	    	if (buttonPressed.id >= 100){
 	    		this.fileHandler.currentPath = new File(buttonPressed.displayString);
 	    	}
-    	}
-    }
-	
-    public void getBooks(int number, SLBook slBook) {
-    	if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			ItemStack book = new ItemStack(ItemRegister.writtenBook);
-			NBTTagCompound tag = new NBTTagCompound();
-			NBTTagList bookPages = new NBTTagList();
-			
-			List<NBTTagString> pages = new ArrayList(slBook.pages.size());
-			for(SLPage page : slBook.pages) {
-				String text = "";
-				for(SLLine line : page.lines) {
-					text += line.text;
-				}
-				
-				pages.add(new NBTTagString(text));
-			}
-			
-			for(NBTTagString page : pages) {
-				bookPages.appendTag(page);
-			}
-			
-			book.setTagInfo("pages", bookPages);
-			book.stackTagCompound.setString("author", slBook.author);
-			System.out.println(slBook.title);
-			book.stackTagCompound.setString("title", slBook.title);
-			book.stackTagCompound.setInteger("id", slBook.id);
-			
-			for(int i = 0; i < number; i ++)
-				Minecraft.getMinecraft().thePlayer.inventory.addItemStackToInventory(book);
     	}
     }
     
@@ -234,7 +196,7 @@ public class GuiSmartLibrary extends GuiScreen {
 	                	}
 	                	else{
 	                		if (GuiSmartLibrary.this.tempBook != null){
-	                			GuiSmartLibrary.this.getBooks(1, tempBook);
+	                			PacketDispatcher.getInstance().sendToServer(new GiveBookMessage(1, tempBook));
 	                			mc.displayGuiScreen((GuiScreen)null);
 	                		}
 	                	}

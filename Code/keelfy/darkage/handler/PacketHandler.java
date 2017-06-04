@@ -6,6 +6,7 @@ import keelfy.darkage.network.client.SyncEffectsMessage;
 import keelfy.darkage.network.client.SyncPlayerMessage;
 import keelfy.darkage.network.server.ChangeSignMessage;
 import keelfy.darkage.network.server.ClassMessage;
+import keelfy.darkage.network.server.GiveBookMessage;
 import keelfy.darkage.network.server.HandleMoneyClickMessage;
 import keelfy.darkage.network.server.HotSlotMessage;
 import keelfy.darkage.network.server.IITMessage;
@@ -49,5 +50,6 @@ public class PacketHandler {
 		dis.registerMessage(PerformEffectMessage.class);
 		dis.registerMessage(RepairItemMessage.class);
 		dis.registerMessage(HandleMoneyClickMessage.class);
+		dis.registerMessage(GiveBookMessage.class);
 	}
 }

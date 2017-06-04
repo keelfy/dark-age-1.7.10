@@ -117,25 +117,30 @@ public class HandleMoneyClickMessage extends AbstractServerMessage<HandleMoneyCl
 	}
 	
 	private boolean canAdd(EntityPlayer player, Item toAdd) {
-		int j = 0;
-		for (int i = 12; i < player.inventory.mainInventory.length; i++) {
-			ItemStack stack = player.inventory.mainInventory[i];
-			
-			if(stack != null && stack.getItem() == toAdd && stack.stackSize < stack.getMaxStackSize()) {
-				return true;
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			int j = 0;
+			for (int i = 12; i < player.inventory.mainInventory.length; i++) {
+				ItemStack stack = player.inventory.mainInventory[i];
+				
+				if(stack != null && stack.getItem() == toAdd && stack.stackSize < stack.getMaxStackSize()) {
+					return true;
+				}
 			}
+			return canGive(player, 1);
 		}
-		return canGive(player, 1);
+		return false;
 	}
 	
 	private boolean canGive(EntityPlayer player, int slots) {
-		int j = 0;
-		for (int i = 12; i < player.inventory.mainInventory.length; i++) {
-			ItemStack stack = player.inventory.mainInventory[i];
-			if(j >= slots) return true;
-				
-			if(stack == null) {
-				j += 1;
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			int j = 0;
+			for (int i = 12; i < player.inventory.mainInventory.length; i++) {
+				ItemStack stack = player.inventory.mainInventory[i];
+				if(j >= slots) return true;
+					
+				if(stack == null) {
+					j += 1;
+				}
 			}
 		}
 		return false;

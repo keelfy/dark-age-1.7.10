@@ -52,18 +52,8 @@ public class ItemRegister {
 		loadMaterials();
 		loadRepairKits();
 		
-		String path;
 		writtenBook = ItemRegistry.of("writtenbook", new DAWrittenBook()).registerWithoutTexture();
 		smartLibrary = ItemRegistry.of("smartlibrary", new SmartLibrary()).registerWithoutTexture("Смарт-Библиотека");
-		
-//		path = "repairkit";
-//		repairAKit1 = ItemRegistry.of("repairAKit1".toUpperCase(), new RepairKit(ItemRarity.USUAL, 1, 15, RepairKitType.ARMOR, "Восстанавливает 15% прочности доспеха")).register(path);
-//		repairAKit2 = ItemRegistry.of("repairAKit2".toUpperCase(), new RepairKit(ItemRarity.UNCOMMON, 2, 40, RepairKitType.ARMOR, "Восстанавливает 40% прочности доспеха")).register(path);
-//		repairAKit3 = ItemRegistry.of("repairAKit3".toUpperCase(), new RepairKit(ItemRarity.RARE, 3, 90, RepairKitType.ARMOR, "Восстанавливает 90% прочности доспеха")).register(path);
-//		
-//		repairWKit1 = ItemRegistry.of("repairWKit1".toUpperCase(), new RepairKit(ItemRarity.USUAL, 1, 15, RepairKitType.WEAPON, "Восстанавливает 15% прочности оружия")).register(path);
-//		repairWKit2 = ItemRegistry.of("repairWKit2".toUpperCase(), new RepairKit(ItemRarity.UNCOMMON, 2, 40, RepairKitType.WEAPON, "Восстанавливает 40% прочности оружия")).register(path);
-//		repairWKit3 = ItemRegistry.of("repairWKit3".toUpperCase(), new RepairKit(ItemRarity.RARE, 3, 90, RepairKitType.WEAPON, "Восстанавливает 90% прочности оружия")).register(path);
 	}
 	
 	private final void loadMoney() {

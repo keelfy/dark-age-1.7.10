@@ -2,6 +2,7 @@ package keelfy.api.network;
 
 import java.io.IOException;
 
+import com.google.common.base.Charsets;
 import com.google.common.base.Throwables;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -43,7 +44,24 @@ public abstract class AbstractMessage<T extends AbstractMessage<T>> implements I
 			throw Throwables.propagate(e);
 		}
 	}
-
+	
+	public static void writeString(final ByteBuf buffer, String s){
+        byte[] bytes = s.getBytes(Charsets.UTF_8);
+		buffer.writeShort((short)bytes.length);
+		buffer.writeBytes(bytes);
+	}
+	
+	public static String readString(final ByteBuf buffer){
+		try{
+			byte[] bytes = new byte[buffer.readShort()];
+			buffer.readBytes(bytes);
+			return new String(bytes, Charsets.UTF_8);
+		}
+		catch(IndexOutOfBoundsException ex){
+			return null;
+		}
+	}
+	
 	@Override
 	public final IMessage onMessage(final T msg, final MessageContext ctx) {
 		if (!msg.isValidOnSide(ctx.side)) {

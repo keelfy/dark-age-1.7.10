@@ -53,7 +53,6 @@ public class SLBook {
 		}
 	}
 	
-	
 	/** Prints a representation of the book to stdout. Used for debugging */
 	public void dump(){
 		String separator = "###############################################\n";

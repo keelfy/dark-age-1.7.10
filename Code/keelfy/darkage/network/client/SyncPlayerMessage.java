@@ -42,7 +42,6 @@ public class SyncPlayerMessage extends AbstractClientMessage<SyncPlayerMessage> 
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(DAPlayer.get(player) != null) {
 				DAPlayer.get(player).loadNBTData(data);
-				System.out.println("sda");
 			}
 		}
 	}

@@ -23,6 +23,6 @@ public final class DAUtil {
 	public static final Timer TIMER = new Timer();
 	public static final Logger LOGGER = LogManager.getLogger(MODNAME);
 	
-	public static final boolean DEBUG_MODE = false;
+	public static final boolean DEBUG_MODE = true;
 	public static final boolean SERVER = false;
 }
