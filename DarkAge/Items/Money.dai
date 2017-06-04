@@ -1,0 +1,29 @@
+[
+	{
+		"UnlocalizedName": "OREN",
+		"MaxStackSize": 50,
+		"OrenesValue": 1,
+		"Description": [
+			"Темерский орен, одна из самых ходовых валют Севера"
+		],
+		"Texture": "Oren"
+	},
+	{
+		"UnlocalizedName": "oren100",
+		"OrenesValue": 100,
+		"MaxStackSize": 50,
+		"Description": [
+			"Мешочек, полный оренов"
+		],
+		"Texture": "Oren"
+	},
+	{
+		"UnlocalizedName": "oren1000",
+		"OrenesValue": 1000,
+		"MaxStackSize": 50,
+		"Description": [
+			"Драгоценная шкатулка, набитая оренами"
+		],
+		"Texture": "Oren"
+	}
+]

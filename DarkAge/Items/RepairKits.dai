@@ -1,0 +1,68 @@
+[
+	{
+		"UnlocalizedName": "wrp1",
+		"RepairPercentage": 15,
+		"Type": "Weapon",
+		"Weight": 1,
+		"Rarity": "Usual",
+		"Description": [
+			"Восстанавливает 15% прочности оружия"
+		],
+		"Texture": "Weapon1"
+	},
+	{
+		"UnlocalizedName": "wrp2",
+		"RepairPercentage": 40,
+		"Type": "Weapon",
+		"Weight": 2,
+		"Rarity": "Uncommon",
+		"Description": [
+			"Восстанавливает 40% прочности оружия"
+		],
+		"Texture": "Weapon2"
+	},
+	{
+		"UnlocalizedName": "wrp3",
+		"RepairPercentage": 90,
+		"Type": "Weapon",
+		"Weight": 3,
+		"Rarity": "Rare",
+		"Description": [
+			"Восстанавливает 90% прочности оружия"
+		],
+		"Texture": "Weapon3"
+	},
+	{
+		"UnlocalizedName": "arp1",
+		"RepairPercentage": 15,
+		"Type": "Armor",
+		"Weight": 1,
+		"Rarity": "Usual",
+		"Description": [
+			"Восстанавливает 15% прочности доспеха"
+		],
+		"Texture": "Armor1"
+	},
+	{
+		"UnlocalizedName": "arp2",
+		"RepairPercentage": 40,
+		"Type": "Armor",
+		"Weight": 2,
+		"Rarity": "Uncommon",
+		"Description": [
+			"Восстанавливает 40% прочности доспеха"
+		],
+		"Texture": "Armor2"
+	},
+	{
+		"UnlocalizedName": "arp3",
+		"RepairPercentage": 90,
+		"Type": "Armor",
+		"Weight": 3,
+		"Rarity": "Rare",
+		"Description": [
+			"Восстанавливает 90% прочности доспеха"
+		],
+		"Texture": "Armor3"
+	}
+]
