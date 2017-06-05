@@ -19,16 +19,15 @@ public class SignIrden extends Entity {
 
 	private EntityPlayer owner;
 
-	public SignIrden(World world, EntityPlayer player) {
-		this(world);
-		this.owner = player;
-	}
-
 	public SignIrden(World world) {
 		super(world);
 		
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE)
 			this.setAngles(1.0F, 1.0F);
+	}
+	
+	public void setOwner(EntityPlayer owner) {
+		this.owner = owner;
 	}
 
 	@Override
@@ -88,14 +87,15 @@ public class SignIrden extends Entity {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound compound) {}
 
-	public void handle(EntityPlayerMP sender) {
+	public void handle() {
 		if (DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote) {
-				DAPlayer wcp = DAPlayer.get(sender);
+				DAPlayer wcp = DAPlayer.get(owner);
+				
 				if (wcp != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
-					setPosition(sender.posX, sender.worldObj.getTopSolidOrLiquidBlock((int) sender.posX, (int) sender.posZ), sender.posZ);
+					setPosition(owner.posX, owner.worldObj.getTopSolidOrLiquidBlock((int) owner.posX, (int) owner.posZ), owner.posZ);
 					this.worldObj.spawnEntityInWorld(this);
-					ISign.useSign("customnpcs:signs.irden", this.worldObj, sender);
+					ISign.useSign("customnpcs:signs.irden", this.worldObj, owner);
 					wcp.update(Property.ENERGY, 0F);
 				}
 			}

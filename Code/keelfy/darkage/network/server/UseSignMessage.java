@@ -21,30 +21,63 @@ import net.minecraft.world.World;
  */
 public class UseSignMessage extends AbstractServerMessage<UseSignMessage> {
 
+	private int entityId = -1;
+	
 	public UseSignMessage() {}
 
+	public UseSignMessage(int id) {
+		if(!DAUtil.SERVER ||  DAUtil.DEBUG_MODE) {
+			this.entityId = id;
+		}
+	}
+	
 	@Override
-	protected void read(PacketBuffer buffer) {}
+	protected void read(PacketBuffer buffer) {
+		entityId = buffer.readInt();
+	}
 
 	@Override
-	protected void write(PacketBuffer buffer) {}
+	protected void write(PacketBuffer buffer) {
+		buffer.writeInt(entityId);
+	}
 
 	@Override
 	public void process(EntityPlayer player, Side side) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			DAPlayer wcp = DAPlayer.get(player);
-			if(wcp != null && wcp.getPlayerClass() == PlayerClass.WITCHER) {
+			DAPlayer dap = DAPlayer.get(player);
+			if(dap != null && dap.getPlayerClass() == PlayerClass.WITCHER) {
 				EntityPlayerMP mp = (EntityPlayerMP) player;
-				World world = player.worldObj;
-				Sign id = wcp.getWitcherSign();
+				World world = mp.worldObj;
+				Sign id = dap.getWitcherSign();
 				
 				switch(id) {
-				case AARD: new SignAard(world).handle(mp); break;
-				case AKSI: new SignAksi(world).handle(mp); break;
-				case IGNI: new SignIgni(world).handle(mp); break;
-				case IRDEN: new SignIrden(world, player).handle(mp); break;
-				case KVEN: new SignKven(world).handle(mp); break;
-				case NONE: break;
+				case AARD:  
+					SignAard aard = new SignAard(world);
+					aard.setOwner(mp);
+					aard.handle(entityId);
+					break;
+				case AKSI:  
+					SignAksi aksi = new SignAksi(world);
+					aksi.setOwner(mp);
+					aksi.handle(entityId); 
+					break;
+				case IGNI:
+					SignIgni igni = new SignIgni(world);
+					igni.setOwner(mp);
+					igni.handle(entityId); 
+					break;
+				case IRDEN: 
+					SignIrden irden = new SignIrden(world);
+					irden.setOwner(mp);
+					irden.handle(entityId); 
+					break;
+				case KVEN: 
+					SignKven kven = new SignKven(world);
+					kven.setOwner(player);
+					kven.handle();
+					break;
+				case NONE:  
+					break;
 				}
 			}
 		}

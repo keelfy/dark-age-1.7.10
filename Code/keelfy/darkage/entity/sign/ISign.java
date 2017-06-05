@@ -2,11 +2,14 @@ package keelfy.darkage.entity.sign;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.darkage.util.DAUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 /**
@@ -19,23 +22,11 @@ import net.minecraft.world.World;
  */
 public class ISign {
 	
-	public static Entity getLookingEntity(double range, EntityPlayer player) {
-		EntityPlayer thePlayer = player;
-		List list = player.worldObj.getEntitiesWithinAABBExcludingEntity(player, player.boundingBox.expand(range, range, range));
-		if(list != null) {
-			for(int i = 0; i < list.size(); ++i) {
-				Entity entity = (Entity)list.get(i);
-				if(!entity.isDead && entity instanceof EntityLiving) {
-	 	             Vec3 vec3d = thePlayer.getLook(1.0F).normalize();
-	 	             Vec3 vec3d1 = Vec3.createVectorHelper(entity.posX - thePlayer.posX, entity.boundingBox.minY + entity.height / 2.0F - (thePlayer.posY + thePlayer.getEyeHeight()), entity.posZ - thePlayer.posZ);
-	 	             double d = vec3d1.lengthVector();
-	 	             vec3d1 = vec3d1.normalize();
-	 	             double d1 = vec3d.dotProduct(vec3d1);
-	 	             if(d1 > 1.0D - 0.025D / d) {
-	 	            	 return entity;
-	 	             }
-				}
-			}
+	@SideOnly(Side.CLIENT)
+	public static EntityLiving getLookingEntity() {
+		Minecraft mc = Minecraft.getMinecraft();
+		if(mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && mc.objectMouseOver.entityHit instanceof EntityLiving) {
+			return (EntityLiving) mc.objectMouseOver.entityHit;
 		}
 		return null;
 	}

@@ -35,22 +35,24 @@ public class EventListener {
 	@SubscribeEvent
 	public void onEntityConstructing(EntityConstructing event) {
 		if (event.entity instanceof EntityPlayer) {
-			if (DAPlayer.get((EntityPlayer) event.entity) == null) {
-				DAPlayer.register((EntityPlayer) event.entity);
+			EntityPlayer player = (EntityPlayer) event.entity;
+			
+			if (DAPlayer.get(player) == null) {
+				DAPlayer.register(player);
 			}
 				
-			if (DAEffect.get((EntityPlayer) event.entity) == null) {
-				DAEffect.register((EntityPlayer) event.entity);
+			if (DAEffect.get(player) == null) {
+				DAEffect.register(player);
 			}
 		}
 	}
 	
 	@SubscribeEvent
 	public void onClonePlayer(PlayerEvent.Clone event) {
-		DAPlayer newWCP = DAPlayer.get(event.entityPlayer);
-		DAPlayer oldWCP = DAPlayer.get(event.original);
+		DAPlayer newPlayer = DAPlayer.get(event.entityPlayer);
+		DAPlayer oldPlayer = DAPlayer.get(event.original);
 		
-		newWCP.copy(oldWCP);
+		newPlayer.copy(oldPlayer);
 	}
 	
 	@SubscribeEvent
@@ -58,10 +60,10 @@ public class EventListener {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(event.entityLiving instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer)event.entityLiving;
-				DAPlayer wcp = DAPlayer.get(player);
+				DAPlayer dap = DAPlayer.get(player);
 				
-				if(wcp != null) {
-					wcp.inventory.dropAllItems((EntityPlayer)event.entityLiving);
+				if(dap != null) {
+					dap.inventory.dropAllItems((EntityPlayer)event.entityLiving);
 				}
 			}
 		}
@@ -70,10 +72,10 @@ public class EventListener {
 	@SubscribeEvent
 	public void onPlayerJump(PlayerJumpEvent event) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			DAPlayer wcp = DAPlayer.get(event.player);
+			DAPlayer dap = DAPlayer.get(event.player);
 			
-			if(wcp != null) {
-				wcp.changeEnergy(-7);
+			if(dap != null) {
+				dap.changeEnergy(-7);
 			}
 		}
 	}
@@ -82,12 +84,14 @@ public class EventListener {
 	public void pickup(EntityItemPickupEvent event) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(event.entity instanceof EntityPlayer) {
-				if(!((EntityPlayer)event.entity).capabilities.isCreativeMode) {
+				EntityPlayer player = event.entityPlayer;
+				
+				if(!player.capabilities.isCreativeMode) {
 					event.setCanceled(true);
-					DAPlayer wcp = DAPlayer.get(event.entityPlayer);
+					DAPlayer dap = DAPlayer.get(player);
 					
-					if(wcp != null && wcp.inventory.addItemStackToInventory(event.item.getEntityItem())) {
-						event.entityPlayer.worldObj.playSoundAtEntity(event.entityPlayer, "random.pop", 1.0F, 1.0F);
+					if(dap != null && dap.inventory.addItemStackToInventory(event.item.getEntityItem())) {
+						player.worldObj.playSoundAtEntity(player, "random.pop", 1.0F, 1.0F);
 						return;
 					}
 				}
@@ -100,12 +104,12 @@ public class EventListener {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(event.entity instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) event.entity;
-				DAPlayer wcp = DAPlayer.get(player);
+				DAPlayer dap = DAPlayer.get(player);
 				
-				if(wcp != null) {
+				if(dap != null) {
 					event.setCanceled(true);
 					float newDamage = -event.damage;
-					wcp.changeHealth(newDamage);
+					dap.changeHealth(newDamage);
 					player.attackEntityFrom(event.damageSource, 1);
 					player.setHealth(player.getMaxHealth());
 				}
@@ -119,17 +123,17 @@ public class EventListener {
 			if(event.entity instanceof EntityPlayer) {
 				if(!(event.source == DamageSource.outOfWorld)) {
 					EntityPlayer player = (EntityPlayer)event.entityLiving;
-					DAPlayer wcp = DAPlayer.get(player);
+					DAPlayer dap = DAPlayer.get(player);
 					
-					if(wcp != null) {
+					if(dap != null) {
 						event.setCanceled(true);
 						float ra = -DAPlayerUtil.getReceivedDamage(player, event.ammount);
 						
-						if(wcp.get(Property.HEALTH) + ra > 0) {
+						if(dap.get(Property.HEALTH) + ra > 0) {
 							if(event.source == DamageSource.fall) 
-								wcp.changeHealth(ra * 30);
-							else wcp.changeHealth(ra);
-						} else wcp.update(Property.HEALTH, 0);
+								dap.changeHealth(ra * 30);
+							else dap.changeHealth(ra);
+						} else dap.update(Property.HEALTH, 0);
 					}
 					
 					if(player.inventory.armorInventory[0] != null && player.inventory.armorInventory[0].getItem() instanceof Armor) {
@@ -151,14 +155,14 @@ public class EventListener {
 				
 				if(event.source == DamageSource.inFire) {
 					EntityPlayer player = (EntityPlayer)event.entityLiving;
-					DAPlayer wcp = DAPlayer.get(player);
+					DAPlayer dap = DAPlayer.get(player);
 					
-					if(wcp != null) {
+					if(dap != null) {
 						event.setCanceled(true);
 						
-						if(wcp.get(Property.HEALTH) - 50 > 0) {
-							wcp.changeHealth(-50);
-						} else wcp.update(Property.HEALTH, 0);
+						if(dap.get(Property.HEALTH) - 50 > 0) {
+							dap.changeHealth(-50);
+						} else dap.update(Property.HEALTH, 0);
 					}
 				}
 			}

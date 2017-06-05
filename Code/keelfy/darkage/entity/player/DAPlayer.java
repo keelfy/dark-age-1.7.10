@@ -264,7 +264,7 @@ public class DAPlayer implements IExtendedEntityProperties {
 					var1 = 100;
 				} else if(var1 == 0) {
 					if(cure < playerMaxEnergy && cure + 0.2F < playerMaxEnergy) {
-						changeEnergy(0.2F);
+						changeEnergy(0.2F + 5);
 					} else if(cure + 0.2F >= playerMaxEnergy){
 						update(ENERGY, playerMaxEnergy);
 					}

@@ -36,7 +36,7 @@ public class ChangeSignMessage extends AbstractServerMessage<ChangeSignMessage> 
 					} else if(wcp.getWitcherSign().ordinal() == 4) {
 						wcp.update(Property.CURRENT_SIGN, 0);
 					}
-					System.out.println(wcp.getWitcherSign().name());
+					
 					if(wcp.getWitcherSign().ordinal() > 4 || wcp.getWitcherSign().ordinal() < 0) {
 						wcp.update(Property.CURRENT_SIGN, 0);
 					}

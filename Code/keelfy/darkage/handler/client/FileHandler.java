@@ -116,23 +116,17 @@ public class FileHandler {
 	private SLBook loadBookwormBook(File filePath){
 		List<String> f = readFile(filePath);
 		
-		//Bookworm txt files are always at least 4 lines long
-		//The first line is the ID number
 		if (f.size() >= 4 && StringUtils.isNumeric(f.get(0))){
 			SLBook loadedBook = new SLBook();
 			loadedBook.clear();
-			//There's a good chance this is a bookworm book
+			
 			loadedBook.title = SLBook.truncateStringChars(f.get(1), "..", 16, false);
 			loadedBook.author = SLBook.truncateStringChars(f.get(2), "..", 16, false);
 			String bookText = f.get(f.size()-1);
 			
-			//Split the string at any page break (two or more sets of two colons e.g. :: :: or :: :: :: ::)
 			String[] largePages = bookText.split("(\\s::){2,}");
 			
-			//Add the text to the book, replacing any instances of the paragraph break (a single set of colons ::) 
-			//with a newline character and two spaces
 			for (String largePage : largePages){
-				//Pad the last page before a page break with newlines
 				if (loadedBook.totalPages() > 0){
 					SLPage currPage = loadedBook.pages.get(loadedBook.totalPages()-1);
 					if (!currPage.asString().isEmpty()){

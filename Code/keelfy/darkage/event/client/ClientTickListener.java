@@ -5,7 +5,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.effect.DAEffect;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.client.Minecraft;
@@ -23,6 +22,7 @@ public class ClientTickListener {
 			FMLCommonHandler.instance().bus().register(this);
 	}
 
+	// TODO: Привязать анимации к тикам, а не FPS
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		

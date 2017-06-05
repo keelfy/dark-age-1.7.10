@@ -3,10 +3,11 @@ package keelfy.darkage.entity.sign;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.util.DAUtil;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -14,18 +15,25 @@ import net.minecraft.world.World;
 
 public class SignAksi extends EntityLivingBase {
 
+	private EntityPlayer owner;
+	
 	public SignAksi(World world) {
 		super(world);
+	}
+	
+	public void setOwner(EntityPlayer owner) {
+		this.owner = owner;
 	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if (this.ticksExisted > 1)
-			this.worldObj.spawnParticle("heart", this.posX, this.posY + 1.0D, this.posZ, 255.0D, 255.0D, 255.0D);
-
+		
 		if (this.ticksExisted > 2)
 			this.setDead();
+		
+		if (this.ticksExisted > 1)
+			this.worldObj.spawnParticle("heart", this.posX, this.posY + 1.0D, this.posZ, 255.0D, 255.0D, 255.0D);
 	}
 
 	@Override
@@ -37,22 +45,23 @@ public class SignAksi extends EntityLivingBase {
 			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.0D);
 	}
 
-	public void handle(EntityPlayerMP sender) {
+	public void handle(int entityId) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			if (!this.worldObj.isRemote) {
-				EntityLiving e = (EntityLiving) ISign.getLookingEntity(14.0D, sender);
-				DAPlayer wcp = DAPlayer.get(sender);
+			if (!this.worldObj.isRemote && entityId != -1) {
+				Entity e1 = owner.worldObj.getEntityByID(entityId);
+				DAPlayer wcp = DAPlayer.get(owner);
 				
-				if (wcp != null && e != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+				if (wcp != null && e1 != null && e1 instanceof EntityLiving && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+					EntityLiving e = (EntityLiving) e1;
 					int rand = this.worldObj.rand.nextInt(100);
-					setPosition(sender.posX, sender.posY, sender.posZ);
+					setPosition(owner.posX, owner.posY, owner.posZ);
 					this.worldObj.spawnEntityInWorld(this);
 					double motion = 3.0D;
 					double y = 0.15000000596046448D;
-					motionX = sender.getLookVec().xCoord * motion;
-					motionY = sender.getLookVec().zCoord * motion;
+					motionX = owner.getLookVec().xCoord * motion;
+					motionY = owner.getLookVec().zCoord * motion;
 					motionZ = y;
-					ISign.useSign("customnpcs:signs.aksi", this.worldObj, sender);
+					ISign.useSign("customnpcs:signs.aksi", this.worldObj, owner);
 					e.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 100 + rand, 10, false));
 					e.addPotionEffect(new PotionEffect(Potion.weakness.getId(), 100 + rand, 10, false));
 					wcp.update(Property.ENERGY, 0F);

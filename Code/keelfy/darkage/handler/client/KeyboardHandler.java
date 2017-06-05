@@ -9,6 +9,7 @@ import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
+import keelfy.darkage.entity.sign.ISign;
 import keelfy.darkage.network.server.HotSlotMessage;
 import keelfy.darkage.network.server.PlayerJumpMessage;
 import keelfy.darkage.network.server.UseSignMessage;
@@ -16,6 +17,7 @@ import keelfy.darkage.util.DAUtil;
 import keelfy.darkage.util.LanguageUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.StatCollector;
 import noppes.npcs.client.gui.player.GuiQuestLog;
 
@@ -66,7 +68,10 @@ public class KeyboardHandler {
 				} else if(keys[3].isPressed()) {
 					PacketDispatcher.getInstance().sendToServer(new HotSlotMessage(11));
 				} else if(keys[4].isPressed()) {
-					PacketDispatcher.getInstance().sendToServer(new UseSignMessage());
+					EntityLiving e = ISign.getLookingEntity();
+					int id = -1;
+					if(e != null) id = e.getEntityId();
+					PacketDispatcher.getInstance().sendToServer(new UseSignMessage(id));
 				} else if(keys[5].isPressed()) {
 					mc.displayGuiScreen(new GuiQuestLog(mc.thePlayer));
 				}
