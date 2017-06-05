@@ -554,9 +554,14 @@ public class DAPlayer implements IExtendedEntityProperties {
 	//
 	//STUFF
 	public final void update(Property prop, float f) {
-		if(DAUtil.SERVER || DAUtil.DEBUG_MODE)
-			if(!player.worldObj.isRemote)
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			if(!player.worldObj.isRemote) {
+				if(prop == Property.ENERGY && f == 0) {
+					player.getDataWatcher().updateObject(prop.id(), 7F);
+				}
 				player.getDataWatcher().updateObject(prop.id(), f);
+			}
+		}
 	}
 	
 	public final void update(int id, float f) {

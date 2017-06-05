@@ -4,12 +4,12 @@ import cpw.mods.fml.relauncher.Side;
 import keelfy.api.network.AbstractMessage.AbstractServerMessage;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.PlayerClass;
+import keelfy.darkage.entity.sign.ISign.Sign;
 import keelfy.darkage.entity.sign.SignAard;
 import keelfy.darkage.entity.sign.SignAksi;
 import keelfy.darkage.entity.sign.SignIgni;
 import keelfy.darkage.entity.sign.SignIrden;
 import keelfy.darkage.entity.sign.SignKven;
-import keelfy.darkage.entity.sign.ISign.Sign;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -42,7 +42,7 @@ public class UseSignMessage extends AbstractServerMessage<UseSignMessage> {
 				case AARD: new SignAard(world).handle(mp); break;
 				case AKSI: new SignAksi(world).handle(mp); break;
 				case IGNI: new SignIgni(world).handle(mp); break;
-				case IRDEN: new SignIrden(world).handle(mp); break;
+				case IRDEN: new SignIrden(world, player).handle(mp); break;
 				case KVEN: new SignKven(world).handle(mp); break;
 				case NONE: break;
 				}

@@ -12,7 +12,10 @@ import net.minecraft.world.World;
 /**
  * @author keelfy
  * @created 30 мая 2017 г.
+ * 
  * TODO: ФИКС ЗНАКОВ!
+ * TODO: Анимация взмаха руки при активации знака
+ * TODO: Круговое меню со знаками
  */
 public class ISign {
 	
@@ -29,7 +32,6 @@ public class ISign {
 	 	             vec3d1 = vec3d1.normalize();
 	 	             double d1 = vec3d.dotProduct(vec3d1);
 	 	             if(d1 > 1.0D - 0.025D / d) {
-	 	            	 DAUtil.LOGGER.debug("Looking at " + entity);
 	 	            	 return entity;
 	 	             }
 				}
@@ -58,11 +60,6 @@ public class ISign {
 	}
 	
 	public static enum Sign {
-		AARD,
-		AKSI,
-		IGNI,
-		IRDEN,
-		KVEN,
-		NONE;
+		AARD, AKSI, IGNI, IRDEN, KVEN, NONE;
 	}
 }

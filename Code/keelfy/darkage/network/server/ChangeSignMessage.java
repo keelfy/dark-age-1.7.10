@@ -3,8 +3,8 @@ package keelfy.darkage.network.server;
 import cpw.mods.fml.relauncher.Side;
 import keelfy.api.network.AbstractMessage.AbstractServerMessage;
 import keelfy.darkage.entity.player.DAPlayer;
-import keelfy.darkage.entity.player.PlayerClass;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
+import keelfy.darkage.entity.player.PlayerClass;
 import keelfy.darkage.entity.sign.ISign.Sign;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +36,7 @@ public class ChangeSignMessage extends AbstractServerMessage<ChangeSignMessage> 
 					} else if(wcp.getWitcherSign().ordinal() == 4) {
 						wcp.update(Property.CURRENT_SIGN, 0);
 					}
-					
+					System.out.println(wcp.getWitcherSign().name());
 					if(wcp.getWitcherSign().ordinal() > 4 || wcp.getWitcherSign().ordinal() < 0) {
 						wcp.update(Property.CURRENT_SIGN, 0);
 					}

@@ -58,12 +58,10 @@ public class DAWrittenBook extends Item {
     	if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 		    player.openGui(DarkAge.instance, GUI.WRITTENBOOK.get(), world, (int)player.posX, (int)player.posY, (int)player.posZ);  
 	    	
-		    if(world.isRemote) {
-		    	if(is.hasTagCompound()) {
-		    		SLBook slBook = DarkAge.instance.fileHandler.getBookByID(is.stackTagCompound.getInteger("id"));
-		    		is.stackTagCompound.setString("title", slBook.title);
-		    		is.stackTagCompound.setString("author", slBook.author);
-		    	}
+		    if(is.hasTagCompound()) {
+		    	SLBook slBook = DarkAge.instance.fileHandler.getBookByID(is.stackTagCompound.getInteger("id"));
+		    	is.stackTagCompound.setString("title", slBook.title);
+		    	is.stackTagCompound.setString("author", slBook.author);
 		    }
     	}
         return is;

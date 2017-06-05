@@ -126,7 +126,7 @@ public class GuiHud {
 			            
 					renderHotSlotItem(4.0F, sr);
 			            
-					if(wcp.getWitcherSign() != null && wcp.getPlayerClass() == PlayerClass.WITCHER && wcp.getWitcherSign().ordinal() < 5 && wcp.getWitcherSign().ordinal() > 0) {
+					if(wcp.getWitcherSign() != null && wcp.getPlayerClass() == PlayerClass.WITCHER && wcp.getWitcherSign().ordinal() < 5 && wcp.getWitcherSign().ordinal() >= 0) {
 						GL11.glPushMatrix();
 						RenderHelper.enableGUIStandardItemLighting();
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

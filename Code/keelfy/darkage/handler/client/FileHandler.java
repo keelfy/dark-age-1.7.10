@@ -191,7 +191,7 @@ public class FileHandler {
 			List<File> books = this.listFiles(this.dabFolderPath);
 			Scanner sc;
 			for(File book : books) {
-				File bookFile = new File(dabFolderPath + File.separator + book.getName());
+				File bookFile = new File(dabFolderPath, book.getName());
 				sc = new Scanner(bookFile);
 				while(sc.hasNextLine()){
 				    String str = sc.nextLine();

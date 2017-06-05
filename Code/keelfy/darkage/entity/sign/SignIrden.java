@@ -20,14 +20,15 @@ public class SignIrden extends Entity {
 	private EntityPlayer owner;
 
 	public SignIrden(World world, EntityPlayer player) {
-		super(world);
-		this.setAngles(1.0F, 1.0F);
+		this(world);
 		this.owner = player;
 	}
 
 	public SignIrden(World world) {
 		super(world);
-		this.setAngles(1.0F, 1.0F);
+		
+		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE)
+			this.setAngles(1.0F, 1.0F);
 	}
 
 	@Override
@@ -90,12 +91,9 @@ public class SignIrden extends Entity {
 	public void handle(EntityPlayerMP sender) {
 		if (DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote) {
-
 				DAPlayer wcp = DAPlayer.get(sender);
 				if (wcp != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
-					setPosition(sender.posX,
-							sender.worldObj.getTopSolidOrLiquidBlock((int) sender.posX, (int) sender.posZ),
-							sender.posZ);
+					setPosition(sender.posX, sender.worldObj.getTopSolidOrLiquidBlock((int) sender.posX, (int) sender.posZ), sender.posZ);
 					this.worldObj.spawnEntityInWorld(this);
 					ISign.useSign("customnpcs:signs.irden", this.worldObj, sender);
 					wcp.update(Property.ENERGY, 0F);

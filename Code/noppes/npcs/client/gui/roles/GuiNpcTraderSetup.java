@@ -18,6 +18,7 @@ import noppes.npcs.containers.ContainerNPCTraderSetup;
 import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.roles.RoleTrader;
 
+// TODO: Изменить фон у торговца
 public class GuiNpcTraderSetup extends GuiContainerNPCInterface2 implements ITextfieldListener{
 	
 	private final ResourceLocation slot = new ResourceLocation("customnpcs","textures/gui/slot.png");

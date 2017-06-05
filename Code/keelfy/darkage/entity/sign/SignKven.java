@@ -27,7 +27,7 @@ public class SignKven {
 				if (wcp != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
 					ISign.useSign("customnpcs:signs.kven", this.worldObj, sender);
 					sender.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 1200, 10));
-					wcp.update(Property.ENERGY, 0F);
+					wcp.update(Property.ENERGY, 7F);
 				}
 			}
 		}
