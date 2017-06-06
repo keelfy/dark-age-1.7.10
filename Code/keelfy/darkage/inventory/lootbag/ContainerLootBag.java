@@ -1,6 +1,6 @@
 package keelfy.darkage.inventory.lootbag;
 
-import keelfy.witcherBlocks.tileentity.TileEntityLootBag;
+import keelfy.darkage.addon.blocks.tileentity.TileEntityLootBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;

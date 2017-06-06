@@ -1,14 +1,13 @@
 package keelfy.darkage.client.renderer;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import keelfy.darkage.entity.sign.ISign.Sign;
 import keelfy.darkage.entity.sign.SignAard;
 import keelfy.darkage.entity.sign.SignAksi;
 import keelfy.darkage.entity.sign.SignIgni;
 import keelfy.darkage.entity.sign.SignIrden;
-import keelfy.darkage.entity.sign.ISign.Sign;
 import keelfy.darkage.handler.registers.SwordRegister;
 import keelfy.darkage.util.DAUtil;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 /**
  * @author keelfy
@@ -36,139 +35,139 @@ public class RendererRegister {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			RendererSword oldestElvin = new RendererSword(SwordRegister.oldestElvin);
 			oldestElvin.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.oldestElvin, oldestElvin);
+			SwordRegister.oldestElvin.setRenderer(oldestElvin);
 			
 			RendererSword mahakam = new RendererSword(SwordRegister.mahakam1);
 			mahakam.setEFPRender(2.0F, -3.55F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.mahakam1, mahakam);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.mahakam2, mahakam);
+			SwordRegister.mahakam1.setRenderer(mahakam);
+			SwordRegister.mahakam2.setRenderer(mahakam);
 			
 			RendererSword ellander = new RendererSword(SwordRegister.ellander);
 			ellander.setEFPRender(2.3F, -3.75F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.ellander, ellander);
+			SwordRegister.ellander.setRenderer(ellander);
 			
 			RendererSword irony = new RendererSword(SwordRegister.irony);
 			irony.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.irony, irony);
+			SwordRegister.irony.setRenderer(irony);
 			
 			RendererSword rusty = new RendererSword(SwordRegister.rusty);
 			rusty.setEntityRender(0F, 0F, 0F, 0.0415F);
 			rusty.setEquippedRender(-0.07F, 0.3F, 0.1F, 0.0215F);
 			rusty.setEFPRender(2.2F, -2.65F, -0.33F, 0.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.rusty, rusty);
+			SwordRegister.rusty.setRenderer(rusty);
 			
 			RendererSword rustyElvin = new RendererSword(SwordRegister.rustyElvin);
 			rustyElvin.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.rustyElvin, rustyElvin);
+			SwordRegister.rustyElvin.setRenderer(rustyElvin);
 			
 			RendererSword devine = new RendererSword(SwordRegister.devine);
 			devine.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.devine, devine);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.elvin, devine);
+			SwordRegister.devine.setRenderer(devine);
+			SwordRegister.elvin.setRenderer(devine);
 			
 			RendererSword nilfgaardSteel1 = new RendererSword(SwordRegister.nilfgaardSteel1);
 			nilfgaardSteel1.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.nilfgaardSteel1, nilfgaardSteel1);
+			SwordRegister.nilfgaardSteel1.setRenderer(nilfgaardSteel1);
 			
 			RendererSword nilfgaardSteel2 = new RendererSword(SwordRegister.nilfgaardSteel2);
 			nilfgaardSteel2.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.nilfgaardSteel2, nilfgaardSteel2);
+			SwordRegister.nilfgaardSteel2.setRenderer(nilfgaardSteel2);
 			
 			RendererSword vikovaro = new RendererSword(SwordRegister.vikovaro);
 			vikovaro.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.vikovaro, vikovaro);
+			SwordRegister.vikovaro.setRenderer(vikovaro);
 			
 			RendererSword nazair = new RendererSword(SwordRegister.nazair);
 			nazair.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.nazair, nazair);
+			SwordRegister.nazair.setRenderer(nazair);
 			
 			RendererSword ofir = new RendererSword(SwordRegister.ofir);
 			ofir.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.ofir, ofir);
+			SwordRegister.ofir.setRenderer(ofir);
 			
 			RendererSword oldest = new RendererSword(SwordRegister.oldest);
 			oldest.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.oldest, oldest);
+			SwordRegister.oldest.setRenderer(oldest);
 			
 			RendererSword witcherySteel = new RendererSword(SwordRegister.witcherySteel);
 			witcherySteel.setEFPRender(2.2F, -3.75F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.witcherySteel, witcherySteel);
+			SwordRegister.witcherySteel.setRenderer(witcherySteel);
 			
 			RendererSword vengerberg = new RendererSword(SwordRegister.vengerberg);
 			vengerberg.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.maribor, vengerberg);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.vengerberg, vengerberg);
+			SwordRegister.maribor.setRenderer(vengerberg);
+			SwordRegister.vengerberg.setRenderer(vengerberg);
 			
 			RendererSword aedirn = new RendererSword(SwordRegister.aedirn);
 			aedirn.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.aedirn, aedirn);
+			SwordRegister.aedirn.setRenderer(aedirn);
 			
 			RendererSword temerSteel = new RendererSword(SwordRegister.temerSteel1);
 			temerSteel.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.temerSteel1, temerSteel);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.temerSteel2, temerSteel);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.temerSteel3, temerSteel);
+			SwordRegister.temerSteel1.setRenderer(temerSteel);
+			SwordRegister.temerSteel2.setRenderer(temerSteel);
+			SwordRegister.temerSteel3.setRenderer(temerSteel);
 			
 			RendererSword novigrad = new RendererSword(SwordRegister.novigrad1);
 			novigrad.setEFPRender(2.17F, -3.65F, -0.84F, 1.9515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.novigrad1, novigrad);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.novigrad2, novigrad);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.novigrad3, novigrad);
+			SwordRegister.novigrad1.setRenderer(novigrad);
+			SwordRegister.novigrad2.setRenderer(novigrad);
+			SwordRegister.novigrad3.setRenderer(novigrad);
 			
 			RendererSword hardened = new RendererSword(SwordRegister.hardened);
 			hardened.setEFPRender(2.2F, -3.55F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.hardened, hardened);
+			SwordRegister.hardened.setRenderer(hardened);
 			
 			
 			RendererSword bearSteel1 = new RendererSword(SwordRegister.bearSteel1);
 			bearSteel1.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSteel1, bearSteel1);
+			SwordRegister.bearSteel1.setRenderer(bearSteel1);
 			
 			RendererSword bearSteel2 = new RendererSword(SwordRegister.bearSteel2);
 			bearSteel2.setEFPRender(2.1F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSteel2, bearSteel2);
+			SwordRegister.bearSteel2.setRenderer(bearSteel2);
 			
 			RendererSword bearSteel3 = new RendererSword(SwordRegister.bearSteel3);
 			bearSteel3.setEFPRender(2.1F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSteel3, bearSteel3);
+			SwordRegister.bearSteel3.setRenderer(bearSteel3);
 			
 			RendererSword bearSteel4 = new RendererSword(SwordRegister.bearSteel4);
 			bearSteel4.setEFPRender(2.1F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSteel4, bearSteel4);
+			SwordRegister.bearSteel4.setRenderer(bearSteel4);
 			
 			
 			RendererSword wolfSteel1 = new RendererSword(SwordRegister.wolfSteel1);
 			wolfSteel1.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSteel1, wolfSteel1);
+			SwordRegister.wolfSteel1.setRenderer(wolfSteel1);
 			
 			RendererSword wolfSteel2 = new RendererSword(SwordRegister.wolfSteel2);
 			wolfSteel2.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSteel2, wolfSteel2);
+			SwordRegister.wolfSteel2.setRenderer(wolfSteel2);
 			
 			RendererSword wolfSteel3 = new RendererSword(SwordRegister.wolfSteel3);
 			wolfSteel3.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSteel3, wolfSteel3);
+			SwordRegister.wolfSteel3.setRenderer(wolfSteel3);
 			
 			RendererSword wolfSteel4 = new RendererSword(SwordRegister.wolfSteel4);
 			wolfSteel4.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSteel4, wolfSteel4);
+			SwordRegister.wolfSteel4.setRenderer(wolfSteel4);
 			
 			
 			RendererSword griffinSteel1 = new RendererSword(SwordRegister.griffinSteel1);
 			griffinSteel1.setEFPRender(2.15F, -3.55F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSteel1, griffinSteel1);
+			SwordRegister.griffinSteel1.setRenderer(griffinSteel1);
 			
 			RendererSword griffinSteel2 = new RendererSword(SwordRegister.griffinSteel2);
 			griffinSteel2.setEFPRender(2.15F, -3.55F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSteel2, griffinSteel2);
+			SwordRegister.griffinSteel2.setRenderer(griffinSteel2);
 			
 			RendererSword griffinSteel3 = new RendererSword(SwordRegister.griffinSteel3);
 			griffinSteel3.setEFPRender(2.15F, -3.55F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSteel3, griffinSteel3);
+			SwordRegister.griffinSteel3.setRenderer(griffinSteel3);
 			
 			RendererSword griffinSteel4 = new RendererSword(SwordRegister.griffinSteel4);
 			griffinSteel4.setEFPRender(2.15F, -3.55F, -0.6F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSteel4, griffinSteel4);
+			SwordRegister.griffinSteel4.setRenderer(griffinSteel4);
 		}
 	}
 
@@ -176,132 +175,132 @@ public class RendererRegister {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			RendererSword addanDeidth = new RendererSword(SwordRegister.addanDeidth);
 			addanDeidth.setEFPRender(2.1F, -3.55F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.addanDeidth, addanDeidth);
+			SwordRegister.addanDeidth.setRenderer(addanDeidth);
 			
 			RendererSword deithwen = new RendererSword(SwordRegister.deithwen);
 			deithwen.setEFPRender(2.1F, -3.55F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.deithwen, deithwen);
+			SwordRegister.deithwen.setRenderer(deithwen);
 			
 			RendererSword gvennel = new RendererSword(SwordRegister.gvennel);
 			gvennel.setEFPRender(2.2F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.gvennel, gvennel);
+			SwordRegister.gvennel.setRenderer(gvennel);
 			
 			RendererSword disglair = new RendererSword(SwordRegister.disglair);
 			disglair.setEFPRender(2.2F, -3.75F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.disglair, disglair);
+			SwordRegister.disglair.setRenderer(disglair);
 			
 			RendererSword silver = new RendererSword(SwordRegister.silver1);
 			silver.setEFPRender(2.15F, -3.8F, -0.67F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.silver1, silver);
+			SwordRegister.silver1.setRenderer(silver);
 			
 			RendererSword erlichrad = new RendererSword(SwordRegister.erlichrad);
 			erlichrad.setEFPRender(2.15F, -3.8F, -0.67F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.erlichrad, erlichrad);
+			SwordRegister.erlichrad.setRenderer(erlichrad);
 			
 			RendererSword emmental = new RendererSword(SwordRegister.emmental);
 			emmental.setEFPRender(2.35F, -3.9F, -0.68F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.emmental, emmental);
+			SwordRegister.emmental.setRenderer(emmental);
 			
 			RendererSword garhwal = new RendererSword(SwordRegister.garhwal);
 			garhwal.setEFPRender(2.35F, -3.9F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.garhwal, garhwal);
+			SwordRegister.garhwal.setRenderer(garhwal);
 			
 			RendererSword gvihir = new RendererSword(SwordRegister.gvihir);
 			gvihir.setEFPRender(2.35F, -3.9F, -0.78F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.gvihir, gvihir);
+			SwordRegister.gvihir.setRenderer(gvihir);
 			
 			RendererSword phoenix = new RendererSword(SwordRegister.phoenix);
 			phoenix.setEFPRender(2.4F, -3.9F, -0.75F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.phoenix, phoenix);
+			SwordRegister.phoenix.setRenderer(phoenix);
 			
 			RendererSword azureAnger = new RendererSword(SwordRegister.azureAnger);
 			azureAnger.setEFPRender(2.35F, -3.9F, -0.67F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.azureAnger, azureAnger);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.silver2, azureAnger);
+			SwordRegister.azureAnger.setRenderer(azureAnger);
+			SwordRegister.silver2.setRenderer(azureAnger);
 			
 			RendererSword claw = new RendererSword(SwordRegister.claw);
 			claw.setEFPRender(2.35F, -4.0F, -0.67F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.claw, claw);
+			SwordRegister.claw.setRenderer(claw);
 			
 			RendererSword zirael = new RendererSword(SwordRegister.zirael);
 			zirael.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.zirael, zirael);
+			SwordRegister.zirael.setRenderer(zirael);
 			
 			RendererSword tlareg = new RendererSword(SwordRegister.tlareg);
 			tlareg.setEFPRender(2.08F, -3.65F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.tlareg, tlareg);
+			SwordRegister.tlareg.setRenderer(tlareg);
 			
 			RendererSword witcherySilver = new RendererSword(SwordRegister.witcherySilver);
 			witcherySilver.setEFPRender(2.08F, -3.65F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.witcherySilver, witcherySilver);
+			SwordRegister.witcherySilver.setRenderer(witcherySilver);
 			
 			
 			RendererSword bearSilver1 = new RendererSword(SwordRegister.bearSilver1);
 			bearSilver1.setEFPRender(2.1F, -3.75F, -0.73F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSilver1, bearSilver1);
+			SwordRegister.bearSilver1.setRenderer(bearSilver1);
 			
 			RendererSword bearSilver2 = new RendererSword(SwordRegister.bearSilver2);
 			bearSilver2.setEFPRender(2.3F, -3.75F, -0.73F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSilver2, bearSilver2);
+			SwordRegister.bearSilver2.setRenderer(bearSilver2);
 			
 			RendererSword bearSilver3 = new RendererSword(SwordRegister.bearSilver3);
 			bearSilver3.setEFPRender(2.35F, -3.75F, -0.74F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSilver3, bearSilver3);
+			SwordRegister.bearSilver3.setRenderer(bearSilver3);
 			
 			RendererSword bearSilver4 = new RendererSword(SwordRegister.bearSilver4);
 			bearSilver4.setEFPRender(2.4F, -3.85F, -0.63F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.bearSilver4, bearSilver4);
+			SwordRegister.bearSilver4.setRenderer(bearSilver4);
 			
 			
 			RendererSword catSilver1 = new RendererSword(SwordRegister.catSilver1);
 			catSilver1.setEFPRender(2.15F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.catSilver1, catSilver1);
+			SwordRegister.catSilver1.setRenderer(catSilver1);
 			
 			RendererSword catSilver2 = new RendererSword(SwordRegister.catSilver2);
 			catSilver2.setEFPRender(2.15F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.catSilver2, catSilver2);
+			SwordRegister.catSilver2.setRenderer(catSilver2);
 			
 			RendererSword catSilver3  = new RendererSword(SwordRegister.catSilver3);
 			catSilver3.setEFPRender(2.3F, -3.75F, -0.8F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.catSilver3, catSilver3);
+			SwordRegister.catSilver3.setRenderer(catSilver3);
 			
 			RendererSword catSilver4 = new RendererSword(SwordRegister.catSilver4);
 			catSilver4.setEFPRender(2.3F, -3.75F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.catSilver4, catSilver4);
+			SwordRegister.catSilver4.setRenderer(catSilver4);
 	
 	
 			RendererSword griffinSilver1 = new RendererSword(SwordRegister.griffinSilver1);
 			griffinSilver1.setEFPRender(2.2F, -3.92F, -0.67F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSilver1, griffinSilver1);
+			SwordRegister.griffinSilver1.setRenderer(griffinSilver1);
 			
 			RendererSword griffinSilver2 = new RendererSword(SwordRegister.griffinSilver2);
 			griffinSilver2.setEFPRender(2.25F, -3.8F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSilver2, griffinSilver2);
+			SwordRegister.griffinSilver2.setRenderer(griffinSilver2);
 			
 			RendererSword griffinSilver3 = new RendererSword(SwordRegister.griffinSilver3);
 			griffinSilver3.setEFPRender(2.3F, -3.65F, -0.74F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSilver3, griffinSilver3);
+			SwordRegister.griffinSilver3.setRenderer(griffinSilver3);
 			
 			RendererSword griffinSilver4 = new RendererSword(SwordRegister.griffinSilver4);
 			griffinSilver4.setEFPRender(2.35F, -3.75F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.griffinSilver4, griffinSilver4);
+			SwordRegister.griffinSilver4.setRenderer(griffinSilver4);
 			
 			
 			RendererSword wolfSilver1 = new RendererSword(SwordRegister.wolfSilver1);
 			wolfSilver1.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSilver1, wolfSilver1);
+			SwordRegister.wolfSilver1.setRenderer(wolfSilver1);
 			
 			RendererSword wolfSilver2 = new RendererSword(SwordRegister.wolfSilver2);
 			wolfSilver2.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSilver2, wolfSilver2);
+			SwordRegister.wolfSilver2.setRenderer(wolfSilver2);
 			
 			RendererSword wolfSilver3 = new RendererSword(SwordRegister.wolfSilver3);
 			wolfSilver3.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSilver3, wolfSilver3);
+			SwordRegister.wolfSilver3.setRenderer(wolfSilver3);
 			
 			RendererSword wolfSilver4 = new RendererSword(SwordRegister.wolfSilver4);
 			wolfSilver4.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
-			MinecraftForgeClient.registerItemRenderer(SwordRegister.wolfSilver4, wolfSilver4);
+			SwordRegister.wolfSilver4.setRenderer(wolfSilver4);
 		}
 	}
 }

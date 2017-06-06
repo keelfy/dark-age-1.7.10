@@ -6,7 +6,6 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import keelfy.darkage.client.gui.GuiDAInventory;
 import keelfy.darkage.client.models.entity.player.ModelHand;
 import keelfy.darkage.handler.client.ResourceHandler.Model;
 import keelfy.darkage.handler.client.ResourceHandler.Model.WCM;
@@ -55,6 +54,8 @@ public class RendererSword implements IItemRenderer {
 	private float hctx, hcty, hctz;
 	private float hcr1, hcr2;
 	private float rotiX, rotiY, rotiZ;
+	
+	private ItemRenderType currentRender;
 	
 	public RendererSword(Item item) {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
@@ -141,16 +142,13 @@ public class RendererSword implements IItemRenderer {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			globalAnimationSpeed = 5.08F;
 			
+			KeybindAttack = false;
 			if (mc.gameSettings.keyBindings[0].getKeyCode() > 0) {
 				if (Keyboard.isKeyDown(mc.gameSettings.keyBindings[0].getKeyCode())) {
 					KeybindAttack = true;
-				} else {
-					KeybindAttack = false;
 				}
 			} else if (Mouse.isButtonDown(100 + mc.gameSettings.keyBindings[0].getKeyCode())) {
 				KeybindAttack = true;
-			} else {
-				KeybindAttack = false;
 			}
 	
 			if (this.t1 > 100) {
@@ -159,9 +157,11 @@ public class RendererSword implements IItemRenderer {
 	
 			switch (type) {
 			case INVENTORY:
-				if(sword instanceof Sword) RendererRarity.renderSword(item);
+				if(sword instanceof Sword)
+					RendererRarity.renderSword(item);
 				break;
 			case ENTITY:
+				currentRender = ItemRenderType.ENTITY;
 				GL11.glPushMatrix();
 					GL11.glTranslatef(tPosX + entTPosX, tPosY + entTPosY, tPosZ + entTPosZ);
 					mc.renderEngine.bindTexture(texturelow);
@@ -184,6 +184,7 @@ public class RendererSword implements IItemRenderer {
 				GL11.glPopMatrix();
 				break;
 			case EQUIPPED:
+				currentRender = ItemRenderType.EQUIPPED;
 				GL11.glPushMatrix();
 				tZ = -40.0F;
 				tPosX = -0.1F;
@@ -195,18 +196,19 @@ public class RendererSword implements IItemRenderer {
 				GL11.glRotatef(tY + 210.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(tZ + 40.0F, 0.0F, 0.0F, 1.0F);
 				mc.renderEngine.bindTexture(this.texturelow);
-				if (Mouse.isButtonDown(1) && !(mc.currentScreen instanceof GuiDAInventory)) {
-					GL11.glTranslatef(tPosX + 0.1F, tPosY - 0.73F, tPosZ - 0.24F);
-					GL11.glRotatef(tX - 160.0F, 1.0F, 0.0F, 0.0F);
-					GL11.glRotatef(tY - 140.0F, 0.0F, 1.0F, 0.0F);
-					GL11.glRotatef(tZ, 0.0F, 0.0F, 1.0F);
-				}
+//				if (Mouse.isButtonDown(1) && !(mc.currentScreen instanceof GuiDAInventory)) {
+//					GL11.glTranslatef(tPosX + 0.1F, tPosY - 0.73F, tPosZ - 0.24F);
+//					GL11.glRotatef(tX - 160.0F, 1.0F, 0.0F, 0.0F);
+//					GL11.glRotatef(tY - 140.0F, 0.0F, 1.0F, 0.0F);
+//					GL11.glRotatef(tZ, 0.0F, 0.0F, 1.0F);
+//				}
 	
 				this.model.renderAll();
 				GL11.glPopMatrix();
 				break;
 			case EQUIPPED_FIRST_PERSON:
-				this.attackAnim(1);
+				currentRender = ItemRenderType.EQUIPPED_FIRST_PERSON;
+//				this.attackAnim(1);
 				scale = 2.0F;
 				posX = -0.1F;
 				posY = 3.0F;
@@ -234,26 +236,26 @@ public class RendererSword implements IItemRenderer {
 				GL11.glRotatef(rotiX, 1.0F, 0.0F, 0.0F);
 				GL11.glRotatef(rotiY, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(rotiZ, 0.0F, 0.0F, 1.0F);
-				if (mc.thePlayer.moveForward == 0.0F && mc.thePlayer.moveStrafing == 0.0F && this.rotiY < 2.0F) {
-					if (!this.FinishIdleAnimation) {
-						this.rotiX += 0.01F;
-						this.rotiY += 0.01F;
-						this.rotiZ += 0.01F;
-						if (this.rotiY >= 1.8D) {
-							this.FinishIdleAnimation = true;
-						}
-					} else {
-						if (this.rotiY >= 0.0F) {
-							this.rotiX -= 0.01F;
-							this.rotiY -= 0.01F;
-							this.rotiZ -= 0.01F;
-						}
-	
-						if (this.rotiY <= 0.1D) {
-							this.FinishIdleAnimation = false;
-						}
-					}
-				}
+//				if (mc.thePlayer.moveForward == 0.0F && mc.thePlayer.moveStrafing == 0.0F && this.rotiY < 2.0F) {
+//					if (!this.FinishIdleAnimation) {
+//						this.rotiX += 0.01F;
+//						this.rotiY += 0.01F;
+//						this.rotiZ += 0.01F;
+//						if (this.rotiY >= 1.8D) {
+//							this.FinishIdleAnimation = true;
+//						}
+//					} else {
+//						if (this.rotiY >= 0.0F) {
+//							this.rotiX -= 0.01F;
+//							this.rotiY -= 0.01F;
+//							this.rotiZ -= 0.01F;
+//						}
+//	
+//						if (this.rotiY <= 0.1D) {
+//							this.FinishIdleAnimation = false;
+//						}
+//					}
+//				}
 	
 				GL11.glPushMatrix();
 				GL11.glTranslatef(posX + efpTPosX, posY + efpTPosY, posZ + efpTPosZ);
@@ -293,6 +295,45 @@ public class RendererSword implements IItemRenderer {
 		}
 	}
 
+	public void moveObjects() {
+		if(currentRender == null) {
+			return;
+		}
+		
+		switch(currentRender) {
+		case ENTITY:
+			break;
+		case EQUIPPED:
+			break;
+		case EQUIPPED_FIRST_PERSON:
+			attackAnim(1);
+			
+			if (mc.thePlayer.moveForward == 0.0F && mc.thePlayer.moveStrafing == 0.0F && this.rotiY < 2.0F) {
+				if (!this.FinishIdleAnimation) {
+					this.rotiX += 0.01F * 3;
+					this.rotiY += 0.01F * 3;
+					this.rotiZ += 0.01F * 3;
+					if (this.rotiY >= 1.8D) {
+						this.FinishIdleAnimation = true;
+					}
+				} else {
+					if (this.rotiY >= 0.0F) {
+						this.rotiX -= 0.01F * 3;
+						this.rotiY -= 0.01F * 3;
+						this.rotiZ -= 0.01F * 3;
+					}
+		
+					if (this.rotiY <= 0.1D) {
+						this.FinishIdleAnimation = false;
+					}
+				}
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	
 	public void attackAnim(int i) {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (this.KeybindAttack && mc.currentScreen == null) {

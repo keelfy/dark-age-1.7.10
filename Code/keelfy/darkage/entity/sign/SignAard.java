@@ -1,9 +1,9 @@
 package keelfy.darkage.entity.sign;
 
+import keelfy.darkage.addon.blocks.register.BlockRegister;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.util.DAUtil;
-import keelfy.witcherBlocks.register.BlockRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -71,9 +71,9 @@ public class SignAard extends EntityLivingBase {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote && entityId != -1) {
 				Entity e1 = owner.worldObj.getEntityByID(entityId);
-				DAPlayer wcp = DAPlayer.get(owner);
+				DAPlayer dap = DAPlayer.get(owner);
 	
-				if (wcp != null && e1 != null && e1 instanceof EntityLiving && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+				if (dap != null && e1 != null && e1 instanceof EntityLiving && dap.get(Property.ENERGY) > dap.getPlayerMaxEnergy() - 10F) {
 					EntityLiving e = (EntityLiving) e1;
 					double motion = 1.0D;
 					double y = 0.15000000596046448D;
@@ -96,9 +96,9 @@ public class SignAard extends EntityLivingBase {
 					e.motionZ = owner.getLookVec().zCoord * motion;
 					e.motionY = y;
 					owner.worldObj.setBlock((int) owner.posX, (int) owner.posY + 2, (int) owner.posZ, BlockRegister.light, 0, 3);
-					ISign.useSign("customnpcs:signs.aard", this.worldObj, owner);
+					ISign.useSign("aard", this.worldObj, owner);
 					e.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 60, 10));
-					wcp.update(Property.ENERGY, 0F);
+					dap.update(Property.ENERGY, dap.getPlayerMinEnergy());
 				}
 			}
 		}

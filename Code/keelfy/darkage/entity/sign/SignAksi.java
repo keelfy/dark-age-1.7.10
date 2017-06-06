@@ -49,9 +49,9 @@ public class SignAksi extends EntityLivingBase {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote && entityId != -1) {
 				Entity e1 = owner.worldObj.getEntityByID(entityId);
-				DAPlayer wcp = DAPlayer.get(owner);
+				DAPlayer dap = DAPlayer.get(owner);
 				
-				if (wcp != null && e1 != null && e1 instanceof EntityLiving && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+				if (dap != null && e1 != null && e1 instanceof EntityLiving && dap.get(Property.ENERGY) > dap.getPlayerMaxEnergy() - 10) {
 					EntityLiving e = (EntityLiving) e1;
 					int rand = this.worldObj.rand.nextInt(100);
 					setPosition(owner.posX, owner.posY, owner.posZ);
@@ -61,10 +61,10 @@ public class SignAksi extends EntityLivingBase {
 					motionX = owner.getLookVec().xCoord * motion;
 					motionY = owner.getLookVec().zCoord * motion;
 					motionZ = y;
-					ISign.useSign("customnpcs:signs.aksi", this.worldObj, owner);
+					ISign.useSign("aksi", this.worldObj, owner);
 					e.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 100 + rand, 10, false));
 					e.addPotionEffect(new PotionEffect(Potion.weakness.getId(), 100 + rand, 10, false));
-					wcp.update(Property.ENERGY, 0F);
+					dap.update(Property.ENERGY, dap.getPlayerMinEnergy());
 				}
 			}
 		}

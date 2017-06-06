@@ -1,6 +1,5 @@
 package keelfy.darkage.entity.player;
 
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property.PropertyType;
 import keelfy.darkage.entity.player.weight.PlayerWeight;
@@ -9,7 +8,7 @@ import keelfy.darkage.inventory.player.ContainerDAInventory;
 import keelfy.darkage.inventory.player.DAInventory;
 import keelfy.darkage.item.Armor;
 import keelfy.darkage.item.Armor.ArmorType;
-import keelfy.darkage.network.client.SyncPlayerMessage;
+import keelfy.darkage.network.server.ServerPacketHandler;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +16,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
@@ -48,6 +46,7 @@ public class DAPlayer implements IExtendedEntityProperties {
 	
 	private float playerEnergy;
 	private float playerMaxEnergy = Property.ENERGY.getMaxValue();
+	private float playerMinEnergy;
 	private float playerEIT;
 	private int ENERGY = Property.ENERGY.id();
 	private int ENERGY_IN_TICK = Property.ENERGY_IN_TICK.id();
@@ -68,7 +67,8 @@ public class DAPlayer implements IExtendedEntityProperties {
 			
 		inventory = new DAInventory(player);
 		inventoryContainer = new ContainerDAInventory(player, inventory);
-			
+		
+		this.playerMinEnergy = 10F;
 		this.playerEnergy = this.playerMaxEnergy;
 		this.playerEIT = 0F;
 		this.player.getDataWatcher().addObject(ENERGY, playerEnergy);
@@ -164,122 +164,174 @@ public class DAPlayer implements IExtendedEntityProperties {
 		player.getDataWatcher().updateObject(SATURATION, properties.getFloat("Saturation"));
 	}
 	
+	public void attackPlayer(float damage, boolean par2) {
+		if(!player.worldObj.isRemote) {
+			float newDamage = damage;
+			if(par2) newDamage = DAPlayerUtil.getReceivedDamage(player, damage);
+			changeHealth(-newDamage);
+			player.worldObj.playSoundAtEntity(player, "game.player.hurt", 1, 1);
+			setWitcherHealingTimer(100);
+			if(par2) inventory.damageArmor();
+		}
+	}
+	
 	public void copy(DAPlayer wcp) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			if(!player.worldObj.isRemote) {
-				playerClass = wcp.playerClass;
-				playerMaxHealth = wcp.getPlayerMaxHealth();
-				update(Property.HEALTH_IN_TICK, wcp.get(Property.HEALTH_IN_TICK));
-				witcherIIT = wcp.witcherIIT;
-				witcherMaxIntox = wcp.witcherMaxIntox;
-				witcherSign = wcp.witcherSign;
-				restoreHealth();
-			}
+			playerClass = wcp.playerClass;
+			playerMaxHealth = wcp.getPlayerMaxHealth();
+			update(Property.HEALTH_IN_TICK, wcp.get(Property.HEALTH_IN_TICK));
+			witcherIIT = wcp.witcherIIT;
+			witcherMaxIntox = wcp.witcherMaxIntox;
+			witcherSign = wcp.witcherSign;
+			restoreHealth();
 		}
 	}
 
-	int var1 = 0, var2 = 0;
+	int var1 = 0, var2 = 0, var3 = 0;
 	public void onUpdate() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) { if(var2 == 0) {
 			if(!player.capabilities.isCreativeMode) {
-				float sat = get(Property.SATURATION);
-				if(sat > 0) {
-					if(sat - satInTick >= 0) {
-						changeSaturation(satInTick);
-					} else if(sat - satInTick < 0) {
-						update(SATURATION, 0);
-					} 
-					
-					if(get(Property.HEALTH_IN_TICK) == 0F && getPlayerClass() == PlayerClass.WITCHER) {
-						update(Property.HEALTH_IN_TICK, 0.04F);
-					}
-				}
+				float newHIT = checkHeal();
+				float newEIT = checkEnergyLose();
+				float newSat = checkSaturation();
+				float newWeight = PlayerWeight.inventory(player);
+				float newMaxIntox = checkMaxIntox();
 				
-				if(sat < 0) {
-					update(SATURATION, 0);
-				} else if(sat <= 0) {
-					changeHealth(-0.03F);
-					update(Property.HEALTH_IN_TICK, 0F);
-				}
-						
-				float curh = get(Property.HEALTH);
-				float maxh = getPlayerMaxHealth();
-				if(curh <= 0F) {
-					player.attackEntityFrom(DamageSource.outOfWorld, Float.MAX_VALUE);
-				}
-						
-				if(curh > maxh) restoreHealth();
-				if(player.getFoodStats().getFoodLevel() != 20) player.getFoodStats().addStats(20, 1);
+				update(HEALTH_IN_TICK, newHIT);
+				update(ENERGY_IN_TICK, newEIT);
+				update(SATURATION, newSat);
+				update(WEIGHT, newWeight);
+				setWitcherMaxIntox(newMaxIntox);
 				
-				float hint = get(Property.HEALTH_IN_TICK);
-				if(curh > 0f && curh < maxh && curh + hint <= maxh) 
-					changeHealth(hint);
-				else if(curh + hint >= maxh) 
-					restoreHealth();
+				if(var3 == 0) {
+					changeHealth(get(Property.HEALTH_IN_TICK));
+				}	
 					
-				update(WEIGHT, PlayerWeight.inventory(player));
-						
-				if(var1 > 0) var1--;
+				changeIntox(-0.0005F);
 					
-				if(player.isBurning()) changeHealth(-1F);
-				
-				float maxi = getWitcherMaxIntox();
 				float curi = get(Property.INTOXICATION);
-				float iit = getWitcherIIT();
-				
-				if(getPlayerClass() == PlayerClass.WITCHER) {
-					if(maxi == 0F) setWitcherMaxIntox(80);
-					if(hint == 0F) update(HEALTH_IN_TICK, 0.04F); 
-				} else if(maxi != 0) {
-					setWitcherMaxIntox(0F);
-					resetWitcherIntox();
-				}
-						
-				if(curi > 0.0F && curi - 0.0005F > 0F) {
-					changeIntox(-0.0005F);
-				} else if(curi - 0.0005F <= 0F) {
-					resetWitcherIntox();
-				}
-						
 				if(curi > 50) {
 					changeHealth((float)Math.pow(Math.E, (curi - 50) / 31));
 				}
-						
-				update(ENERGY_IN_TICK, checkEnergyLose());
-				
-				float cure = get(Property.ENERGY);
-				float eit = get(Property.ENERGY_IN_TICK);
-						
-				if(player.isSprinting()) {
-					if(weight > 60F || cure <= 10) 
-						player.setSprinting(false); 
-							
-					if(cure + eit > 10F) {
-						changeEnergy(eit);
-					} else if(cure + eit <= 10F) {
-						update(ENERGY, 10F);
-						player.setSprinting(false);
-					}
-							
-					var1 = 100;
-				} else if(var1 == 0) {
-					if(cure < playerMaxEnergy && cure + 0.2F < playerMaxEnergy) {
-						changeEnergy(0.2F + 5);
-					} else if(cure + 0.2F >= playerMaxEnergy){
-						update(ENERGY, playerMaxEnergy);
-					}
-				}
+					
+				playerBurning(player.isBurning());
+				playerSprinting(player.isSprinting());
 			}
 			
-			var2 = 1;
+			updateTimers();
 		} else if(var2 == 1) {
 			var2 = 0;
 		}}
 	}
 	
+	private final void updateTimers() {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			if(var1 > 0) {
+				var1--;
+			}
+				
+			if(var3 > 0) {
+				var3--;
+			}
+			
+			var2 = 1;
+		}
+	}
+	
+	private void playerBurning(boolean burning) {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			if(burning) {
+				changeHealth(-1F);
+			}
+		}
+	}
+
+	private final void playerSprinting(boolean isSprinting) {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			float cure = get(Property.ENERGY);
+			float eit = get(Property.ENERGY_IN_TICK);
+			
+			if(isSprinting) {
+				if(weight > 60F || cure <= playerMinEnergy) 
+					player.setSprinting(false); 
+				
+				changeEnergy(eit);
+				setEnergyTimer(100);
+			} else if(var1 == 0) {
+				changeEnergy(0.2F);
+			}
+		}
+	}
+
+	private final float checkMaxIntox() {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			float maxi = getWitcherMaxIntox();
+			
+			if(getPlayerClass() == PlayerClass.WITCHER) {
+				if(maxi == 0F) {
+					return 80f;
+				}
+			} else if(maxi != 0) {
+				resetWitcherIntox();
+				return 0f;
+			}
+		}
+		return 0;
+	}
+
+	public final void setWitcherHealingTimer(int t) {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			this.var3 = t;
+		}
+	}
+	
+	public final void setEnergyTimer(int t) {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			this.var1 = t;
+		}
+	}
+	
+	private final float checkSaturation() {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			float sat = get(Property.SATURATION);
+			
+			if(player.getFoodStats().getFoodLevel() != 20) 
+				player.getFoodStats().addStats(20, 1);
+			
+			if(sat < 0) return 0;
+			else if(sat > 100) return 100;
+			
+			if(sat == 0) {
+				changeHealth(-0.03F);
+			}
+			
+			return sat + satInTick;
+		}
+		return 0;
+	}
+	
+	private final float checkHeal() {
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+			float sat = get(Property.SATURATION);
+			float hit = get(Property.HEALTH_IN_TICK);
+			
+			if((getPlayerClass() == PlayerClass.HUMAN || ((sat < 40 || get(Property.INTOXICATION) > 50) && getPlayerClass() == PlayerClass.WITCHER))) {
+				return 0;
+			}
+			
+			if(sat > 40 && get(Property.INTOXICATION) < 50 && getPlayerClass() == PlayerClass.WITCHER) {
+				return 0.04f;
+			}
+		}
+		return 0f;
+	}
+	
 	private final float checkEnergyLose() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(!player.worldObj.isRemote) {
+				if(this.get(Property.SATURATION) < 15) 
+					return 0;
+				
 				float lRegen = 0.0075F;
 				float hRegen = 0.025F;
 				float mRegen = 0.015F;
@@ -312,10 +364,6 @@ public class DAPlayer implements IExtendedEntityProperties {
 	}
 	
 	//Saturation
-	public float getSaturation() {
-		return saturation;
-	}
-	
 	public void resetSaturation() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(!player.worldObj.isRemote)
@@ -345,26 +393,23 @@ public class DAPlayer implements IExtendedEntityProperties {
 		return playerMaxEnergy;
 	}
 	
-	public final boolean changeEnergy(float amount) {
+	public float getPlayerMinEnergy() {
+		return playerMinEnergy;
+	}
+	
+	public final void changeEnergy(float amount) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(!player.worldObj.isRemote) {
-				boolean r = false;
-				
 				float cur = get(Property.ENERGY);
-				if(cur + amount > 0 && cur + amount < playerMaxEnergy) {
+				if(cur + amount > playerMinEnergy && cur + amount < playerMaxEnergy) {
 					update(ENERGY, cur + amount);
-					r = true;
-				} else if(cur + amount < 0) 
-					r = false;
-				else if(cur + amount > playerMaxEnergy) {
-					update(ENERGY, cur + amount);
-					r = true;
+				} else if(cur + amount < playerMinEnergy) {
+					update(ENERGY, playerMinEnergy);
+				} else if(cur + amount > playerMaxEnergy) {
+					update(ENERGY, playerMaxEnergy);
 				}
-				
-				return r;
 			}
 		}
-		return false;
 	}
 	
 	public final void resetPlayerEnergy() {
@@ -471,10 +516,16 @@ public class DAPlayer implements IExtendedEntityProperties {
 			if(!player.worldObj.isRemote) {
 				float curh = get(Property.HEALTH);
 				float maxh = getPlayerMaxHealth();
-				
-				if(curh + amount <= maxh)
-					update(HEALTH, curh + amount);
-				else update(HEALTH, maxh);
+					
+				if(!(curh <= 0F)) {
+					if(curh + amount <= maxh && curh + amount > 0) {
+						update(HEALTH, curh + amount);
+					} else if(curh + amount <= 0) {
+						update(HEALTH, 0F);
+					} else if(curh + amount > maxh) {
+						update(HEALTH, maxh);
+					}
+				}
 			}
 		}
 	}
@@ -593,7 +644,7 @@ public class DAPlayer implements IExtendedEntityProperties {
 	private final void sync() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(!player.worldObj.isRemote) {
-				PacketDispatcher.getInstance().sendTo(new SyncPlayerMessage(player), (EntityPlayerMP)player);
+				ServerPacketHandler.syncPlayer((EntityPlayerMP)player);
 			}
 		}
 	}

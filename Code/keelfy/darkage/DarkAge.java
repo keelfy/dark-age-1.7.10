@@ -5,18 +5,21 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import keelfy.api.network.PacketDispatcher;
 import keelfy.api.registry.BlockRegistry;
 import keelfy.api.registry.ItemRegistry;
 import keelfy.darkage.command.CommandDebug;
 import keelfy.darkage.event.EventListener;
 import keelfy.darkage.event.TickListener;
 import keelfy.darkage.handler.GuiHandler;
-import keelfy.darkage.handler.PacketHandler;
 import keelfy.darkage.handler.client.FileHandler;
 import keelfy.darkage.handler.registers.EntityRegister;
 import keelfy.darkage.handler.registers.ItemRegister;
+import keelfy.darkage.network.client.CustomClientMessage;
+import keelfy.darkage.network.server.CustomServerMessage;
 import keelfy.darkage.util.DATab;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.command.ServerCommandManager;
@@ -47,7 +50,7 @@ public class DarkAge {
 		new ItemRegister();
 		new EntityRegister();
 		
-		new PacketHandler();
+		packetSystemInit();
 		
 		new DATab();
 		proxy.preInit(event);
@@ -65,10 +68,22 @@ public class DarkAge {
 	}
 
 	@EventHandler
+	public void init(FMLPostInitializationEvent event) {
+		proxy.postInit(event);
+	}
+	
+	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			manager = (ServerCommandManager) MinecraftServer.getServer().getCommandManager();
 			new CommandDebug(manager);
 		}
+	}
+	
+	private void packetSystemInit() {
+		PacketDispatcher dis = PacketDispatcher.getInstance();
+		dis.registerChannel(DAUtil.NETWORK_CHANNEL);
+		dis.registerMessage(CustomClientMessage.class);
+		dis.registerMessage(CustomServerMessage.class);
 	}
 }

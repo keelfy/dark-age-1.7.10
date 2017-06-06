@@ -8,6 +8,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
+import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -45,7 +46,8 @@ public class PacketDispatcher {
 	}
 	
 	public final void sendTo(IMessage message, EntityPlayerMP player) {
-		PacketDispatcher.getInstance().dispatcher.sendTo(message, player);
+		if(DAUtil.SERVER || DAUtil.DEBUG_MODE)
+			PacketDispatcher.getInstance().dispatcher.sendTo(message, player);
 	}
 
 	public void sendToAll(IMessage message) {

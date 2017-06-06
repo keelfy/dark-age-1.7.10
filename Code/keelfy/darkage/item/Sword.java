@@ -6,6 +6,8 @@ import com.google.common.collect.Multimap;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import keelfy.api.KUtil;
+import keelfy.darkage.client.renderer.RendererSword;
 import keelfy.darkage.item.RepairKit.RepairKitType;
 import keelfy.darkage.util.DATab;
 import keelfy.darkage.util.DAUtil;
@@ -20,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.MinecraftForgeClient;
 import noppes.npcs.entity.EntityCustomNpc;
 import noppes.npcs.entity.EntityNPCInterface;
 
@@ -34,6 +37,9 @@ public class Sword extends DAItem implements IRepairable {
 	private float damageVsEntity;
 	
 	private String desc_sword_silver, desc_sword_steel;
+	
+	@SideOnly(Side.CLIENT)
+	public RendererSword renderer;
 	
 	public Sword(int maxUses, float damage, ItemRarity rarity, float weight, SwordType swordType, String... addInfo) {
 		super(rarity, weight, addInfo);
@@ -50,6 +56,14 @@ public class Sword extends DAItem implements IRepairable {
 			setCreativeTab(DATab.tabSwordSilver);
 		} else if(swordType == SwordType.STEEL) {
 			setCreativeTab(DATab.tabSwordSteel);
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public void setRenderer(RendererSword renderer) {
+		if(KUtil.isClient()) {
+			this.renderer = renderer;
+			MinecraftForgeClient.registerItemRenderer(this, this.renderer);
 		}
 	}
 	

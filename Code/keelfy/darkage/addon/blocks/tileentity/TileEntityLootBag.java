@@ -1,4 +1,4 @@
-package keelfy.witcherBlocks.tileentity;
+package keelfy.darkage.addon.blocks.tileentity;
 
 import keelfy.darkage.tileentity.DATileEntity;
 import keelfy.darkage.util.DAUtil;

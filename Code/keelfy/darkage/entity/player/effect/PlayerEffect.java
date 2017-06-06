@@ -1,8 +1,7 @@
 package keelfy.darkage.entity.player.effect;
 
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayer;
-import keelfy.darkage.network.client.SyncEffectsMessage;
+import keelfy.darkage.network.server.ServerPacketHandler;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -87,7 +86,7 @@ public class PlayerEffect {
 	protected final void sync() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(!player.worldObj.isRemote) {
-				PacketDispatcher.getInstance().sendTo(new SyncEffectsMessage(player), (EntityPlayerMP)player);
+				ServerPacketHandler.syncEffects((EntityPlayerMP)player);
 			}
 		}
 	}

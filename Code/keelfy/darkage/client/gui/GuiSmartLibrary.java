@@ -1,26 +1,31 @@
 package keelfy.darkage.client.gui;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.DarkAge;
 import keelfy.darkage.handler.client.FileHandler;
 import keelfy.darkage.item.smartlib.SLBook;
-import keelfy.darkage.network.server.GiveBookMessage;
+import keelfy.darkage.item.smartlib.SLLine;
+import keelfy.darkage.item.smartlib.SLPage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiSlot;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 
 /**
  * @author keelfy
- * TODO: Полностью пофиксить смарт-библиотеку
  */
 @SideOnly(Side.CLIENT)
 public class GuiSmartLibrary extends GuiScreen {
@@ -128,7 +133,7 @@ public class GuiSmartLibrary extends GuiScreen {
 	    	switch (buttonPressed.id){
 	    		case BTN_LOAD:
 	    			if (this.tempBook != null){
-	    				PacketDispatcher.getInstance().sendToServer(new GiveBookMessage(1, tempBook));
+	    				sendGiveBook(1, tempBook);
 	    				mc.displayGuiScreen((GuiScreen)null);
 	        		}
 	    			break;
@@ -143,6 +148,29 @@ public class GuiSmartLibrary extends GuiScreen {
 	    		this.fileHandler.currentPath = new File(buttonPressed.displayString);
 	    	}
     	}
+    }
+    
+    private void sendGiveBook(int amount, SLBook slBook) {
+		NBTTagCompound data = new NBTTagCompound();
+		NBTTagList bookPages = new NBTTagList();
+		
+		List<NBTTagString> pages = new ArrayList(slBook.pages.size());
+		for(SLPage page : slBook.pages) {
+			String text = "";
+			for(SLLine line : page.lines) {
+				text += line.text;
+			}
+			
+			pages.add(new NBTTagString(text));
+		}
+		
+		for(NBTTagString page : pages) {
+			bookPages.appendTag(page);
+		}
+		
+		data.setTag("pages", bookPages);
+		
+		ClientPacketHandler.sendToServer(PacketForServer.GIVEBOOK, data, slBook.author, slBook.title, slBook.id, amount);
     }
     
     class ScrollList extends GuiSlot {
@@ -196,7 +224,7 @@ public class GuiSmartLibrary extends GuiScreen {
 	                	}
 	                	else{
 	                		if (GuiSmartLibrary.this.tempBook != null){
-	                			PacketDispatcher.getInstance().sendToServer(new GiveBookMessage(1, tempBook));
+	                			GuiSmartLibrary.this.sendGiveBook(1, tempBook);
 	                			mc.displayGuiScreen((GuiScreen)null);
 	                		}
 	                	}

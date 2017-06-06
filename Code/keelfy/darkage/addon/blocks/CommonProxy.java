@@ -1,4 +1,4 @@
-package keelfy.witcherBlocks;
+package keelfy.darkage.addon.blocks;
 
 /**
  * @author keelfy

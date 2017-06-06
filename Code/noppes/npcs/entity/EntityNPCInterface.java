@@ -1,17 +1,15 @@
 package noppes.npcs.entity;
 
-import io.netty.buffer.ByteBuf;
-import keelfy.darkage.entity.player.DAPlayer;
-import keelfy.darkage.event.custom.NPCAttackEntityEvent;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
+import io.netty.buffer.ByteBuf;
+import keelfy.darkage.event.custom.NPCAttackEntityEvent;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.DataWatcher;
@@ -58,7 +56,6 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.ServerChatEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import noppes.npcs.CustomItems;
 import noppes.npcs.CustomNpcs;
 import noppes.npcs.DataAI;
@@ -135,7 +132,6 @@ import noppes.npcs.scripted.ScriptEventDamaged;
 import noppes.npcs.scripted.ScriptEventKilled;
 import noppes.npcs.scripted.ScriptEventTarget;
 import noppes.npcs.util.GameProfileAlt;
-import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 
 public abstract class EntityNPCInterface extends EntityCreature implements IEntityAdditionalSpawnData, ICommandSender, IRangedAttackMob, IBossDisplayData{
 
@@ -169,7 +165,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 	private EntityAIRangedAttack aiRange;
 	private EntityAIBase aiResponse, aiLeap, aiSprint, aiAttackTarget;
 
-	public List<EntityLivingBase> interactingEntities = new ArrayList<EntityLivingBase>();
+	public List<EntityLivingBase> interactingEntities = new ArrayList();
 
 	public ResourceLocation textureLocation = null;
 	public ResourceLocation textureGlowLocation = null;
@@ -182,7 +178,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 
 	public EntityNPCInterface(World world) {
 		super(world);
-		dialogs = new HashMap<Integer, DialogOption>();
+		dialogs = new HashMap();
 		if(!CustomNpcs.DefaultInteractLine.isEmpty())
 			advanced.interactLines.lines.put(0, new Line(CustomNpcs.DefaultInteractLine));
 
@@ -224,6 +220,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 		this.dataWatcher.addObject(23, Byte.valueOf((byte) 0)); // offsets
 		this.dataWatcher.addObject(24, Integer.valueOf(0)); // isKilled
 	}
+	@Override
 	protected boolean isAIEnabled(){
 		return true;
 	}
@@ -245,6 +242,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 			script.callScript(EnumScriptType.TICK);
 	}
 
+	@Override
 	public void setWorld(World world){
 		super.setWorld(world);
 		script.setWorld(world);
@@ -276,11 +274,11 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 		if (var4) {
 			if(getOwner() instanceof EntityPlayer)
 				NPCEntityHelper.setRecentlyHit((EntityLivingBase)par1Entity);
-			if (stats.knockback > 0){
-				par1Entity.addVelocity((double)(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * (float)stats.knockback * 0.5F), 0.1D, (double)(MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * (float)stats.knockback * 0.5F));
+			/*if (stats.knockback > 0){
+				par1Entity.addVelocity(-MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F) * stats.knockback * 0.5F, 0.1D, MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F) * stats.knockback * 0.5F);
 				this.motionX *= 0.6D;
 				this.motionZ *= 0.6D;
-			}
+			}*/
 			if(advanced.role == EnumRoleType.Companion){
 				((RoleCompanion)roleInterface).attackedEntity(par1Entity);
 			}
@@ -454,7 +452,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 			reset();
 		}
 		i = stats.resistances.applyResistance(damagesource, i);
-		if((float)this.hurtResistantTime > (float)this.maxHurtResistantTime / 2.0F && i <= this.lastDamage)
+		if(this.hurtResistantTime > this.maxHurtResistantTime / 2.0F && i <= this.lastDamage)
 			return false;
 
 		Entity entity = damagesource.getEntity();
@@ -568,7 +566,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 	}
 
 	public EntityProjectile shoot(EntityLivingBase entity, int accuracy, ItemStack proj, boolean indirect){
-		return shoot(entity.posX, entity.boundingBox.minY + (double)(entity.height / 2.0F), entity.posZ, accuracy, proj, indirect);
+		return shoot(entity.posX, entity.boundingBox.minY + entity.height / 2.0F, entity.posZ, accuracy, proj, indirect);
 	}
 
 	public EntityProjectile shoot(double x, double y, double z, int accuracy, ItemStack proj, boolean indirect){
@@ -760,7 +758,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 	 * Function for getting proper move speeds. This way we don't have to modify them every time we use them.
 	 */
 	public float getSpeed() {
-		return (float)ai.getWalkingSpeed() / 20.0F;
+		return ai.getWalkingSpeed() / 20.0F;
 	}
 
 	@Override
@@ -897,6 +895,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 		}
 		Server.sendData((EntityPlayerMP)player, EnumPacketClient.CHATBUBBLE, this.getEntityId(), line.text, !line.hideText);
 	}
+	@Override
 	public boolean getAlwaysRenderNameTagForRender(){
 		return true;
 	}
@@ -1332,28 +1331,30 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 		return ai.movingType != EnumMovingType.Standing || isAttacking() || isFollower() || dataWatcher.getWatchableObjectInt(15) == 1;
 	}
 
+	@Override
 	public boolean isSneaking() {
 		return currentAnimation == EnumAnimation.SNEAKING;
 	}
+	
 	@Override
 	public void knockBack(Entity par1Entity, float par2, double par3, double par5)
 	{
-		if(stats.resistances.knockback >= 2)
-			return;
-		this.isAirBorne = true;
-		float f1 = MathHelper.sqrt_double(par3 * par3 + par5 * par5);
-		float f2 = 0.5F *  (2 - stats.resistances.knockback);
-		this.motionX /= 2.0D;
-		this.motionY /= 2.0D;
-		this.motionZ /= 2.0D;
-		this.motionX -= par3 / (double)f1 * (double)f2;
-		this.motionY += 0.2 + f2 / 2;
-		this.motionZ -= par5 / (double)f1 * (double)f2;
-
-		if (this.motionY > 0.4000000059604645D)
-		{
-			this.motionY = 0.4000000059604645D;
-		}
+//		if(stats.resistances.knockback >= 2)
+//			return;
+//		this.isAirBorne = true;
+//		float f1 = MathHelper.sqrt_double(par3 * par3 + par5 * par5);
+//		float f2 = 0.5F *  (2 - stats.resistances.knockback);
+//		this.motionX /= 2.0D;
+//		this.motionY /= 2.0D;
+//		this.motionZ /= 2.0D;
+//		this.motionX -= par3 / f1 * f2;
+//		this.motionY += 0.2 + f2 / 2;
+//		this.motionZ -= par5 / f1 * f2;
+//
+//		if (this.motionY > 0.4000000059604645D)
+//		{
+//			this.motionY = 0.4000000059604645D;
+//		}
 	}
 
 	public Faction getFaction() {
@@ -1560,6 +1561,7 @@ public abstract class EntityNPCInterface extends EntityCreature implements IEnti
 		return display.visible == 1 && (player.getHeldItem() == null || player.getHeldItem().getItem() != CustomItems.wand);
 	}
 
+	@Override
 	public boolean isInvisible(){
 		return display.visible != 0;
 	}

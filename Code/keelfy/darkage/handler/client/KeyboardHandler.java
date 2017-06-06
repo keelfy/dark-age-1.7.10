@@ -6,16 +6,15 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.entity.sign.ISign;
-import keelfy.darkage.network.server.HotSlotMessage;
-import keelfy.darkage.network.server.PlayerJumpMessage;
-import keelfy.darkage.network.server.UseSignMessage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
 import keelfy.darkage.util.LanguageUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.StatCollector;
@@ -47,7 +46,8 @@ public class KeyboardHandler {
 
 	public KeyboardHandler() {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			FMLCommonHandler.instance().bus().register(this);
+			FMLCommonHandler.instance().bus().register(this);	
+			
 			for (int i = 0; i < desc.length; ++i) {
 				keys[i] = new KeyBinding(desc[i], keyValues[i], StatCollector.translateToLocal(DAUtil.MODNAME));
 				ClientRegistry.registerKeyBinding(keys[i]);
@@ -59,55 +59,65 @@ public class KeyboardHandler {
 	public void onKeyInput(KeyInputEvent event) {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(mc.inGameHasFocus && !mc.thePlayer.capabilities.isCreativeMode) {
+				GameSettings gs = mc.gameSettings;
+
 				if(keys[0].isPressed()) {
-					PacketDispatcher.getInstance().sendToServer(new HotSlotMessage(8));
+					ClientPacketHandler.sendToServer(PacketForServer.HOTSLOT, 8);
 				} else if(keys[1].isPressed()) {
-					PacketDispatcher.getInstance().sendToServer(new HotSlotMessage(9));
+					ClientPacketHandler.sendToServer(PacketForServer.HOTSLOT, 9);
 				} else if(keys[2].isPressed()) {
-					PacketDispatcher.getInstance().sendToServer(new HotSlotMessage(10));
+					ClientPacketHandler.sendToServer(PacketForServer.HOTSLOT, 10);
 				} else if(keys[3].isPressed()) {
-					PacketDispatcher.getInstance().sendToServer(new HotSlotMessage(11));
+					ClientPacketHandler.sendToServer(PacketForServer.HOTSLOT, 11);
 				} else if(keys[4].isPressed()) {
 					EntityLiving e = ISign.getLookingEntity();
 					int id = -1;
 					if(e != null) id = e.getEntityId();
-					PacketDispatcher.getInstance().sendToServer(new UseSignMessage(id));
+					ClientPacketHandler.sendToServer(PacketForServer.USESIGN, id);
 				} else if(keys[5].isPressed()) {
 					mc.displayGuiScreen(new GuiQuestLog(mc.thePlayer));
 				}
 				
-				if(mc.gameSettings.keyBindJump.isPressed()) {
+				if(gs.keyBindJump.isPressed()) {
 					if(DAPlayer.get(mc.thePlayer).get(Property.ENERGY) <= 10F) {
-						mc.gameSettings.keyBindJump.setKeyBindState(mc.gameSettings.keyBindJump.getKeyCode(), false);
-					} else PacketDispatcher.getInstance().sendToServer(new PlayerJumpMessage());
-				} else if(mc.gameSettings.keyBindSprint.isPressed()) {
+						unpress(gs.keyBindJump);
+					} else ClientPacketHandler.sendToServer(PacketForServer.PLAYERJUMP);
+				} else if(gs.keyBindSprint.isPressed()) {
 					if(DAPlayer.get(mc.thePlayer) != null && DAPlayer.get(mc.thePlayer).get(Property.ENERGY) <= 10) {
-						mc.gameSettings.keyBindSprint.setKeyBindState(mc.gameSettings.keyBindSprint.getKeyCode(), false);
+						unpress(gs.keyBindSprint);
 					}
-				} else if(mc.gameSettings.keyBindsHotbar[0].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[0].setKeyBindState(mc.gameSettings.keyBindsHotbar[0].getKeyCode(), false);
+				} else if(gs.keyBindsHotbar[0].isPressed()) {
+					unpress(gs.keyBindsHotbar[0]);
 					mc.thePlayer.inventory.currentItem = 1;
-				} else if(mc.gameSettings.keyBindsHotbar[1].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[1].setKeyBindState(mc.gameSettings.keyBindsHotbar[1].getKeyCode(), false);
+				} else if(gs.keyBindsHotbar[1].isPressed()) {
+					unpress(gs.keyBindsHotbar[1]);
 					mc.thePlayer.inventory.currentItem = 2;
-				}else if(mc.gameSettings.keyBindsHotbar[2].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[2].setKeyBindState(mc.gameSettings.keyBindsHotbar[2].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[3].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[3].setKeyBindState(mc.gameSettings.keyBindsHotbar[3].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[4].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[4].setKeyBindState(mc.gameSettings.keyBindsHotbar[4].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[5].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[5].setKeyBindState(mc.gameSettings.keyBindsHotbar[5].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[6].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[6].setKeyBindState(mc.gameSettings.keyBindsHotbar[6].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[7].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[7].setKeyBindState(mc.gameSettings.keyBindsHotbar[7].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindsHotbar[8].isPressed()) {
-					mc.gameSettings.keyBindsHotbar[8].setKeyBindState(mc.gameSettings.keyBindsHotbar[8].getKeyCode(), false);
-				} else if(mc.gameSettings.keyBindDrop.isPressed()) {
-					mc.gameSettings.keyBindDrop.setKeyBindState(mc.gameSettings.keyBindDrop.getKeyCode(), false);
+				}else if(gs.keyBindsHotbar[2].isPressed()) {
+					unpress(gs.keyBindsHotbar[2]);
+				} else if(gs.keyBindsHotbar[3].isPressed()) {
+					unpress(gs.keyBindsHotbar[3]);
+				} else if(gs.keyBindsHotbar[4].isPressed()) {
+					unpress(gs.keyBindsHotbar[4]);
+				} else if(gs.keyBindsHotbar[5].isPressed()) {
+					unpress(gs.keyBindsHotbar[5]);
+				} else if(gs.keyBindsHotbar[6].isPressed()) {
+					unpress(gs.keyBindsHotbar[6]);
+				} else if(gs.keyBindsHotbar[7].isPressed()) {
+					unpress(gs.keyBindsHotbar[7]);
+				} else if(gs.keyBindsHotbar[8].isPressed()) {
+					unpress(gs.keyBindsHotbar[8]);
+				} else if(gs.keyBindDrop.isPressed()) {
+					unpress(gs.keyBindDrop);
+				} else if(gs.keyBindAttack.isPressed()) {
+					if(mc.thePlayer.getHeldItem() == null) {
+						unpress(gs.keyBindAttack);
+					}
 				}
 			}
 		}
+	}
+	
+	private final void unpress(KeyBinding key) {
+		KeyBinding.setKeyBindState(key.getKeyCode(), false);
 	}
 }

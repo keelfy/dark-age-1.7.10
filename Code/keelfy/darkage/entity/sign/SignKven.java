@@ -28,11 +28,11 @@ public class SignKven {
 	public void handle() {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote) {
-				DAPlayer wcp = DAPlayer.get(owner);
-				if (wcp != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
-					ISign.useSign("customnpcs:signs.kven", this.worldObj, owner);
+				DAPlayer dap = DAPlayer.get(owner);
+				if (dap != null && dap.get(Property.ENERGY) > dap.getPlayerMaxEnergy() - 10) {
+					ISign.useSign("kven", this.worldObj, owner);
 					owner.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 1200, 10));
-					wcp.update(Property.ENERGY, 7F);
+					dap.update(Property.ENERGY, dap.getPlayerMinEnergy());
 				}
 			}
 		}

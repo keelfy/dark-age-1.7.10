@@ -7,7 +7,6 @@ import cpw.mods.fml.client.config.GuiUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.api.Brush;
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
@@ -18,8 +17,8 @@ import keelfy.darkage.inventory.player.DAInventory;
 import keelfy.darkage.item.Money;
 import keelfy.darkage.item.RepairKit;
 import keelfy.darkage.item.RepairKit.RepairKitType;
-import keelfy.darkage.network.server.HandleMoneyClickMessage;
-import keelfy.darkage.network.server.RepairItemMessage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
 import keelfy.darkage.util.LanguageUtil;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -197,12 +196,12 @@ public class GuiDAInventory extends GuiDAContainer {
 		} else if(isRepairing()) {
 			Slot slot = getSlotAtPosition(x, y);
 			if(slot != null && slot.getHasStack()) {
-				PacketDispatcher.getInstance().sendToServer(new RepairItemMessage(repairingPercent, repairingType, repairKit, slot.slotNumber));
+				ClientPacketHandler.sendToServer(PacketForServer.REPAIRITEM, repairingPercent, repairingType, slot.slotNumber, repairKit);
 			}
 		} else if(getSlotAtPosition(x, y) != null && getSlotAtPosition(x, y).getHasStack() && getSlotAtPosition(x, y).getStack().getItem() instanceof Money && (isCtrlKeyDown() || isShiftKeyDown())) {
 			if(!(isCtrlKeyDown() && isShiftKeyDown())) {
 				Money clickedItem = (Money) getSlotAtPosition(x, y).getStack().getItem();
-				PacketDispatcher.getInstance().sendToServer(new HandleMoneyClickMessage(isCtrlKeyDown(), isShiftKeyDown(), clickedItem.getValueInOrenes()));
+				ClientPacketHandler.sendToServer(PacketForServer.MONEYCLICK, isShiftKeyDown(), isCtrlKeyDown(), clickedItem.getValueInOrenes());
 			}
 		} else super.mouseClicked(x, y, z);
 	}

@@ -1,5 +1,6 @@
 package keelfy.darkage.inventory.player;
 
+import keelfy.darkage.item.Armor;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -60,6 +61,26 @@ public class DAInventory implements IInventory {
 				}
 			}
 			this.inventoryStacks = new ItemStack[INV_SIZE];
+		}
+	}
+	
+	public void damageArmor() {
+		if(DAUtil.SERVER ||  DAUtil.DEBUG_MODE) {
+			if(player.inventory.armorInventory[0] != null && player.inventory.armorInventory[0].getItem() instanceof Armor) {
+				((Armor)player.inventory.armorInventory[0].getItem()).damage(player.inventory.armorInventory[0], 1);
+			} 
+			
+			if(player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].getItem() instanceof Armor) {
+				((Armor)player.inventory.armorInventory[1].getItem()).damage(player.inventory.armorInventory[1], 1);
+			}
+			
+			if(player.inventory.armorInventory[2] != null && player.inventory.armorInventory[2].getItem() instanceof Armor) {
+				((Armor)player.inventory.armorInventory[2].getItem()).damage(player.inventory.armorInventory[2], 1);
+			}
+			
+			if(player.inventory.armorInventory[3] != null && player.inventory.armorInventory[3].getItem() instanceof Armor) {
+				((Armor)player.inventory.armorInventory[3].getItem()).damage(player.inventory.armorInventory[3], 1);
+			}
 		}
 	}
 	

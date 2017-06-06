@@ -1,4 +1,4 @@
-package keelfy.witcherBlocks.block;
+package keelfy.darkage.addon.blocks.block;
 
 import java.util.Random;
 

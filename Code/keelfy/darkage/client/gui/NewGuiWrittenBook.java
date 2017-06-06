@@ -26,7 +26,7 @@ import net.minecraft.util.ResourceLocation;
  * @author keelfy
  */
 @SideOnly(Side.CLIENT)
-public class GuiWrittenBook extends GuiScreen {
+public class NewGuiWrittenBook extends GuiScreen {
 	
     private static ResourceLocation bookGuiTextures;
     private final EntityPlayer editingPlayer;
@@ -41,14 +41,14 @@ public class GuiWrittenBook extends GuiScreen {
     private int currPage;
     private List<SLPage> bookPages;
     private String bookTitle = "";
-    private GuiWrittenBook.NextPageButton buttonNextPage;
-    private GuiWrittenBook.NextPageButton buttonPreviousPage;
+    private NewGuiWrittenBook.NextPageButton buttonNextPage;
+    private NewGuiWrittenBook.NextPageButton buttonPreviousPage;
     private GuiButton buttonDone;
     private GuiButton buttonSign;
     private GuiButton buttonFinalize;
     private GuiButton buttonCancel;
 
-    public GuiWrittenBook(EntityPlayer player, ItemStack is) {
+    public NewGuiWrittenBook(EntityPlayer player, ItemStack is) {
         this.editingPlayer = player;
         this.bookObj = is;
         this.fh = DarkAge.instance.fileHandler;
@@ -91,8 +91,8 @@ public class GuiWrittenBook extends GuiScreen {
 	
 	        int i = (this.width - this.bookImageWidth) / 2;
 	        byte b0 = 2;
-	        this.buttonList.add(this.buttonNextPage = new GuiWrittenBook.NextPageButton(1, i + 120, b0 + 154, true));
-	        this.buttonList.add(this.buttonPreviousPage = new GuiWrittenBook.NextPageButton(2, i + 38, b0 + 154, false));
+	        this.buttonList.add(this.buttonNextPage = new NewGuiWrittenBook.NextPageButton(1, i + 120, b0 + 154, true));
+	        this.buttonList.add(this.buttonPreviousPage = new NewGuiWrittenBook.NextPageButton(2, i + 38, b0 + 154, false));
 	        this.updateButtons();
     	}
     }
@@ -193,7 +193,7 @@ public class GuiWrittenBook extends GuiScreen {
 	    		if (this.visible) {
 	    			boolean flag = p_146112_2_ >= this.xPosition && p_146112_3_ >= this.yPosition && p_146112_2_ < this.xPosition + this.width && p_146112_3_ < this.yPosition + this.height;
 	    			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	    			p_146112_1_.getTextureManager().bindTexture(GuiWrittenBook.bookGuiTextures);
+	    			p_146112_1_.getTextureManager().bindTexture(NewGuiWrittenBook.bookGuiTextures);
 	    			int k = 0;
 	    			int l = 192;
 	

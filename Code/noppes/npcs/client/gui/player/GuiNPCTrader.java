@@ -14,7 +14,7 @@ import noppes.npcs.containers.ContainerNPCTrader;
 import noppes.npcs.entity.EntityNPCInterface;
 import noppes.npcs.roles.RoleTrader;
 
-public class GuiNPCTrader extends GuiContainerNPCInterface{
+public class GuiNPCTrader extends GuiContainerNPCInterface {
 	private final ResourceLocation resource = new ResourceLocation("customnpcs","textures/gui/trader.png");
 	private final ResourceLocation slot = new ResourceLocation("customnpcs","textures/gui/slot.png");
 	private RoleTrader role;
@@ -85,14 +85,15 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
 	            }
 	            
 	            if(item3 != null){
-	            	itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item3, x + 36, y + 1);
-		        	itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item3, x + 36, y + 1);
+	            	itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item3, x - 18, y + 1);
+		        	itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item3, x - 18, y + 1);
 	            }
 	            
 		        GL11.glColor4f(1, 1, 1, 1);
 		        itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, item, x + 18, y + 1);
 		        itemRender.renderItemOverlayIntoGUI(fontRendererObj, mc.renderEngine, item, x + 18, y + 1);
-	            RenderHelper.disableStandardItemLighting(); 
+		        
+		        RenderHelper.disableStandardItemLighting(); 
 	
 	            fontRendererObj.drawString("=", x + 36, y + 5, CustomNpcResourceListener.DefaultTextColor);
 
@@ -106,20 +107,35 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2){
 		for(int slot = 0; slot < 18; slot++){
-			int x = slot%3 * 72 + 10;
-			int y = slot/3 * 21 + 6;
+			int x = slot % 3 * 72 + 10;
+			int y = slot / 3 * 21 + 6;
 			
 			ItemStack item = role.inventoryCurrency.items.get(slot);
 			ItemStack item2 = role.inventoryCurrency.items.get(slot + 18);
+			ItemStack item3 = role.inventoryCurrency.items.get(slot + 36);
+			
+			if(item2 == null){
+				item2 = item3;
+				item3 = null;
+			}
+			
 			if(item == null){
 				item = item2;
 				item2 = null;
 			}
+			
+			if(NoppesUtilPlayer.compareItems(item2, item3, role.ignoreDamage, role.ignoreNBT)){
+				item2 = item2.copy();
+				item2.stackSize += item3.stackSize;
+				item3 = null;
+			}
+			
 			if(NoppesUtilPlayer.compareItems(item, item2, role.ignoreDamage, role.ignoreNBT)){
 				item = item.copy();
 				item.stackSize += item2.stackSize;
 				item2 = null;
 			}
+			
 			ItemStack sold = role.inventorySold.items.get(slot);
 			if(item == null || sold == null)
 				continue;
@@ -131,6 +147,8 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
 						this.drawGradientRect(x + 17, y, x + 35, y + 18, 0x70771010, 0x70771010);
 					if(item2 != null && !NoppesUtilPlayer.compareItems(player, item2, role.ignoreDamage, role.ignoreNBT))
 						this.drawGradientRect(x - 1, y, x + 17, y + 18, 0x70771010, 0x70771010);
+					if(item3 != null && !NoppesUtilPlayer.compareItems(player, item3, role.ignoreDamage, role.ignoreNBT))
+						this.drawGradientRect(x - 19, y, x + 17, y + 18, 0x70771010, 0x70771010);
 					
 		        	String title = StatCollector.translateToLocal("trader.insufficient");
 					this.fontRendererObj.drawString(title, (xSize - fontRendererObj.getStringWidth(title))/2, 131, 0xDD0000);
@@ -141,10 +159,15 @@ public class GuiNPCTrader extends GuiContainerNPCInterface{
 					this.fontRendererObj.drawString(title, (xSize - fontRendererObj.getStringWidth(title))/2, 131, 0x00DD00);
 				}
 			}
-
+			
+			if (this.func_146978_c(x - 18, y, 16, 16, par1, par2) && item3 != null){
+				this.renderToolTip(item3, par1 - guiLeft, par2 - guiTop);
+	      	     }
+			
             if (this.func_146978_c(x, y, 16, 16, par1, par2) && item2 != null){
                 this.renderToolTip(item2, par1 - guiLeft, par2 - guiTop);
             }
+            
             if (this.func_146978_c(x + 18, y, 16, 16, par1, par2)){
                 this.renderToolTip(item, par1 - guiLeft, par2 - guiTop);
             }

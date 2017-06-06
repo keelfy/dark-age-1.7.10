@@ -3,16 +3,14 @@ package keelfy.darkage.event.client;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.api.network.PacketDispatcher;
-import keelfy.darkage.client.gui.GuiHud;
 import keelfy.darkage.client.gui.GuiLootBag;
+import keelfy.darkage.client.gui.GuiHud;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.handler.GuiHandler.GUI;
-import keelfy.darkage.network.server.ChangeSignMessage;
-import keelfy.darkage.network.server.OpenGuiMessage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.inventory.GuiChest;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -36,6 +34,7 @@ public class ClientEventListener {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			MinecraftForge.EVENT_BUS.register(this);
 			guiHud = new GuiHud();
+			mc.gameSettings.heldItemTooltips = false;
 		}
 	}
 	
@@ -43,7 +42,7 @@ public class ClientEventListener {
 	public void onMouseEvent(MouseEvent event) {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(event.dwheel != 0 && !mc.thePlayer.capabilities.isCreativeMode) {
-				PacketDispatcher.getInstance().sendToServer(new ChangeSignMessage());
+				ClientPacketHandler.sendToServer(PacketForServer.CHANGESIGN);
 				event.setCanceled(true);
 			}
 		}
@@ -63,11 +62,12 @@ public class ClientEventListener {
 		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if(event.gui instanceof GuiInventory && !mc.thePlayer.capabilities.isCreativeMode) {
 				event.setCanceled(true);
-				PacketDispatcher.getInstance().sendToServer(new OpenGuiMessage(GUI.INVENTORY));
-			} else if(event.gui instanceof GuiChest && !mc.thePlayer.capabilities.isCreativeMode) {
-				event.setCanceled(true);
-				PacketDispatcher.getInstance().sendToServer(new OpenGuiMessage(GUI.CHEST));
+				ClientPacketHandler.openGUI(GUI.INVENTORY);
 			}
+//			else if(event.gui instanceof GuiChest && !mc.thePlayer.capabilities.isCreativeMode) {
+//				event.setCanceled(true);
+//				ClientPacketHandler.openGUI(GUI.CHEST);
+//			}
 		}
 	}
 	
@@ -77,7 +77,13 @@ public class ClientEventListener {
 			if(!mc.thePlayer.capabilities.isCreativeMode && event.type == ElementType.HOTBAR) 
 				event.setCanceled(true);
 			
-			if(event.type == ElementType.EXPERIENCE || event.type == ElementType.HEALTH || event.type == ElementType.FOOD || event.type == ElementType.HEALTHMOUNT || event.type == ElementType.ARMOR || event.type == ElementType.BOSSHEALTH)
+			if(event.type == ElementType.EXPERIENCE
+					|| event.type == ElementType.HEALTH 
+					|| event.type == ElementType.FOOD 
+					|| event.type == ElementType.HEALTHMOUNT
+					|| event.type == ElementType.ARMOR 
+					|| event.type == ElementType.BOSSHEALTH
+					)
 				event.setCanceled(true);
 			
 			if((mc.currentScreen != null && mc.currentScreen instanceof GuiLootBag) || !mc.gameSettings.showDebugInfo)

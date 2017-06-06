@@ -23,21 +23,22 @@ public class DAPlayerUtil {
 	public static float getReceivedDamage(final EntityPlayer player, float damage) {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			float resultDamage = damage;
+			float r1 = resultDamage / 100;
 			
 			for(int i = 0; i < 4; i++) {
 				if(player.getCurrentArmor(i) != null && player.getCurrentArmor(i).getItem() instanceof Armor)
-					resultDamage -= resultDamage / 100 * ((Armor)player.getCurrentArmor(i).getItem()).getBlockingPercent();
+					resultDamage -= r1 * ((Armor)player.getCurrentArmor(i).getItem()).getBlockingPercent();
 			}
 			
 			return resultDamage;
-		} else 
-			return 0;
+		}
+		return 0;
 	}
 	
 	public static BiomeGenBase getBiome(final EntityPlayer player) {		
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE)
 			return player.worldObj.getBiomeGenForCoordsBody((int)player.posX, (int)player.posZ);
-		else return null;
+		return null;
 	}
 	
 	/**

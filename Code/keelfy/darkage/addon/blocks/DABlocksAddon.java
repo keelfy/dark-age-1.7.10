@@ -1,23 +1,23 @@
-package keelfy.witcherBlocks;
+package keelfy.darkage.addon.blocks;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import keelfy.api.registry.BlockRegistry;
-import keelfy.witcherBlocks.register.BlockRegister;
+import keelfy.darkage.addon.blocks.register.BlockRegister;
 
 /**
  * @author keelfy
  */
-@Mod(modid = WitcherBlocks.MODID, name = WitcherBlocks.NAME, version = WitcherBlocks.VERSION, dependencies = "required-after:witchercore")
-public class WitcherBlocks {
+@Mod(modid = DABlocksAddon.MODID, name = DABlocksAddon.NAME, version = DABlocksAddon.VERSION, dependencies = "required-after:witchercore")
+public class DABlocksAddon {
 	
 	public static final String MODID = "witcherblocks";
-	public static final String NAME = "The Witcher Blocks";
+	public static final String NAME = "Dark Age: Blocks Addon";
 	public static final String VERSION = "Build #1";
 	
-	@SidedProxy(clientSide = "keelfy.witcherBlocks.client.ClientProxy", serverSide = "keelfy.witcherBlocks.CommonProxy")
+	@SidedProxy(clientSide = "keelfy.darkage.addon.blocks.client.ClientProxy", serverSide = "keelfy.darkage.addon.blocks.CommonProxy")
 	public static CommonProxy proxy;
 	
 	@EventHandler

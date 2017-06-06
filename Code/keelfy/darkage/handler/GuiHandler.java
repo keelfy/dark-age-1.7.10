@@ -3,17 +3,17 @@ package keelfy.darkage.handler;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import keelfy.darkage.DarkAge;
+import keelfy.darkage.addon.blocks.tileentity.TileEntityLootBag;
 import keelfy.darkage.client.gui.GuiDAInventory;
 import keelfy.darkage.client.gui.GuiLootBag;
 import keelfy.darkage.client.gui.GuiSelectClass;
 import keelfy.darkage.client.gui.GuiSmartLibrary;
-import keelfy.darkage.client.gui.GuiWrittenBook;
+import keelfy.darkage.client.gui.NewGuiWrittenBook;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.inventory.lootbag.ContainerLootBag;
 import keelfy.darkage.inventory.player.ContainerDAInventory;
 import keelfy.darkage.item.smartlib.DAWrittenBook;
 import keelfy.darkage.util.DAUtil;
-import keelfy.witcherBlocks.tileentity.TileEntityLootBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -47,7 +47,7 @@ public class GuiHandler implements IGuiHandler {
 				return new GuiDAInventory(player, DAPlayer.get(player).inventory, DAPlayer.get(player).inventoryContainer, new ContainerDAInventory(player, DAPlayer.get(player).inventory));
 			} else if (ID == GUI.WRITTENBOOK.get()) {
 				if (player.getCurrentEquippedItem().getItem() instanceof DAWrittenBook)
-					return new GuiWrittenBook(player, player.getCurrentEquippedItem());
+					return new NewGuiWrittenBook(player, player.getCurrentEquippedItem());
 			} else if (ID == GUI.SMARTLIBRARY.get()) {
 				return new GuiSmartLibrary();
 			} else if (ID == GUI.LOOTBAG.get()) {

@@ -66,8 +66,8 @@ import keelfy.darkage.client.models.entity.player.WitcherRightLeg;
 import keelfy.darkage.client.models.entity.sign.ModelSignKven;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.handler.client.ResourceHandler.Model;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
 import keelfy.darkage.handler.client.ResourceHandler.Model.WCM;
+import keelfy.darkage.handler.client.ResourceHandler.Texture;
 import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
 import keelfy.darkage.handler.registers.ArmorRegister;
 import keelfy.darkage.item.Sword;
@@ -208,10 +208,9 @@ public class RenderDAPlayer extends RenderPlayerBase {
 	public void loadTextureOfEntity(Entity paramEntity) {
 		if (!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (paramEntity instanceof EntityPlayer && DAPlayer.get(mc.thePlayer) != null) {
-				// TODO: Удалить после ЗБТ
 				mc.getTextureManager().bindTexture(skinWitcher);
 
-				// TODO: ОБТ
+				// TODO: Динамичный скин в ОБТ
 				// if(WCPlayer.get((EntityPlayer)paramEntity).getPlayerClass()
 				// == PlayerClass.HUMAN)
 				// textureManager.bindTexture(skinHuman);

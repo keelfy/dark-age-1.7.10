@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.api.Brush;
 import keelfy.api.client.GuiUtil;
-import keelfy.api.network.PacketDispatcher;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.entity.player.PlayerClass;
@@ -14,7 +13,8 @@ import keelfy.darkage.handler.client.ResourceHandler.Texture;
 import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
 import keelfy.darkage.item.Sword;
 import keelfy.darkage.item.Sword.SwordType;
-import keelfy.darkage.network.server.ChangeSignMessage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
 import keelfy.darkage.util.LanguageUtil;
 import net.minecraft.client.Minecraft;
@@ -96,7 +96,7 @@ public class GuiHud {
 					tess.drawTexturedModalRectZ(b, c, 0, 50, 75, 50, 1);
 						
 					GL11.glDisable(GL11.GL_ALPHA_TEST);
-					tess.drawTexturedModalRectZ(b - 2, 42 + c, 0, 120, 21 + (int)(wcp.get(Property.ENERGY) / wcp.getPlayerMaxEnergy() * 38), 20, 1);
+					tess.drawTexturedModalRectZ(b - 2, 42 + c, 0, 120, 21 + Math.round((wcp.get(Property.ENERGY) / wcp.getPlayerMaxEnergy() * 38)), 20, 1);
 					if(wcp.getPlayerClass() == PlayerClass.WITCHER)
 						tess.drawTexturedModalRectZ(b - 2, 44 + c, 0, 100, 100, 20, 0);
 						
@@ -134,7 +134,7 @@ public class GuiHud {
 						tess.drawTexturedModalRectZ(64, 54, 0, 0, 64, 64, 5);
 						GL11.glPopMatrix();
 					} else if(wcp.getWitcherSign().ordinal() > 5 || wcp.getWitcherSign().ordinal() < 0) {
-						PacketDispatcher.getInstance().sendToServer(new ChangeSignMessage());
+						ClientPacketHandler.sendToServer(PacketForServer.CHANGESIGN);
 					}
 				}
 			}

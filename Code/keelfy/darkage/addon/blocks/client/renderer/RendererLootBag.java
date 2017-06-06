@@ -1,15 +1,15 @@
-package keelfy.witcherBlocks.client.renderer;
+package keelfy.darkage.addon.blocks.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import keelfy.darkage.addon.blocks.DABlocksAddon;
+import keelfy.darkage.addon.blocks.block.BlockLootBag;
+import keelfy.darkage.addon.blocks.register.BlockRegister;
 import keelfy.darkage.client.renderer.RendererBlock;
 import keelfy.darkage.tileentity.DATileEntity;
 import keelfy.darkage.util.DAUtil;
-import keelfy.witcherBlocks.WitcherBlocks;
-import keelfy.witcherBlocks.block.BlockLootBag;
-import keelfy.witcherBlocks.register.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -23,8 +23,8 @@ import net.minecraftforge.client.model.IModelCustom;
  */
 public class RendererLootBag extends RendererBlock {
 
-	private final IModelCustom model = AdvancedModelLoader.loadModel(new ResourceLocation(WitcherBlocks.MODID, "models/e324151.obj"));
-	private final ResourceLocation texture = new ResourceLocation(WitcherBlocks.MODID, "textures/models/e324151.png");
+	private final IModelCustom model = AdvancedModelLoader.loadModel(new ResourceLocation(DABlocksAddon.MODID, "models/e324151.obj"));
+	private final ResourceLocation texture = new ResourceLocation(DABlocksAddon.MODID, "textures/models/e324151.png");
 	
     public RendererLootBag() {
     	if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {

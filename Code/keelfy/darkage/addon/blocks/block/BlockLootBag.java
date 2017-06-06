@@ -1,10 +1,10 @@
-package keelfy.witcherBlocks.block;
+package keelfy.darkage.addon.blocks.block;
 
 import keelfy.darkage.DarkAge;
+import keelfy.darkage.addon.blocks.tileentity.TileEntityLootBag;
 import keelfy.darkage.handler.GuiHandler.GUI;
 import keelfy.darkage.util.DATab;
 import keelfy.darkage.util.DAUtil;
-import keelfy.witcherBlocks.tileentity.TileEntityLootBag;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;

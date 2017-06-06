@@ -23,7 +23,6 @@ import net.minecraft.potion.PotionEffect;
 
 /**
  * @author keelfy
- * TODO: Десериалайзер для еды
  */
 public class FoodRegister {
 	

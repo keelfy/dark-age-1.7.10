@@ -90,13 +90,13 @@ public class SignIrden extends Entity {
 	public void handle() {
 		if (DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote) {
-				DAPlayer wcp = DAPlayer.get(owner);
+				DAPlayer dap = DAPlayer.get(owner);
 				
-				if (wcp != null && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+				if (dap != null && dap.get(Property.ENERGY) > dap.getPlayerMaxEnergy() - 10) {
 					setPosition(owner.posX, owner.worldObj.getTopSolidOrLiquidBlock((int) owner.posX, (int) owner.posZ), owner.posZ);
 					this.worldObj.spawnEntityInWorld(this);
-					ISign.useSign("customnpcs:signs.irden", this.worldObj, owner);
-					wcp.update(Property.ENERGY, 0F);
+					ISign.useSign("irden", this.worldObj, owner);
+					dap.update(Property.ENERGY, dap.getPlayerMinEnergy());
 				}
 			}
 		}

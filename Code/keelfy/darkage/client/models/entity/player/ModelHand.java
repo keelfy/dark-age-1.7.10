@@ -1,12 +1,10 @@
 package keelfy.darkage.client.models.entity.player;
 
+import keelfy.darkage.client.render.RenderDAPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 
 /**
  * @author keelfy
@@ -35,7 +33,8 @@ public class ModelHand  extends ModelBase {
 	}
 
 	public void render(EntityPlayer p, int mode) {
-		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
+//		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
+		mc.getTextureManager().bindTexture(RenderDAPlayer.skinWitcher);
 		if(mode == 1) this.rightarm.render(0.0625F);
 		if(mode == 2) this.leftarm.render(0.0525F);
 	}

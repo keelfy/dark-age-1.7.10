@@ -4,12 +4,12 @@ import api.player.model.ModelPlayerAPI;
 import api.player.model.ModelPlayerBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import keelfy.darkage.item.Sword;
 import keelfy.darkage.util.DAUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.MathHelper;
 
 /**
@@ -58,11 +58,11 @@ public class RenderModelPlayer extends ModelPlayerBase {
 			}
 	
 			if (super.modelPlayer.heldItemLeft != 0) {
-				super.modelPlayer.bipedLeftArm.rotateAngleX = super.modelPlayer.bipedLeftArm.rotateAngleX * 0.5F - 0.31415927F * (float) super.modelPlayer.heldItemLeft;
+				super.modelPlayer.bipedLeftArm.rotateAngleX = super.modelPlayer.bipedLeftArm.rotateAngleX * 0.5F - 0.31415927F * super.modelPlayer.heldItemLeft;
 			}
 	
 			if (super.modelPlayer.heldItemRight != 0) {
-				super.modelPlayer.bipedRightArm.rotateAngleX = super.modelPlayer.bipedRightArm.rotateAngleX * 0.5F - 0.31415927F * (float) super.modelPlayer.heldItemRight;
+				super.modelPlayer.bipedRightArm.rotateAngleX = super.modelPlayer.bipedRightArm.rotateAngleX * 0.5F - 0.31415927F * super.modelPlayer.heldItemRight;
 			}
 	
 			super.modelPlayer.bipedRightArm.rotateAngleY = 0.0F;
@@ -93,8 +93,8 @@ public class RenderModelPlayer extends ModelPlayerBase {
 				f7 = MathHelper.sin(f6 * 3.1415927F);
 				float f8 = MathHelper.sin(super.modelPlayer.onGround * 3.1415927F) * -(super.modelPlayer.bipedHead.rotateAngleX - 0.7F) * 0.75F;
 				if (!super.modelPlayer.isRiding || Minecraft.getMinecraft().thePlayer.swingProgress != 0.0F) {
-					super.modelPlayer.bipedRightArm.rotateAngleX = (float) ((double) super.modelPlayer.bipedRightArm.rotateAngleX
-							- ((double) f7 * 1.2D + (double) f8));
+					super.modelPlayer.bipedRightArm.rotateAngleX = (float) (super.modelPlayer.bipedRightArm.rotateAngleX
+							- (f7 * 1.2D + f8));
 					super.modelPlayer.bipedRightArm.rotateAngleY += super.modelPlayer.bipedBody.rotateAngleY * 2.0F;
 					super.modelPlayer.bipedRightArm.rotateAngleZ = MathHelper
 							.sin(super.modelPlayer.onGround * 3.1415927F) * -0.4F;
@@ -124,21 +124,21 @@ public class RenderModelPlayer extends ModelPlayerBase {
 			EntityPlayer entityPlayer = (EntityPlayer) paramEntity;
 			ItemStack item = entityPlayer.getHeldItem();
 			
-			if (item != null && item.getItem() instanceof ItemSword && entityPlayer.isUsingItem()) {
+			if (item != null && item.getItem() instanceof Sword && entityPlayer.isUsingItem()) {
 				if (!super.modelPlayer.isRiding) {
 					super.modelPlayer.bipedRightArm.rotateAngleX = -1.4F;
 					super.modelPlayer.bipedRightArm.rotateAngleY = -0.1F;
 					super.modelPlayer.bipedLeftArm.rotateAngleX = -1.5F;
 					super.modelPlayer.bipedLeftArm.rotateAngleY = 0.8F;
 				}
-			} else if (item != null && item.getItem() instanceof ItemSword) {
+			} else if (item != null && item.getItem() instanceof Sword) {
 				if (!super.modelPlayer.isRiding && entityPlayer.swingProgress == 0.0F) {
 					super.modelPlayer.bipedRightArm.rotateAngleX = -0.7F;
 					super.modelPlayer.bipedRightArm.rotateAngleY = -0.3F;
 					super.modelPlayer.bipedLeftArm.rotateAngleX = -1.0F;
 					super.modelPlayer.bipedLeftArm.rotateAngleY = 0.8F;
 				}
-			} else if (item != null && item.getItem() instanceof ItemSword && !entityPlayer.isUsingItem()) {
+			} else if (item != null && item.getItem() instanceof Sword && !entityPlayer.isUsingItem()) {
 				super.modelPlayer.bipedRightArm.rotateAngleX = -1.2F;
 				super.modelPlayer.bipedRightArm.rotateAngleY = -0.1F;
 				super.modelPlayer.bipedRightArm.rotateAngleZ = 1.5F;

@@ -1,7 +1,7 @@
-package keelfy.witcherBlocks.register;
+package keelfy.darkage.addon.blocks.register;
 
 import keelfy.api.registry.BlockRegistry;
-import keelfy.witcherBlocks.block.BlockLightMushroom;
+import keelfy.darkage.addon.blocks.block.BlockLightMushroom;
 import net.minecraft.block.Block;
 
 /**

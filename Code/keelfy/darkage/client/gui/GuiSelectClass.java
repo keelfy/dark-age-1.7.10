@@ -1,27 +1,22 @@
 package keelfy.darkage.client.gui;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.api.client.GuiUtil;
-import keelfy.api.network.PacketDispatcher;
-import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.PlayerClass;
-import keelfy.darkage.network.server.ClassMessage;
+import keelfy.darkage.network.client.ClientPacketHandler;
+import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
 import keelfy.darkage.util.DAUtil;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 
@@ -139,7 +134,7 @@ public class GuiSelectClass extends GuiScreen {
 		    		list.add("      свобода выбора      ");
 		    		this.drawHoveringText(list, (int)mouseX, (int)mouseY, mc.fontRenderer);
 			    	if(Mouse.getEventButton() == 0) {
-			    		PacketDispatcher.getInstance().sendToServer(new ClassMessage(PlayerClass.HUMAN.ordinal()));
+			    		ClientPacketHandler.sendToServer(PacketForServer.CLASS, PlayerClass.HUMAN.ordinal());
 			    		mc.displayGuiScreen(null);
 			    	}
 		    	}
@@ -155,7 +150,7 @@ public class GuiSelectClass extends GuiScreen {
 		    		list.add("использует знаки, эликсиры и масла ");
 			    	this.drawHoveringText(list, (int)mouseX, (int)mouseY, mc.fontRenderer);
 			    	if(Mouse.getEventButton() == 0) {
-			    		PacketDispatcher.getInstance().sendToServer(new ClassMessage(PlayerClass.WITCHER.ordinal()));
+			    		ClientPacketHandler.sendToServer(PacketForServer.CLASS, PlayerClass.WITCHER.ordinal());
 			    		mc.displayGuiScreen(null);
 			    	}
 		    	}

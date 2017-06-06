@@ -1,8 +1,11 @@
 package keelfy.darkage.client;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import api.player.model.ModelPlayerAPI;
 import api.player.render.RenderPlayerAPI;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import keelfy.darkage.CommonProxy;
@@ -44,6 +47,18 @@ public class ClientProxy extends CommonProxy {
 			new RendererRegister();
 			new ClientEventListener();
 		}
+	}
+	
+	@Override
+	public void postInit(FMLPostInitializationEvent event) {
+		Minecraft mc = Minecraft.getMinecraft();
+		
+		mc.gameSettings.keyBindings = ArrayUtils.removeElement(mc.gameSettings.keyBindings, mc.gameSettings.keyBindDrop);
+		
+//		for (int i = 0; i < 6; i++) {
+//            mc.gameSettings.keyBindsHotbar = ArrayUtils.remove(mc.gameSettings.keyBindsHotbar, 3 + i);
+//        }
+		
 	}
 	
 	@Override

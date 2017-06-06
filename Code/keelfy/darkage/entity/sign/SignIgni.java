@@ -1,9 +1,9 @@
 package keelfy.darkage.entity.sign;
 
+import keelfy.darkage.addon.blocks.register.BlockRegister;
 import keelfy.darkage.entity.player.DAPlayer;
 import keelfy.darkage.entity.player.DAPlayerUtil.Property;
 import keelfy.darkage.util.DAUtil;
-import keelfy.witcherBlocks.register.BlockRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -67,9 +67,9 @@ public class SignIgni extends EntityLivingBase {
 		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
 			if (!this.worldObj.isRemote && entityId != -1) {
 				Entity e1 = owner.worldObj.getEntityByID(entityId);
-				DAPlayer wcp = DAPlayer.get(owner);
+				DAPlayer dap = DAPlayer.get(owner);
 				
-				if (wcp != null && e1 != null && e1 instanceof EntityLiving && wcp.get(Property.ENERGY) > wcp.getPlayerMaxEnergy() - 7) {
+				if (dap != null && e1 != null && e1 instanceof EntityLiving && dap.get(Property.ENERGY) > dap.getPlayerMaxEnergy() - 10) {
 					EntityLiving e = (EntityLiving) e1;
 					setPosition(owner.posX, owner.posY, owner.posZ);
 					this.worldObj.spawnEntityInWorld(this);
@@ -78,10 +78,10 @@ public class SignIgni extends EntityLivingBase {
 					motionX = owner.getLookVec().xCoord * motion;
 					motionY = owner.getLookVec().zCoord * motion;
 					motionZ = y;
-					ISign.useSign("customnpcs:signs.igni", this.worldObj, owner);
+					ISign.useSign("igni", this.worldObj, owner);
 					owner.worldObj.setBlock((int) owner.posX, (int) owner.posY + 2, (int) owner.posZ, BlockRegister.light, 0, 3);
 					e.setFire(3 + this.worldObj.rand.nextInt(10));
-					wcp.update(Property.ENERGY, 0F);
+					dap.update(Property.ENERGY, dap.getPlayerMinEnergy());
 				}
 			}
 		}
