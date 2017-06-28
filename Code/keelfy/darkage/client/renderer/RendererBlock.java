@@ -1,7 +1,12 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -25,7 +30,7 @@ public abstract class RendererBlock extends TileEntitySpecialRenderer implements
 	}
 	
 	public boolean playerTooFar(TileEntity tile) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			Minecraft mc = Minecraft.getMinecraft();
 	        double d6 = mc.renderViewEntity.posX - tile.xCoord;
 	        double d7 = mc.renderViewEntity.posY - tile.yCoord;

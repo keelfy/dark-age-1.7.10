@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.gui;
 
 import java.util.ArrayList;
@@ -8,11 +13,12 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.api.client.GuiUtil;
-import keelfy.darkage.entity.player.PlayerClass;
-import keelfy.darkage.network.client.ClientPacketHandler;
-import keelfy.darkage.network.server.CustomServerMessage.PacketForServer;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.constants.EnumPlayerClass;
+import keelfy.darkage.constants.EnumServerPacket;
+import keelfy.darkage.network.ClientPacketHandler;
+import keelfy.darkage.utils.DAUtils;
+import keelfytools.KeelfyUtils;
+import keelfytools.gui.KeelfyUtilsGui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -32,16 +38,16 @@ public class GuiSelectClass extends GuiScreen {
 	private ResourceLocation humanbutton;
 	private ResourceLocation humanbutton_idle;
 	
-	private GuiUtil helper;
+	private KeelfyUtilsGui helper;
 	private GuiButton humanButton, witcherButton;
 	
 	public GuiSelectClass() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			bg = new ResourceLocation(DAUtil.MODID + ":textures/gui/SELECT_CLASS_BG.png");
-			witcherbutton = new ResourceLocation(DAUtil.MODID + ":textures/gui/WITCHER_ACTIVE.png");
-			witcherbutton_idle = new ResourceLocation(DAUtil.MODID + ":textures/gui/WITCHER_IDLE.png");
-			humanbutton = new ResourceLocation(DAUtil.MODID + ":textures/gui/HUMAN_ACTIVE.png");
-			humanbutton_idle = new ResourceLocation(DAUtil.MODID + ":textures/gui/HUMAN_IDLE.png");
+		if(KeelfyUtils.isClientSide()) {
+			bg = new ResourceLocation(DAUtils.MODID + ":textures/gui/SELECT_CLASS_BG.png");
+			witcherbutton = new ResourceLocation(DAUtils.MODID + ":textures/gui/WITCHER_ACTIVE.png");
+			witcherbutton_idle = new ResourceLocation(DAUtils.MODID + ":textures/gui/WITCHER_IDLE.png");
+			humanbutton = new ResourceLocation(DAUtils.MODID + ":textures/gui/HUMAN_ACTIVE.png");
+			humanbutton_idle = new ResourceLocation(DAUtils.MODID + ":textures/gui/HUMAN_IDLE.png");
 		}
 	}
 	
@@ -55,7 +61,7 @@ public class GuiSelectClass extends GuiScreen {
     
     @Override
     public void drawScreen(int i, int j, float f) {
-    	if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+    	if(KeelfyUtils.isClientSide()) {
 	    	drawDefaultBackground();
 	    	
 	    	GL11.glDisable(GL11.GL_DEPTH_TEST);
@@ -76,7 +82,7 @@ public class GuiSelectClass extends GuiScreen {
     }
 
     private void drawClasses(float mouseX, float mouseY) {
-    	if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+    	if(KeelfyUtils.isClientSide()) {
     		ScaledResolution sr = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 	    	int width = sr.getScaledWidth();
 	    	int height = sr.getScaledHeight();
@@ -134,7 +140,7 @@ public class GuiSelectClass extends GuiScreen {
 		    		list.add("      свобода выбора      ");
 		    		this.drawHoveringText(list, (int)mouseX, (int)mouseY, mc.fontRenderer);
 			    	if(Mouse.getEventButton() == 0) {
-			    		ClientPacketHandler.sendToServer(PacketForServer.CLASS, PlayerClass.HUMAN.ordinal());
+			    		ClientPacketHandler.sendToServer(EnumServerPacket.CLASS, EnumPlayerClass.HUMAN.ordinal());
 			    		mc.displayGuiScreen(null);
 			    	}
 		    	}
@@ -150,7 +156,7 @@ public class GuiSelectClass extends GuiScreen {
 		    		list.add("использует знаки, эликсиры и масла ");
 			    	this.drawHoveringText(list, (int)mouseX, (int)mouseY, mc.fontRenderer);
 			    	if(Mouse.getEventButton() == 0) {
-			    		ClientPacketHandler.sendToServer(PacketForServer.CLASS, PlayerClass.WITCHER.ordinal());
+			    		ClientPacketHandler.sendToServer(EnumServerPacket.CLASS, EnumPlayerClass.WITCHER.ordinal());
 			    		mc.displayGuiScreen(null);
 			    	}
 		    	}

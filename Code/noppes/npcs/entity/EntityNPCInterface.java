@@ -8,7 +8,7 @@ import java.util.List;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import io.netty.buffer.ByteBuf;
-import keelfy.darkage.event.custom.NPCAttackEntityEvent;
+import keelfy.darkage.events.custom.NPCAttackEntityEvent;
 import net.minecraft.block.Block;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.IEntitySelector;

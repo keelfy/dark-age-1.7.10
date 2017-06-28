@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage;
 
 import cpw.mods.fml.common.Mod;
@@ -8,82 +13,94 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import keelfy.api.network.PacketDispatcher;
-import keelfy.api.registry.BlockRegistry;
-import keelfy.api.registry.ItemRegistry;
-import keelfy.darkage.command.CommandDebug;
-import keelfy.darkage.event.EventListener;
-import keelfy.darkage.event.TickListener;
-import keelfy.darkage.handler.GuiHandler;
-import keelfy.darkage.handler.client.FileHandler;
-import keelfy.darkage.handler.registers.EntityRegister;
-import keelfy.darkage.handler.registers.ItemRegister;
-import keelfy.darkage.network.client.CustomClientMessage;
-import keelfy.darkage.network.server.CustomServerMessage;
-import keelfy.darkage.util.DATab;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.blocks.register.BlockRegister;
+import keelfy.darkage.commands.CommandBookList;
+import keelfy.darkage.commands.CommandBookNameList;
+import keelfy.darkage.commands.CommandChangeName;
+import keelfy.darkage.commands.CommandGiveBook;
+import keelfy.darkage.commands.CommandQuestOnly;
+import keelfy.darkage.commands.CommandUpdateBooks;
+import keelfy.darkage.events.EventListener;
+import keelfy.darkage.events.TickListener;
+import keelfy.darkage.handlers.FileHandler;
+import keelfy.darkage.handlers.GuiHandler;
+import keelfy.darkage.handlers.TabsRegister;
+import keelfy.darkage.handlers.registers.EntityRegister;
+import keelfy.darkage.handlers.registers.ItemRegister;
+import keelfy.darkage.handlers.registers.PacketRegister;
+import keelfy.darkage.handlers.server.BookHandler;
+import keelfy.darkage.handlers.server.ConfigHandler;
+import keelfy.darkage.utils.DAUtils;
+import keelfytools.KeelfyUtils;
+import keelfytools.log.KeelfyLog;
+import keelfytools.registry.BlockRegistry;
+import keelfytools.registry.ItemRegistry;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 
 /**
  * @author keelfy
+ * @created 30 фев. 2019 г.
  */
-@Mod(modid = DAUtil.MODID, name = DAUtil.MODNAME, version = DAUtil.MODVER)
+@Mod(modid = DAUtils.MODID, name = DAUtils.MODNAME, version = DAUtils.MODVER)
 public class DarkAge {
 
-	@Instance(DAUtil.MODID)
+	@Instance(DAUtils.MODID)
 	public static DarkAge instance;
 
-	@SidedProxy(clientSide = DAUtil.PROXY_CLIENT, serverSide = DAUtil.PROXY_SERVER)
+	@SidedProxy(clientSide = DAUtils.PROXY_CLIENT, serverSide = DAUtils.PROXY_SERVER)
 	public static CommonProxy proxy;
-	
+
 	public FileHandler fileHandler;
+	public BookHandler bookHandler;
+	public ConfigHandler configHandler;
 	public ServerCommandManager manager;
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		ItemRegistry.setResourceDomain(DAUtil.MODID);
-		BlockRegistry.setResourceDomain(DAUtil.MODID);
+		ItemRegistry.setResourceDomain(DAUtils.MODID);
+		BlockRegistry.setResourceDomain(DAUtils.MODID);
 		
 		fileHandler = new FileHandler(event.getModConfigurationDirectory());
-		
-		new ItemRegister();
-		new EntityRegister();
-		
-		packetSystemInit();
-		
-		new DATab();
+		bookHandler = new BookHandler();
+		configHandler = new ConfigHandler();
+
+		ItemRegister.Instance.init();
+		BlockRegister.Instance.init();
+		EntityRegister.Instance.init();
+		PacketRegister.Instance.init();
+		TabsRegister.Instance.init();
+
 		proxy.preInit(event);
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		new EventListener();
-		new TickListener();
-		new GuiHandler();
-		
+		EventListener.Instance.register();
+		TickListener.Instance.register();
+		GuiHandler.Instance.register();
+
 		proxy.init(event);
-		
-		DAUtil.LOGGER.info("Авторы мода: keelfy & RedSokol");
+
+		KeelfyLog.info("Авторы мода: keelfy & RedSokol");
 	}
 
 	@EventHandler
-	public void init(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
-	
+
 	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
-		if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if (KeelfyUtils.isServerSide()) {
 			manager = (ServerCommandManager) MinecraftServer.getServer().getCommandManager();
-			new CommandDebug(manager);
+
+			new CommandChangeName();
+			new CommandQuestOnly();
+			new CommandGiveBook();
+			new CommandBookList();
+			new CommandBookNameList();
+			new CommandUpdateBooks();
 		}
-	}
-	
-	private void packetSystemInit() {
-		PacketDispatcher dis = PacketDispatcher.getInstance();
-		dis.registerChannel(DAUtil.NETWORK_CHANNEL);
-		dis.registerMessage(CustomClientMessage.class);
-		dis.registerMessage(CustomServerMessage.class);
 	}
 }

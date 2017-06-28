@@ -1,6 +1,11 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.inventory.slot;
 
-import keelfy.darkage.item.IFastUsable;
+import keelfy.darkage.items.IFastUsable;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 

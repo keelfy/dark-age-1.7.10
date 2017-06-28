@@ -1,18 +1,23 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.config.GuiUtils;
-import keelfy.darkage.client.gui.GuiDAInventory;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
-import keelfy.darkage.item.Armor;
-import keelfy.darkage.item.DAItem.ItemRarity;
-import keelfy.darkage.item.Elexir;
-import keelfy.darkage.item.Food;
-import keelfy.darkage.item.Sword;
-import keelfy.darkage.item.Sword.SwordType;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.client.gui.DAGuiInventory;
+import keelfy.darkage.constants.EnumRarity;
+import keelfy.darkage.constants.EnumSwordMaterial;
+import keelfy.darkage.constants.EnumTexturePath;
+import keelfy.darkage.handlers.client.ResourceHandler.Texture;
+import keelfy.darkage.items.Armor;
+import keelfy.darkage.items.Elexir;
+import keelfy.darkage.items.Food;
+import keelfy.darkage.items.Sword;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
@@ -24,10 +29,10 @@ import net.minecraft.util.ResourceLocation;
 public class RendererRarity {
 	private static final Minecraft mc = Minecraft.getMinecraft();
 	
-	public static final ResourceLocation USUAL = Texture.get(WCT.RARITY, "1");
-	public static final ResourceLocation UNCOMMON = Texture.get(WCT.RARITY, "2");
-	public static final ResourceLocation RARE = Texture.get(WCT.RARITY, "3");
-	public static final ResourceLocation LEGENDARY = Texture.get(WCT.RARITY, "4");
+	public static final ResourceLocation USUAL = Texture.get(EnumTexturePath.RARITY, "1");
+	public static final ResourceLocation UNCOMMON = Texture.get(EnumTexturePath.RARITY, "2");
+	public static final ResourceLocation RARE = Texture.get(EnumTexturePath.RARITY, "3");
+	public static final ResourceLocation LEGENDARY = Texture.get(EnumTexturePath.RARITY, "4");
 	
 //	public static void renderDraft(ItemStack draft) {
 //		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
@@ -45,23 +50,23 @@ public class RendererRarity {
 //	}
 
 	static void renderSword(ItemStack sword) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			Sword item = (Sword) sword.getItem();
 			
-			bindRarityTexture(item.getRarity(), sword, item.getType() == SwordType.SILVER ? 1 : 2);
+			bindRarityTexture(item.getRarity(), sword, item.getType() == EnumSwordMaterial.SILVER ? 1 : 2);
 		}
 	}
 
 	static void renderPotion(ItemStack potion) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			Elexir item = (Elexir) potion.getItem();
 			
-			bindRarityTexture(ItemRarity.RARE, potion, 0);
+			bindRarityTexture(EnumRarity.RARE, potion, 0);
 		}
 	}
 
 	public static void renderArmor(ItemStack armor) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			Armor item = (Armor) armor.getItem();
 			
 			bindRarityTexture(item.getRarity(), armor, ((Armor)armor.getItem()).getPart());
@@ -69,18 +74,18 @@ public class RendererRarity {
 	}
 
 	public static void renderFood(ItemStack food) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			Food item = (Food) food.getItem();
 			
 			bindRarityTexture(item.getRarity(), food, 10);
 		}
 	}
 	
-	private static void bindRarityTexture(ItemRarity rarity, ItemStack stack, int slot) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+	private static void bindRarityTexture(EnumRarity rarity, ItemStack stack, int slot) {
+		if(KeelfyUtils.isClientSide()) {
 			RenderItem.getInstance().renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), stack, 0, 0);
 			
-			if(!mc.thePlayer.capabilities.isCreativeMode && mc.thePlayer.inventory.hasItemStack(stack) && mc.currentScreen instanceof GuiDAInventory) {
+			if(!mc.thePlayer.capabilities.isCreativeMode && mc.thePlayer.inventory.hasItemStack(stack) && mc.currentScreen instanceof DAGuiInventory) {
 				switch(rarity) {
 				case USUAL: mc.getTextureManager().bindTexture(USUAL);
 					break;

@@ -9,15 +9,15 @@ import noppes.npcs.client.gui.player.GuiFaction;
 public class InventoryTabFactions extends AbstractTab {
 	public InventoryTabFactions() {
 		super(0, 0, 0, new ItemStack(CustomItems.wallBanner, 1, 1));
-		if(CustomItems.wallBanner == null)
+		if (CustomItems.wallBanner == null)
 			renderStack = new ItemStack(Blocks.tnt);
 	}
 
 	@Override
 	public void onTabClicked() {
-		Thread t = new Thread(){
+		Thread t = new Thread() {
 			@Override
-			public void run(){
+			public void run() {
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {

@@ -1,6 +1,11 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.inventory.slot;
 
-import keelfy.darkage.item.Armor;
+import keelfy.darkage.items.Armor;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
@@ -15,6 +20,7 @@ public class SlotArmor extends DASlot {
 		this.type = type;
 	}
 
+	@Override
 	public boolean isItemValid(ItemStack is) {
 		return is.getItem() instanceof Armor && ((Armor)is.getItem()).getPart() == type;
 	}

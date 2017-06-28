@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client;
 
 import org.lwjgl.opengl.GL11;

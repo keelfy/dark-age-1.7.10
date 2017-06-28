@@ -1,6 +1,6 @@
 package keelfy.darkage.client.models.armor.bear;
 
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 
@@ -28,7 +28,7 @@ public class ModelArmorBearHand extends ModelBiped {
 	ModelRenderer Shape32;
 
 	public ModelArmorBearHand() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.textureWidth = 64;
 			this.textureHeight = 32;
 			this.Shape0 = new ModelRenderer(this, 34, 28);
@@ -120,7 +120,7 @@ public class ModelArmorBearHand extends ModelBiped {
 	}
 
 	public void render(float f5) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.Shape0.render(f5);
 			this.Shape7.render(f5);
 			this.Shape18.render(f5);
@@ -142,7 +142,7 @@ public class ModelArmorBearHand extends ModelBiped {
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			model.rotateAngleX = x;
 			model.rotateAngleY = y;
 			model.rotateAngleZ = z;

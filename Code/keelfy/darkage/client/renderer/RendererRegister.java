@@ -1,13 +1,18 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import keelfy.darkage.entity.sign.ISign.Sign;
-import keelfy.darkage.entity.sign.SignAard;
-import keelfy.darkage.entity.sign.SignAksi;
-import keelfy.darkage.entity.sign.SignIgni;
-import keelfy.darkage.entity.sign.SignIrden;
-import keelfy.darkage.handler.registers.SwordRegister;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.constants.EnumSign;
+import keelfy.darkage.entities.sign.SignAard;
+import keelfy.darkage.entities.sign.SignAksi;
+import keelfy.darkage.entities.sign.SignIgni;
+import keelfy.darkage.entities.sign.SignIrden;
+import keelfy.darkage.handlers.registers.SwordRegister;
+import keelfytools.KeelfyUtils;
 
 /**
  * @author keelfy
@@ -15,7 +20,7 @@ import keelfy.darkage.util.DAUtil;
 public class RendererRegister {
 	   
 	public RendererRegister() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			registerSilverSwords();
 			registerSteelSwords();
 			registerEntity();
@@ -23,16 +28,16 @@ public class RendererRegister {
 	}
 	
 	private void registerEntity() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			RenderingRegistry.registerEntityRenderingHandler(SignIrden.class, new RendererSign(Sign.IRDEN));
-			RenderingRegistry.registerEntityRenderingHandler(SignAksi.class, new RendererSign(Sign.AKSI));
-			RenderingRegistry.registerEntityRenderingHandler(SignAard.class, new RendererSign(Sign.AARD));
-			RenderingRegistry.registerEntityRenderingHandler(SignIgni.class, new RendererSign(Sign.IGNI));
+		if(KeelfyUtils.isClientSide()) {
+			RenderingRegistry.registerEntityRenderingHandler(SignIrden.class, new RendererSign(EnumSign.IRDEN));
+			RenderingRegistry.registerEntityRenderingHandler(SignAksi.class, new RendererSign(EnumSign.AKSI));
+			RenderingRegistry.registerEntityRenderingHandler(SignAard.class, new RendererSign(EnumSign.AARD));
+			RenderingRegistry.registerEntityRenderingHandler(SignIgni.class, new RendererSign(EnumSign.IGNI));
 		}
 	}
 
 	private void registerSteelSwords() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			RendererSword oldestElvin = new RendererSword(SwordRegister.oldestElvin);
 			oldestElvin.setEFPRender(2.3F, -3.85F, -0.64F, 2.0515F);
 			SwordRegister.oldestElvin.setRenderer(oldestElvin);
@@ -172,7 +177,7 @@ public class RendererRegister {
 	}
 
 	private void registerSilverSwords() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			RendererSword addanDeidth = new RendererSword(SwordRegister.addanDeidth);
 			addanDeidth.setEFPRender(2.1F, -3.55F, -0.64F, 2.0515F);
 			SwordRegister.addanDeidth.setRenderer(addanDeidth);

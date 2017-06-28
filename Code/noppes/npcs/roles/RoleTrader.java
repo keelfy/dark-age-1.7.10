@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import foxz.utils.Market;
+import keelfy.darkage.items.storybook.StoryBook;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -90,5 +91,19 @@ public class RoleTrader extends RoleInterface {
 		}
 		return false;
 	}
-
+	
+	public boolean hasStoryBook() {
+		for (ItemStack item : inventorySold.items.values()) {
+			if (item != null && item.getItem() instanceof StoryBook) {
+				return true;
+			}
+		}
+		
+		for (ItemStack item : inventoryCurrency.items.values()) {
+			if (item != null && item.getItem() instanceof StoryBook) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

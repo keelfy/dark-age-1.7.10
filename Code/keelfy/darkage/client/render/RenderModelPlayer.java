@@ -4,8 +4,8 @@ import api.player.model.ModelPlayerAPI;
 import api.player.model.ModelPlayerBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.darkage.item.Sword;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.items.Sword;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +24,7 @@ public class RenderModelPlayer extends ModelPlayerBase {
 
 	@Override
 	public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			super.modelPlayer.bipedHead.rotateAngleY = p_78087_4_ / 57.295776F;
 			super.modelPlayer.bipedHead.rotateAngleX = p_78087_5_ / 57.295776F;
 			super.modelPlayer.bipedHeadwear.rotateAngleY = super.modelPlayer.bipedHead.rotateAngleY;
@@ -120,7 +120,7 @@ public class RenderModelPlayer extends ModelPlayerBase {
 
 	@Override
 	public void afterSetRotationAngles(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6, Entity paramEntity) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			EntityPlayer entityPlayer = (EntityPlayer) paramEntity;
 			ItemStack item = entityPlayer.getHeldItem();
 			

@@ -3,19 +3,21 @@ package tconstruct.client.tabs;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.NPCGuiHelper;
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.network.play.client.C0DPacketCloseWindow;
-import net.minecraftforge.client.event.GuiScreenEvent;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import keelfy.darkage.constants.EnumGui;
+import keelfy.darkage.network.ClientPacketHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.NPCGuiHelper;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.network.play.client.C0DPacketCloseWindow;
+import net.minecraftforge.client.event.GuiScreenEvent;
 
 public class TabRegistry {
-	private static ArrayList<AbstractTab> tabList = new ArrayList<AbstractTab>();
+	private static ArrayList<AbstractTab> tabList = new ArrayList();
 
 	public static void registerTab(AbstractTab tab) {
 		tabList.add(tab);
@@ -34,7 +36,6 @@ public class TabRegistry {
 			int guiLeft = (event.gui.width - xSize) / 2;
 			int guiTop = (event.gui.height - ySize) / 2;
 			guiLeft += getPotionOffset();
-			updateTabValues(guiLeft, guiTop, InventoryTabVanilla.class);
 			addTabsToList(NPCGuiHelper.getButtonList(event.gui));
 		}
 	}
@@ -42,10 +43,8 @@ public class TabRegistry {
 	private static Minecraft mc = FMLClientHandler.instance().getClient();
 
 	public static void openInventoryGui() {
-		mc.thePlayer.sendQueue.addToSendQueue(new C0DPacketCloseWindow(
-				mc.thePlayer.openContainer.windowId));
-		GuiInventory inventory = new GuiInventory(mc.thePlayer);
-		mc.displayGuiScreen(inventory);
+		mc.thePlayer.sendQueue.addToSendQueue(new C0DPacketCloseWindow(mc.thePlayer.openContainer.windowId));
+		ClientPacketHandler.openGUI(EnumGui.INVENTORY);
 	}
 
 	public static void updateTabValues(int cornerX, int cornerY,

@@ -1,12 +1,17 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 
 import keelfy.darkage.client.models.entity.sign.ModelSignIrden;
-import keelfy.darkage.entity.sign.ISign.Sign;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.constants.EnumSign;
+import keelfy.darkage.constants.EnumTexturePath;
+import keelfy.darkage.handlers.client.ResourceHandler.Texture;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -23,11 +28,11 @@ public class RendererSign extends Render {
 	private ResourceLocation textureIrden;
 	private ModelSignIrden modelIrden;
 	
-	private Sign type;
-	public RendererSign(Sign renderType) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			texture = Texture.get(WCT.ENTITY, "null");
-			textureIrden = Texture.get(WCT.ENTITY, "irden");
+	private EnumSign type;
+	public RendererSign(EnumSign renderType) {
+		if(KeelfyUtils.isClientSide()) {
+			texture = Texture.get(EnumTexturePath.ENTITY, "null");
+			textureIrden = Texture.get(EnumTexturePath.ENTITY, "irden");
 			model = new ModelSignIrden();
 			modelIrden = new ModelSignIrden();
 			type = renderType;
@@ -36,8 +41,8 @@ public class RendererSign extends Render {
 	
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float par5, float par6) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			if(type != Sign.IRDEN) {
+		if(KeelfyUtils.isClientSide()) {
+			if(type != EnumSign.IRDEN) {
 				GL11.glPushMatrix();
 				GL11.glEnable(3042);
 				Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
@@ -62,8 +67,8 @@ public class RendererSign extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
-			if(type != Sign.IRDEN) {
+		if(KeelfyUtils.isClientSide()) {
+			if(type != EnumSign.IRDEN) {
 				return texture;
 			} else {
 				return textureIrden;

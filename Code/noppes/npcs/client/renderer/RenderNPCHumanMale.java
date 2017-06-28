@@ -5,8 +5,8 @@ import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3
 
 import org.lwjgl.opengl.GL11;
 
-import keelfy.darkage.client.render.RenderDAPlayer;
-import keelfy.darkage.handler.registers.ArmorRegister;
+import keelfy.darkage.client.render.RenderPlayerArmor;
+import keelfy.darkage.handlers.registers.ArmorRegister;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
@@ -378,41 +378,41 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				this.modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.CidarisT);
-				RenderDAPlayer.RedanianHalebardistArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisT);
+				RenderPlayerArmor.RedanianHalebardistArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.RedanianHalebardistAddon.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.RedanianHalebardistAddon.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.95F, 0.0F);
 				GL11.glScalef(-1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.CidarisLeg.render(0.0625F);
+				RenderPlayerArmor.CidarisLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.95F, 0.0F);
 				GL11.glScalef(1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.CidarisLeg.render(0.0625F);
+				RenderPlayerArmor.CidarisLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -421,37 +421,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.CidarisCombezT);
-				RenderDAPlayer.BelhavenaBrigantineBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisCombezT);
+				RenderPlayerArmor.BelhavenaBrigantineBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisCombezT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisCombezT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BelhavenaBrigantineHand.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisCombezT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisCombezT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BelhavenaBrigantineHand.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisCombezT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisCombezT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.89F, 0.0F);
 				GL11.glScalef(-1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.BelhavenaBrigantineLeg.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CidarisCombezT);
+				textureManager.bindTexture(RenderPlayerArmor.CidarisCombezT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.89F, 0.0F);
 				GL11.glScalef(1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.BelhavenaBrigantineLeg.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -460,30 +460,30 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.0F, 1.07F, 1.0F);
-				textureManager.bindTexture(RenderDAPlayer.ShirtT);
-				RenderDAPlayer.ShirtBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ShirtT);
+				RenderPlayerArmor.ShirtBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(0.96F, 0.96F, 0.96F);
-				textureManager.bindTexture(RenderDAPlayer.ShirtT);
-				RenderDAPlayer.ShirtAddon.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ShirtT);
+				RenderPlayerArmor.ShirtAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ShirtT);
+				textureManager.bindTexture(RenderPlayerArmor.ShirtT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.315F, -0.14F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.ShirtHand.render(0.0625F);
+				RenderPlayerArmor.ShirtHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ShirtT);
+				textureManager.bindTexture(RenderPlayerArmor.ShirtT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.315F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.ShirtHand.render(0.0625F);
+				RenderPlayerArmor.ShirtHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -492,37 +492,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.BelhavenaBrigantineT);
-				RenderDAPlayer.BelhavenaBrigantineBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.BelhavenaBrigantineT);
+				RenderPlayerArmor.BelhavenaBrigantineBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BelhavenaBrigantineT);
+				textureManager.bindTexture(RenderPlayerArmor.BelhavenaBrigantineT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BelhavenaBrigantineHand.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BelhavenaBrigantineT);
+				textureManager.bindTexture(RenderPlayerArmor.BelhavenaBrigantineT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BelhavenaBrigantineHand.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BelhavenaBrigantineT);
+				textureManager.bindTexture(RenderPlayerArmor.BelhavenaBrigantineT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.89F, 0.0F);
 				GL11.glScalef(-1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.BelhavenaBrigantineLeg.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BelhavenaBrigantineT);
+				textureManager.bindTexture(RenderPlayerArmor.BelhavenaBrigantineT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.89F, 0.0F);
 				GL11.glScalef(1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.BelhavenaBrigantineLeg.render(0.0625F);
+				RenderPlayerArmor.BelhavenaBrigantineLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -531,37 +531,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.RedanianHalebardistArmorT);
-				RenderDAPlayer.RedanianHalebardistArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.RedanianHalebardistArmorT);
+				RenderPlayerArmor.RedanianHalebardistArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.RedanianHalebardistArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.RedanianHalebardistArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.RedanianHalebardistAddon.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.RedanianHalebardistArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.RedanianHalebardistArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.RedanianHalebardistAddon.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.RedanianHalebardistArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.RedanianHalebardistArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.95F, 0.0F);
 				GL11.glScalef(-1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.RedanianHalebardistLeg.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.RedanianHalebardistArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.RedanianHalebardistArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.95F, 0.0F);
 				GL11.glScalef(1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.RedanianHalebardistLeg.render(0.0625F);
+				RenderPlayerArmor.RedanianHalebardistLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -570,37 +570,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.HindarsfjallHeavyArmorT);
-				RenderDAPlayer.HindarsfjallHeavyArmorBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.HindarsfjallHeavyArmorT);
+				RenderPlayerArmor.HindarsfjallHeavyArmorBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.HindarsfjallHeavyArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.HindarsfjallHeavyArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.HindarsfjallHeavyArmorHand.render(0.0625F);
+				RenderPlayerArmor.HindarsfjallHeavyArmorHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.HindarsfjallHeavyArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.HindarsfjallHeavyArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.HindarsfjallHeavyArmorHand.render(0.0625F);
+				RenderPlayerArmor.HindarsfjallHeavyArmorHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.HindarsfjallHeavyArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.HindarsfjallHeavyArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.13F, -0.76F, 0.0F);
 				GL11.glScalef(-1.15F, 1.05F, 1.15F);
-				RenderDAPlayer.HindarsfjallHeavyArmorLeg.render(0.0625F);
+				RenderPlayerArmor.HindarsfjallHeavyArmorLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.HindarsfjallHeavyArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.HindarsfjallHeavyArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.13F, -0.76F, 0.0F);
 				GL11.glScalef(1.15F, 1.05F, 1.15F);
-				RenderDAPlayer.HindarsfjallHeavyArmorLeg.render(0.0625F);
+				RenderPlayerArmor.HindarsfjallHeavyArmorLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -609,36 +609,36 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.WitchunterArmorT);
-				RenderDAPlayer.WitchunterArmorBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.WitchunterArmorT);
+				RenderPlayerArmor.WitchunterArmorBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitchunterArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.WitchunterArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WitchunterArmorHand.render(0.0625F);
+				RenderPlayerArmor.WitchunterArmorHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitchunterArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.WitchunterArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(0.46F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WitchunterArmorHand.render(0.0625F);
+				RenderPlayerArmor.WitchunterArmorHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitchunterArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.WitchunterArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.13F, -0.76F, 0.0F);
 				GL11.glScalef(-1.15F, 1.05F, 1.15F);
-				RenderDAPlayer.WitchunterArmorLeg.render(0.0625F);
+				RenderPlayerArmor.WitchunterArmorLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitchunterArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.WitchunterArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.13F, -0.76F, 0.0F);
 				GL11.glScalef(1.15F, 1.05F, 1.15F);
-				RenderDAPlayer.WitchunterArmorLeg.render(0.0625F);
+				RenderPlayerArmor.WitchunterArmorLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -647,51 +647,51 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
-				RenderDAPlayer.MagDeithraArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
+				RenderPlayerArmor.MagDeithraArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.MagDeithraHand.render(0.0625F);
+				RenderPlayerArmor.MagDeithraHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.MagDeithraHand.render(0.0625F);
+				RenderPlayerArmor.MagDeithraHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.95F, 0.0F);
 				GL11.glScalef(-1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.MagDeithraRightLeg.render(0.0625F);
+				RenderPlayerArmor.MagDeithraRightLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.13F, -0.95F, 0.0F);
 				GL11.glScalef(1.15F, 1.15F, 1.15F);
-				RenderDAPlayer.MagDeithraRightLeg.render(0.0625F);
+				RenderPlayerArmor.MagDeithraRightLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.9F, -0.0F);
 				GL11.glScalef(1.4F, 1.3F, -1.4F);
-				RenderDAPlayer.MagDeithraLegAddon.render(0.0625F);
+				RenderPlayerArmor.MagDeithraLegAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.MagDeithraArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.MagDeithraArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.23F, -0.85F, -0.01F);
 				GL11.glScalef(1.4F, 1.3F, -1.4F);
-				RenderDAPlayer.MagDeithraLegAddon.render(0.0625F);
+				RenderPlayerArmor.MagDeithraLegAddon.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -700,30 +700,30 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
-				RenderDAPlayer.NilfgaardArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
+				RenderPlayerArmor.NilfgaardArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedHead.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
-				RenderDAPlayer.NilfgaardHead.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
+				RenderPlayerArmor.NilfgaardHead.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.NilfgaardArmorAddon.render(0.0625F);
+				RenderPlayerArmor.NilfgaardArmorAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.NilfgaardArmorAddon.render(0.0625F);
+				RenderPlayerArmor.NilfgaardArmorAddon.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -732,37 +732,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
-				RenderDAPlayer.BearSchoolArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
+				RenderPlayerArmor.BearSchoolArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolSkirtT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolSkirtT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.95F, 0.0F);
 				GL11.glScalef(-1.25F, 1.25F, 1.25F);
-				RenderDAPlayer.ModelSkirt.render(0.0625F);
+				RenderPlayerArmor.ModelSkirt.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolSkirtT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolSkirtT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.95F, 0.0F);
 				GL11.glScalef(1.25F, 1.25F, 1.25F);
-				RenderDAPlayer.ModelSkirt.render(0.0625F);
+				RenderPlayerArmor.ModelSkirt.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -771,37 +771,37 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT2);
-				RenderDAPlayer.BearSchoolArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT2);
+				RenderPlayerArmor.BearSchoolArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT2);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT2);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolSkirtT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolSkirtT2);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.95F, 0.0F);
 				GL11.glScalef(-1.25F, 1.25F, 1.25F);
-				RenderDAPlayer.ModelSkirt.render(0.0625F);
+				RenderPlayerArmor.ModelSkirt.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolSkirtT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolSkirtT2);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.95F, 0.0F);
 				GL11.glScalef(1.25F, 1.25F, 1.25F);
-				RenderDAPlayer.ModelSkirt.render(0.0625F);
+				RenderPlayerArmor.ModelSkirt.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -810,23 +810,23 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
-				RenderDAPlayer.CatSchoolArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
+				RenderPlayerArmor.CatSchoolArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.CatSchoolSleeve.render(0.0625F);
+				RenderPlayerArmor.CatSchoolSleeve.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.CatSchoolSleeve.render(0.0625F);
+				RenderPlayerArmor.CatSchoolSleeve.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -835,30 +835,30 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				textureManager.bindTexture(RenderDAPlayer.TalgarT);
-				RenderDAPlayer.TalgarBody.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarT);
+				RenderPlayerArmor.TalgarBody.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.03F, 0.1F, -0.2F);
 				GL11.glScalef(0.2F, 0.2F, 0.2F);
-				textureManager.bindTexture(RenderDAPlayer.TalgarSignT);
-				RenderDAPlayer.Sign.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarSignT);
+				RenderPlayerArmor.Sign.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.TalgarT);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.TalgarHand.render(0.0625F);
+				RenderPlayerArmor.TalgarHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.TalgarT);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.TalgarHand.render(0.0625F);
+				RenderPlayerArmor.TalgarHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -867,23 +867,23 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.05F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
-				RenderDAPlayer.WolfArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
+				RenderPlayerArmor.WolfArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WolfHand.render(0.0625F);
+				RenderPlayerArmor.WolfHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WolfHand.render(0.0625F);
+				RenderPlayerArmor.WolfHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -892,22 +892,22 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, -0.03F, 0.0F);
 				GL11.glScalef(1.1F, 1.0F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
-				RenderDAPlayer.GriffinArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
+				RenderPlayerArmor.GriffinArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.19F, -0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.GriffinHand.render(0.0625F);
+				RenderPlayerArmor.GriffinHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.35F, -0.19F, -0.0F);
 				GL11.glScalef(-1.1F, 1.05F, -1.05F);
-				RenderDAPlayer.GriffinHand.render(0.0625F);
+				RenderPlayerArmor.GriffinHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -916,38 +916,38 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, 0.0F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorT);
-				RenderDAPlayer.KaerMorhenArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorT);
+				RenderPlayerArmor.KaerMorhenArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.3F, -0.12F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorT);
-				RenderDAPlayer.KaerMorhenHand.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorT);
+				RenderPlayerArmor.KaerMorhenHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.3F, -0.12F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorT);
-				RenderDAPlayer.KaerMorhenHand.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorT);
+				RenderPlayerArmor.KaerMorhenHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.27F, 0.12F, 0.0F);
 				GL11.glScalef(0.9F, 0.9F, 0.8F);
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorT);
-				RenderDAPlayer.KaerMorhenHandAddon.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorT);
+				RenderPlayerArmor.KaerMorhenHandAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.27F, 0.12F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(0.9F, 0.9F, 0.8F);
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorT);
-				RenderDAPlayer.KaerMorhenHandAddon.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorT);
+				RenderPlayerArmor.KaerMorhenHandAddon.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
@@ -956,38 +956,38 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 				modelBipedMain.bipedBody.postRender(0.0625F);
 				GL11.glTranslatef(0.0F, 0.0F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorT);
-				RenderDAPlayer.KaerMorhenArmor.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorT);
+				RenderPlayerArmor.KaerMorhenArmor.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.3F, -0.12F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorT);
-				RenderDAPlayer.KaerMorhenHand.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorT);
+				RenderPlayerArmor.KaerMorhenHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.3F, -0.12F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorT);
-				RenderDAPlayer.KaerMorhenHand.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorT);
+				RenderPlayerArmor.KaerMorhenHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.27F, 0.12F, 0.0F);
 				GL11.glScalef(0.9F, 0.9F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorT);
-				RenderDAPlayer.KaerMorhenHandAddon.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorT);
+				RenderPlayerArmor.KaerMorhenHandAddon.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.27F, 0.12F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(0.9F, 0.9F, 0.9F);
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorT);
-				RenderDAPlayer.KaerMorhenHandAddon.render(0.0625F);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorT);
+				RenderPlayerArmor.KaerMorhenHandAddon.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 		}
@@ -997,234 +997,234 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 
 			if (currentArmor1Item == ArmorRegister.cidarianArmyPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherLuriskyPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherLuriskyPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.135F, -0.8F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WitcherLuriskyPants.render(0.0625F);
+				RenderPlayerArmor.WitcherLuriskyPants.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherLuriskyPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherLuriskyPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.135F, -0.8F, 0.0F);
 				GL11.glScalef(-1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WitcherLuriskyPants.render(0.0625F);
+				RenderPlayerArmor.WitcherLuriskyPants.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.talgarPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.TalgarT);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.135F, -0.8F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.TalgarLeg.render(0.0625F);
+				RenderPlayerArmor.TalgarLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.TalgarT);
+				textureManager.bindTexture(RenderPlayerArmor.TalgarT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.135F, -0.8F, 0.0F);
 				GL11.glScalef(-1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.TalgarLeg.render(0.0625F);
+				RenderPlayerArmor.TalgarLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.leatherPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherPathfinderPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherPathfinderPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.135F, -0.8F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherPathfinderLegs.render(0.0625F);
+				RenderPlayerArmor.WitcherPathfinderLegs.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherPathfinderPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherPathfinderPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.135F, -0.8F, 0.0F);
 				GL11.glScalef(-1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherPathfinderLegs.render(0.0625F);
+				RenderPlayerArmor.WitcherPathfinderLegs.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.temerArmyPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherTopornikPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherTopornikPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.8F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WitcherTopornikPants.render(0.0625F);
+				RenderPlayerArmor.WitcherTopornikPants.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WitcherTopornikPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.WitcherTopornikPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.8F, 0.0F);
 				GL11.glScalef(-1.05F, 1.05F, -1.05F);
-				RenderDAPlayer.WitcherTopornikPants.render(0.0625F);
+				RenderPlayerArmor.WitcherTopornikPants.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.bearSchoolPants2) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(-1.15F, 1.1F, -1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.bearSchoolPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(-1.15F, 1.1F, -1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.wolfSchoolPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(-1.15F, 1.1F, -1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.temerPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.9F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.NilfgaardLeg.render(0.0625F);
+				RenderPlayerArmor.NilfgaardLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.9F, 0.0F);
 				GL11.glScalef(-1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.NilfgaardLeg.render(0.0625F);
+				RenderPlayerArmor.NilfgaardLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorLegT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorLegT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorLegT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorLegT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(-1.15F, 1.1F, -1.15F);
-				RenderDAPlayer.WitcherLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.catSchoolPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.CatPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.CatSchoolLeg.render(0.0625F);
+				RenderPlayerArmor.CatSchoolLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.CatPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(-1.05F, 1.051F, -1.05F);
-				RenderDAPlayer.CatSchoolLeg.render(0.0625F);
+				RenderPlayerArmor.CatSchoolLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.griffinSchoolPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherRightLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherRightLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeftLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeftLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.13F, -0.85F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				RenderDAPlayer.GriffinLeg.render(0.0625F);
+				RenderPlayerArmor.GriffinLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.1F, 1.1F, 1.1F);
-				RenderDAPlayer.GriffinLeg.render(0.0625F);
+				RenderPlayerArmor.GriffinLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.hunterPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherRightLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherRightLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeftLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeftLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor1Item == ArmorRegister.viperSchoolPants) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorPantsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherRightLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherRightLeg.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorPantsT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorPantsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.15F, -0.85F, 0.0F);
 				GL11.glScalef(1.15F, 1.1F, 1.15F);
-				RenderDAPlayer.WitcherLeftLeg.render(0.0625F);
+				RenderPlayerArmor.WitcherLeftLeg.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 		}
@@ -1235,144 +1235,144 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 
 			if (currentArmor3Item == ArmorRegister.bearSchoolGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.bearSchoolGloves2) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT2);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolT2);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolT2);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.BearSchoolHand.render(0.0625F);
+				RenderPlayerArmor.BearSchoolHand.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.wolfSchoolGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WolfGlove.render(0.0625F);
+				RenderPlayerArmor.WolfGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.WolfGlove.render(0.0625F);
+				RenderPlayerArmor.WolfGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.temerGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.14F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.NilfgaardGlove.render(0.0625F);
+				RenderPlayerArmor.NilfgaardGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.33F, -0.14F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.NilfgaardGlove.render(0.0625F);
+				RenderPlayerArmor.NilfgaardGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.catSchoolGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.315F, -0.11F, 0.0F);
 				GL11.glScalef(1.01F, 1.01F, 1.01F);
-				RenderDAPlayer.CatSchoolGlove.render(0.0625F);
+				RenderPlayerArmor.CatSchoolGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.315F, -0.11F, 0.0F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.01F, 1.01F, 1.01F);
-				RenderDAPlayer.CatSchoolGlove.render(0.0625F);
+				RenderPlayerArmor.CatSchoolGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.griffinSchoolGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.33F, -0.19F, -0.0F);
 				GL11.glScalef(1.05F, 1.05F, 1.05F);
-				RenderDAPlayer.GriffinGlove.render(0.0625F);
+				RenderPlayerArmor.GriffinGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinArmorT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.35F, -0.19F, -0.0F);
 				GL11.glScalef(-1.1F, 1.05F, -1.05F);
-				RenderDAPlayer.GriffinGlove.render(0.0625F);
+				RenderPlayerArmor.GriffinGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.viperSchoolGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorHandT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorHandT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.1F, 0.55F, -0.13F);
 				GL11.glScalef(0.58F, 0.25F, 0.55F);
-				RenderDAPlayer.WitcherModelGlove.render(0.0625F);
+				RenderPlayerArmor.WitcherModelGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorHandT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorHandT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.1F, 0.55F, 0.13F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(0.58F, 0.25F, 0.55F);
-				RenderDAPlayer.WitcherModelGlove.render(0.0625F);
+				RenderPlayerArmor.WitcherModelGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor3Item == ArmorRegister.hunterGloves) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorHandT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorHandT);
 				modelBipedMain.bipedLeftArm.postRender(0.0625F);
 				GL11.glTranslatef(-0.1F, 0.55F, -0.13F);
 				GL11.glScalef(0.58F, 0.25F, 0.55F);
-				RenderDAPlayer.WitcherModelGlove.render(0.0625F);
+				RenderPlayerArmor.WitcherModelGlove.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorHandT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorHandT);
 				modelBipedMain.bipedRightArm.postRender(0.0625F);
 				GL11.glTranslatef(0.1F, 0.55F, 0.13F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(0.58F, 0.25F, 0.55F);
-				RenderDAPlayer.WitcherModelGlove.render(0.0625F);
+				RenderPlayerArmor.WitcherModelGlove.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 		}
@@ -1382,153 +1382,153 @@ public class RenderNPCHumanMale extends RenderNPCInterface {
 
 			if (currentArmor0Item == ArmorRegister.bearSchoolBoots2) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolBootT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolBootT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolBootT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolBootT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.bearSchoolBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolBootT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolBootT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.BearSchoolBootT);
+				textureManager.bindTexture(RenderPlayerArmor.BearSchoolBootT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.wolfSchoolBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfBootT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfBootT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.WolfBootT);
+				textureManager.bindTexture(RenderPlayerArmor.WolfBootT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.catSchoolBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.094F, -0.73F, -0.02F);
 				GL11.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.01F, 1.01F, 1.01F);
-				RenderDAPlayer.CatSchoolBoot.render(0.0625F);
+				RenderPlayerArmor.CatSchoolBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.CatSchoolArmorT);
+				textureManager.bindTexture(RenderPlayerArmor.CatSchoolArmorT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(0.094F, -0.73F, -0.02F);
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.01F, 1.01F, -1.01F);
-				RenderDAPlayer.CatSchoolBoot.render(0.0625F);
+				RenderPlayerArmor.CatSchoolBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.temerBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorBootT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorBootT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.68F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.NilfgaardArmorBootT);
+				textureManager.bindTexture(RenderPlayerArmor.NilfgaardArmorBootT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.68F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.griffinSchoolBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinBootsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.69F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.GriffinBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.GriffinBootsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.69F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.hunterBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorBootsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.KaerMorhenArmorBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.KaerMorhenArmorBootsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 
 			if (currentArmor0Item == ArmorRegister.viperSchoolBoots) {
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorBootsT);
 				modelBipedMain.bipedLeftLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, 1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-				textureManager.bindTexture(RenderDAPlayer.ViperArmorBootsT);
+				textureManager.bindTexture(RenderPlayerArmor.ViperArmorBootsT);
 				modelBipedMain.bipedRightLeg.postRender(0.0625F);
 				GL11.glTranslatef(-0.0F, -0.73F, -0.12F);
 				GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(1.0F, 1.0F, -1.0F);
-				RenderDAPlayer.WitcherModelBoot.render(0.0625F);
+				RenderPlayerArmor.WitcherModelBoot.render(0.0625F);
 				GL11.glPopMatrix();
 			}
 		}

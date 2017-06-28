@@ -6,12 +6,12 @@ import api.player.render.RenderPlayerAPI;
 import api.player.render.RenderPlayerBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.darkage.handler.client.ResourceHandler.Model;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Model.WCM;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
-import keelfy.darkage.handler.registers.SwordRegister;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.constants.EnumModelPath;
+import keelfy.darkage.constants.EnumTexturePath;
+import keelfy.darkage.handlers.client.ResourceHandler.Model;
+import keelfy.darkage.handlers.client.ResourceHandler.Texture;
+import keelfy.darkage.handlers.registers.SwordRegister;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -145,8 +145,8 @@ public class RenderSwordBehind extends RenderPlayerBase {
 	private final ResourceLocation SWolf3T = Texture.getSword(SwordRegister.wolfSteel3, "texlow");
 	private final IModelCustom SWolf4 = Model.getSword(SwordRegister.wolfSteel4);
 	private final ResourceLocation SWolf4T = Texture.getSword(SwordRegister.wolfSteel4, "texlow");
-	private final IModelCustom scabbard = Model.get(WCM.SCABBARD, "model");
-	private final ResourceLocation scabbardT = Texture.get(WCT.SCABBARD, "tex");
+	private final IModelCustom scabbard = Model.get(EnumModelPath.SCABBARD, "model");
+	private final ResourceLocation scabbardT = Texture.get(EnumTexturePath.SCABBARD, "tex");
 	private final Minecraft mc = Minecraft.getMinecraft();
 	protected static float tposX = 0.75F;
 	protected static float tposY = 0.5F;
@@ -165,7 +165,7 @@ public class RenderSwordBehind extends RenderPlayerBase {
 	@SideOnly(Side.CLIENT)
 	// TODO: Переписать рендер мечей за спиной после фикса багов
 	public void renderSpecials(AbstractClientPlayer par1AbstractClientPlayer, float par2) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 		super.renderSpecials(par1AbstractClientPlayer, par2);
 		this.player = par1AbstractClientPlayer;
 		

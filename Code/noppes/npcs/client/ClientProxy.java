@@ -7,6 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.model.ModelBiped;
@@ -16,7 +20,6 @@ import net.minecraft.client.particle.EntitySmokeFX;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.IReloadableResourceManager;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -167,21 +170,13 @@ import noppes.npcs.entity.EntityNpcDragon;
 import noppes.npcs.entity.EntityNpcPony;
 import noppes.npcs.entity.EntityNpcSlime;
 import noppes.npcs.entity.EntityProjectile;
-
-import org.lwjgl.input.Keyboard;
-
 import tconstruct.client.tabs.InventoryTabFactions;
 import tconstruct.client.tabs.InventoryTabQuests;
-import tconstruct.client.tabs.InventoryTabVanilla;
 import tconstruct.client.tabs.TabRegistry;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
 
 public class ClientProxy extends CommonProxy {
 	
+	@Override
 	public void load() {
 		createFolders();
 		CustomNpcs.Channel.register(new PacketHandlerClient());
@@ -245,9 +240,6 @@ public class ClientProxy extends CommonProxy {
         if(CustomNpcs.InventoryGuiEnabled){
 	        MinecraftForge.EVENT_BUS.register(new TabRegistry());
 	        
-	        if (TabRegistry.getTabList().size() < 2){
-	        	TabRegistry.registerTab(new InventoryTabVanilla());
-	        }
         	TabRegistry.registerTab(new InventoryTabFactions());
         	TabRegistry.registerTab(new InventoryTabQuests());
         }
@@ -448,6 +440,7 @@ public class ClientProxy extends CommonProxy {
 		openGui(npc, gui, 0, 0, 0);
 	}
 
+	@Override
 	public void openGui(EntityNPCInterface npc, EnumGuiType gui, int x, int y, int z) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 
@@ -459,6 +452,7 @@ public class ClientProxy extends CommonProxy {
 		}
 	}
 
+	@Override
 	public void openGui(EntityPlayer player, Object guiscreen) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		if(!player.worldObj.isRemote || !(guiscreen instanceof GuiScreen))
@@ -477,9 +471,9 @@ public class ClientProxy extends CommonProxy {
 			int number = (Integer) ob[1];
 	    	for(int i = 0; i < number; i++){
 		    	Random rand = player.worldObj.rand;
-				double x = (rand.nextDouble() - 0.5D) * (double)player.width;
+				double x = (rand.nextDouble() - 0.5D) * player.width;
 				double y = player.getEyeHeight();
-				double z = (rand.nextDouble() - 0.5D) * (double)player.width;
+				double z = (rand.nextDouble() - 0.5D) * player.width;
 		
 		        double f = (rand.nextDouble() - 0.5D) * 2D;
 		        double f1 =  -rand.nextDouble();
@@ -497,7 +491,7 @@ public class ClientProxy extends CommonProxy {
 			Random rand = npc.getRNG();
 			if(particles.type == 0){
 				for(int i = 0; i< 2; i++){
-					EntityEnderFX fx = new EntityEnderFX(npc, (rand.nextDouble() - 0.5D) * (double)player.width, (rand.nextDouble() * (double)player.height) - height - 0.25D, (rand.nextDouble() - 0.5D) * (double)player.width, (rand.nextDouble() - 0.5D) * 2D, -rand.nextDouble(), (rand.nextDouble() - 0.5D) * 2D, particles);
+					EntityEnderFX fx = new EntityEnderFX(npc, (rand.nextDouble() - 0.5D) * player.width, (rand.nextDouble() * player.height) - height - 0.25D, (rand.nextDouble() - 0.5D) * player.width, (rand.nextDouble() - 0.5D) * 2D, -rand.nextDouble(), (rand.nextDouble() - 0.5D) * 2D, particles);
 					minecraft.effectRenderer.addEffect(fx);
 				}
 	    		
@@ -520,14 +514,17 @@ public class ClientProxy extends CommonProxy {
 	}
 	private ModelSkirtArmor model = new ModelSkirtArmor();
 
+	@Override
 	public ModelBiped getSkirtModel() {
 		return model;
 	}
 
+	@Override
 	public boolean hasClient() {
 		return true;
 	}
 	
+	@Override
 	public EntityPlayer getPlayer() {
 		return Minecraft.getMinecraft().thePlayer;
 	}
@@ -544,7 +541,7 @@ public class ClientProxy extends CommonProxy {
 				return;
 	        TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
 	        if(location != null)
-	        	texturemanager.bindTexture((ResourceLocation) location);
+	        	texturemanager.bindTexture(location);
 		}
 		catch(NullPointerException ex){
 			

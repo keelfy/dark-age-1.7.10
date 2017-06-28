@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
 import java.util.Random;
@@ -7,12 +12,12 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import keelfy.darkage.client.models.entity.player.ModelHand;
-import keelfy.darkage.handler.client.ResourceHandler.Model;
-import keelfy.darkage.handler.client.ResourceHandler.Model.WCM;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
-import keelfy.darkage.item.Sword;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.constants.EnumModelPath;
+import keelfy.darkage.constants.EnumTexturePath;
+import keelfy.darkage.handlers.client.ResourceHandler.Model;
+import keelfy.darkage.handlers.client.ResourceHandler.Texture;
+import keelfy.darkage.items.Sword;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -58,21 +63,21 @@ public class RendererSword implements IItemRenderer {
 	private ItemRenderType currentRender;
 	
 	public RendererSword(Item item) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			if(item instanceof Sword) {
-				this.sword = (Sword)item;
+				this.sword = (Sword) item;
 				this.MODEL_HAND = new ModelHand();
 				this.mc = Minecraft.getMinecraft();
 				
-				model = Model.get(WCM.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".model");
-				texture = Texture.get(WCT.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".tex");
-				texturelow = Texture.get(WCT.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".texlow");
+				model = Model.get(EnumModelPath.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".model");
+				texture = Texture.get(EnumTexturePath.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".tex");
+				texturelow = Texture.get(EnumTexturePath.SWORD, sword.getSet() + "/models/" + sword.getTextureName() + ".texlow");
 			}
 		}
 	}
 	
 	public void setResources(IModelCustom model, ResourceLocation texture, ResourceLocation textureLow) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.model = model;
 			this.texture = texture;
 			this.texturelow = textureLow;
@@ -82,7 +87,7 @@ public class RendererSword implements IItemRenderer {
 	private float entTPosX = -0.32F, entTPosY = -1.18F, entTPosZ = 1.08F;
 	private float entScale = 1.1215F;
 	public void setEntityRender(float tPosX, float tPosY, float tPosZ, float scale) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.entTPosX += tPosX;
 			this.entTPosY += tPosY;
 			this.entTPosZ += tPosZ;
@@ -94,7 +99,7 @@ public class RendererSword implements IItemRenderer {
 	private float eqTPosX = 0.82F, eqTPosY = -0.93F, eqTPosZ = -0.18F;
 	private float eqScale = 0.6215F;
 	public void setEquippedRender(float tPosX, float tPosY, float tPosZ, float scale) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.eqTPosX += tPosX;
 			this.eqTPosY += tPosY;
 			this.eqTPosZ += tPosZ;
@@ -105,7 +110,7 @@ public class RendererSword implements IItemRenderer {
 	private float efpTPosX = 0F, efpTPosY = 0F, efpTPosZ = 0F;
 	private float efpScale = 1F;
 	public void setEFPRender(float tPosX, float tPosY, float tPosZ, float scale) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.efpTPosX = tPosX;
 			this.efpTPosY = tPosY;
 			this.efpTPosZ = tPosZ;
@@ -115,7 +120,7 @@ public class RendererSword implements IItemRenderer {
 	
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			switch (type) {
 			case ENTITY:
 				return true;
@@ -139,7 +144,7 @@ public class RendererSword implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			globalAnimationSpeed = 5.08F;
 			
 			KeybindAttack = false;
@@ -335,7 +340,7 @@ public class RendererSword implements IItemRenderer {
 	}
 	
 	public void attackAnim(int i) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			if (this.KeybindAttack && mc.currentScreen == null) {
 				;
 			}

@@ -3,10 +3,9 @@
  */
 package keelfy.darkage.client.models.armor.bear;
 
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 
 /**
  * @author keelfy
@@ -32,7 +31,7 @@ public class ModelArmorBear  extends ModelBase {
 	ModelRenderer Shape34;
 
 	public ModelArmorBear() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.textureWidth = 64;
 			this.textureHeight = 32;
 			this.Shape1 = new ModelRenderer(this, 46, 8);
@@ -124,7 +123,7 @@ public class ModelArmorBear  extends ModelBase {
 	}
 
 	public void render(float f5) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.Shape1.render(f5);
 			this.Shape2.render(f5);
 			this.Shape3.render(f5);
@@ -146,7 +145,7 @@ public class ModelArmorBear  extends ModelBase {
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			model.rotateAngleX = x;
 			model.rotateAngleY = y;
 			model.rotateAngleZ = z;

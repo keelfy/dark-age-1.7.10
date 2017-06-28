@@ -1,6 +1,11 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.inventory.lootbag;
 
-import keelfy.darkage.addon.blocks.tileentity.TileEntityLootBag;
+import keelfy.darkage.blocks.tileentity.TileEntityLootBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;

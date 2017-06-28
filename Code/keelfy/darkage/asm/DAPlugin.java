@@ -1,7 +1,12 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.asm;
 
 import gloomyfolken.hooklib.minecraft.HookLoader;
-import keelfy.darkage.util.DAUtil;
+import keelfy.darkage.utils.DAUtils;
 
 /**
  * @author keelfy
@@ -11,6 +16,6 @@ public class DAPlugin extends HookLoader {
 
 	@Override
 	protected void registerHooks() {
-		registerHookContainer(DAUtil.HOOK_CONTAINER);
+		registerHookContainer(DAUtils.HOOK_CONTAINER);
 	}
 }

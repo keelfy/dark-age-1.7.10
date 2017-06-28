@@ -1,6 +1,11 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.renderer;
 
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
@@ -11,7 +16,7 @@ public class RendererDraft implements IItemRenderer {
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			switch (type) {
 			case INVENTORY:
 				return true;
@@ -29,7 +34,7 @@ public class RendererDraft implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			switch (type) {
 			case INVENTORY:
 //				RendererRarity.renderDraft(item);

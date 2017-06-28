@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.gui;
 
 import org.lwjgl.input.Keyboard;
@@ -5,12 +10,12 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.api.client.GuiUtil;
-import keelfy.darkage.addon.blocks.tileentity.TileEntityLootBag;
-import keelfy.darkage.handler.client.ResourceHandler.Texture;
-import keelfy.darkage.handler.client.ResourceHandler.Texture.WCT;
+import keelfy.darkage.blocks.tileentity.TileEntityLootBag;
+import keelfy.darkage.constants.EnumTexturePath;
+import keelfy.darkage.handlers.client.ResourceHandler.Texture;
 import keelfy.darkage.inventory.lootbag.ContainerLootBag;
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
+import keelfytools.gui.KeelfyUtilsGui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -22,7 +27,7 @@ import net.minecraft.util.ResourceLocation;
  * @author keelfy
  */
 @SideOnly(Side.CLIENT)
-public class GuiLootBag extends GuiDAContainer {
+public class GuiLootBag extends DAGuiContainer {
 	
 	private Minecraft mc;
 	private TileEntityLootBag te;
@@ -34,9 +39,9 @@ public class GuiLootBag extends GuiDAContainer {
 	public GuiLootBag(ContainerLootBag container) {
 		super(container);
 	
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			this.te = container.inventory;
-			this.selector = Texture.get(WCT.GUI, "lootBagSelector");
+			this.selector = Texture.get(EnumTexturePath.GUI, "lootBagSelector");
 			itemRenderer = new RenderItem();
 			mc = Minecraft.getMinecraft();
 		}
@@ -44,7 +49,7 @@ public class GuiLootBag extends GuiDAContainer {
 	
 	@Override
 	public void initGui() {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			selectedStackNumber = 0;
 			inventoryStacks = new ItemStack[te.getSizeInventory()];
 			
@@ -68,7 +73,7 @@ public class GuiLootBag extends GuiDAContainer {
 	@Override
     protected void keyTyped(char par1, int par2){
      
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 	        ItemStack selectedStack = null;
 	        if(par1 == Keyboard.KEY_H) {
 	        	selectedStackNumber++;
@@ -84,7 +89,7 @@ public class GuiLootBag extends GuiDAContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
-		if(!DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+		if(KeelfyUtils.isClientSide()) {
 			ScaledResolution sr = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 			int width = sr.getScaledWidth();
 			int height = sr.getScaledHeight();
@@ -99,7 +104,7 @@ public class GuiLootBag extends GuiDAContainer {
 					
 					GL11.glPushMatrix();
 					if(1 == i) GL11.glScalef(0.7F, 0.7F, 0.7F);
-					GuiUtil.drawItemStack(itemRenderer, inventoryStacks[i], width / 2 + 85 - (18 * stackCount1), height / 2 + 60 - (18 * height1), 4F);
+					KeelfyUtilsGui.drawItemStack(itemRenderer, inventoryStacks[i], width / 2 + 85 - (18 * stackCount1), height / 2 + 60 - (18 * height1), 4F);
 					GL11.glPopMatrix();
 				}
 			}

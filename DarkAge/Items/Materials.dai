@@ -4,6 +4,10 @@
 		"Texture": "bp1"
 	},
     {
+		"UnlocalizedName": "package",
+		"Texture": "SmallChest"
+    },
+    {
 		"UnlocalizedName": "flax",
 		"Texture": "Flax"
     },
@@ -623,9 +627,17 @@
 		"UnlocalizedName": "twine",
 		"Texture": "Twine"
 	},
+    {
+		"UnlocalizedName": "twineCoil",
+		"Texture": "TwineCoil"
+	},
 	{
 		"UnlocalizedName": "cobble",
 		"Texture": "Cobble"
+	},
+    {
+		"UnlocalizedName": "cobbleCoil",
+		"Texture": "CobbleCoil"
 	},
 	{
 		"UnlocalizedName": "bag",

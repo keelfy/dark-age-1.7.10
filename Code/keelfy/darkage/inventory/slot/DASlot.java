@@ -1,8 +1,13 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.inventory.slot;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import keelfy.darkage.util.DAUtil;
+import keelfytools.KeelfyUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -28,7 +33,7 @@ public class DASlot extends Slot {
 
     @Override
     public void putStack(ItemStack stack) {
-    	if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+    	if(KeelfyUtils.isServerSide()) {
 	    	if(stack != null) {
 	    		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
 	    		stack.stackTagCompound.setBoolean("inSlot", true);
@@ -39,7 +44,7 @@ public class DASlot extends Slot {
     
     @Override
     public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
-    	if(DAUtil.SERVER || DAUtil.DEBUG_MODE) {
+    	if(KeelfyUtils.isServerSide()) {
 	    	if(stack != null) {
 	    		if(!stack.hasTagCompound()) stack.stackTagCompound = new NBTTagCompound();
 	    		stack.stackTagCompound.setBoolean("inSlot", false);

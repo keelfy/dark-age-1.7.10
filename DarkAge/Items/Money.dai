@@ -11,19 +11,19 @@
 	{
 		"UnlocalizedName": "oren100",
 		"OrenesValue": 100,
-		"MaxStackSize": 50,
+		"MaxStackSize": 10,
 		"Description": [
 			"Мешочек, полный оренов"
 		],
-		"Texture": "Oren"
+		"Texture": "OrenBag"
 	},
 	{
 		"UnlocalizedName": "oren1000",
 		"OrenesValue": 1000,
-		"MaxStackSize": 50,
+		"MaxStackSize": 10,
 		"Description": [
 			"Драгоценная шкатулка, набитая оренами"
 		],
-		"Texture": "Oren"
+		"Texture": "OrenChest"
 	}
 ]

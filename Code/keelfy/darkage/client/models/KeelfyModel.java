@@ -1,15 +1,14 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
 package keelfy.darkage.client.models;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -30,8 +29,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.commons.compress.utils.IOUtils;
-import org.apache.logging.log4j.core.appender.OutputStreamManager;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
@@ -64,10 +61,10 @@ public class KeelfyModel implements IModelCustom {
     private static Matcher face_V_VT_VN_Matcher, face_V_VT_Matcher, face_V_VN_Matcher, face_V_Matcher;
     private static Matcher groupObjectMatcher;
 
-    public ArrayList<Vertex> vertices = new ArrayList<Vertex>();
-    public ArrayList<Vertex> vertexNormals = new ArrayList<Vertex>();
-    public ArrayList<TextureCoordinate> textureCoordinates = new ArrayList<TextureCoordinate>();
-    public ArrayList<GroupObject> groupObjects = new ArrayList<GroupObject>();
+    public ArrayList<Vertex> vertices = new ArrayList();
+    public ArrayList<Vertex> vertexNormals = new ArrayList();
+    public ArrayList<TextureCoordinate> textureCoordinates = new ArrayList();
+    public ArrayList<GroupObject> groupObjects = new ArrayList();
     private GroupObject currentGroupObject;
     private String fileName;
 
