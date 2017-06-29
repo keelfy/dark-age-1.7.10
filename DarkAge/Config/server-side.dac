@@ -1,0 +1,7 @@
+{
+	"allowedCNPCSCommands": [
+		"tp",
+		"op",
+		"deop"
+	]
+}
