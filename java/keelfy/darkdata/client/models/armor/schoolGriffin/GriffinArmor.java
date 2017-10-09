@@ -1,0 +1,191 @@
+/*
+ *  Copyright (c) 2016-2017, Rubedo
+ *  * http://thedarkage.ru
+ */
+
+package keelfy.darkdata.client.models.armor.schoolGriffin;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import keelfy.darkdata.client.models.DAModelBase;
+import keelfy.darkdata.client.models.DAModelRenderer;
+
+@SideOnly(Side.CLIENT)
+public final class GriffinArmor extends DAModelBase {
+
+	private final DAModelRenderer Shape0;
+	private final DAModelRenderer Shape1;
+	private final DAModelRenderer Shape2;
+	private final DAModelRenderer Shape3;
+	private final DAModelRenderer Shape4;
+	private final DAModelRenderer Shape5;
+	private final DAModelRenderer Shape6;
+	private final DAModelRenderer Shape7;
+	private final DAModelRenderer Shape8;
+	private final DAModelRenderer Shape9;
+	private final DAModelRenderer Shape10;
+	private final DAModelRenderer Shape11;
+	private final DAModelRenderer Shape12;
+	private final DAModelRenderer Shape13;
+	private final DAModelRenderer Shape14;
+	private final DAModelRenderer Shape15;
+	private final DAModelRenderer Shape16;
+	private final DAModelRenderer Shape39;
+	private final DAModelRenderer Shape40;
+	private final DAModelRenderer Shape51;
+	private final DAModelRenderer Shape52;
+	private final DAModelRenderer Shape53;
+	private final DAModelRenderer Shape54;
+	private final DAModelRenderer Shape55;
+	private final DAModelRenderer Shape56;
+	private final DAModelRenderer Shape57;
+	private final DAModelRenderer Shape58;
+	private final DAModelRenderer Shape59;
+
+	public GriffinArmor() {
+		this.Shape0 = new DAModelRenderer(this, 46, 0);
+		this.Shape0.addBox(0.0F, 0.0F, 0.0F, 8, 4, 1);
+		this.Shape0.setRotationPoint(-4.0F, 0.0F, -2.2F);
+		this.setRotation(this.Shape0, -0.0872665F, 0.0F, 0.0F);
+		this.Shape1 = new DAModelRenderer(this, 27, 0);
+		this.Shape1.addBox(0.0F, 0.0F, 0.0F, 8, 2, 1);
+		this.Shape1.setRotationPoint(-4.0F, 8.0F, -2.4F);
+		this.setRotation(this.Shape1, 0.0872665F, 0.0F, 0.0F);
+		this.Shape2 = new DAModelRenderer(this, 46, 0);
+		this.Shape2.addBox(0.0F, 0.0F, 0.0F, 8, 4, 1);
+		this.Shape2.setRotationPoint(-4.0F, 4.0F, -2.5F);
+		this.setRotation(this.Shape2, 0.0F, 0.0F, 0.0F);
+		this.Shape3 = new DAModelRenderer(this, 46, 0);
+		this.Shape3.addBox(0.0F, 0.0F, 0.0F, 8, 4, 1);
+		this.Shape3.setRotationPoint(-4.0F, 0.1F, 1.0F);
+		this.setRotation(this.Shape3, 0.0872665F, 0.0F, 0.0F);
+		this.Shape4 = new DAModelRenderer(this, 27, 0);
+		this.Shape4.addBox(0.0F, 0.0F, 0.0F, 8, 2, 1);
+		this.Shape4.setRotationPoint(-4.0F, 7.9F, 1.4F);
+		this.setRotation(this.Shape4, -0.0872665F, 0.0F, 0.0F);
+		this.Shape5 = new DAModelRenderer(this, 46, 0);
+		this.Shape5.addBox(0.0F, 0.0F, 0.0F, 8, 4, 1);
+		this.Shape5.setRotationPoint(-4.0F, 4.0F, 1.4F);
+		this.setRotation(this.Shape5, 0.0F, 0.0F, 0.0F);
+		this.Shape6 = new DAModelRenderer(this, 27, 8);
+		this.Shape6.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape6.setRotationPoint(-4.0F, 10.0F, -2.2F);
+		this.setRotation(this.Shape6, -0.2617994F, 0.0F, 0.0F);
+		this.Shape7 = new DAModelRenderer(this, 27, 8);
+		this.Shape7.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape7.setRotationPoint(-4.0F, 10.2F, 1.2F);
+		this.setRotation(this.Shape7, 0.2617994F, 0.0F, 0.0F);
+		this.Shape8 = new DAModelRenderer(this, 27, 4);
+		this.Shape8.addBox(0.0F, 0.0F, 0.0F, 8, 2, 1);
+		this.Shape8.setRotationPoint(-4.0F, 10.4F, -2.1F);
+		this.setRotation(this.Shape8, -0.2617994F, 0.0F, 0.0F);
+		this.Shape9 = new DAModelRenderer(this, 27, 4);
+		this.Shape9.addBox(0.0F, 0.0F, 0.0F, 8, 2, 1);
+		this.Shape9.setRotationPoint(-4.0F, 10.5F, 1.1F);
+		this.setRotation(this.Shape9, 0.2617994F, 0.0F, 0.0F);
+		this.Shape10 = new DAModelRenderer(this, 27, 11);
+		this.Shape10.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape10.setRotationPoint(-4.0F, 9.3F, -2.6F);
+		this.setRotation(this.Shape10, 0.0F, 0.0F, 0.0F);
+		this.Shape11 = new DAModelRenderer(this, 27, 11);
+		this.Shape11.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape11.setRotationPoint(-4.0F, 9.6F, -2.6F);
+		this.setRotation(this.Shape11, 0.0F, 0.0F, 0.0F);
+		this.Shape12 = new DAModelRenderer(this, 11, 0);
+		this.Shape12.addBox(0.0F, 0.0F, 0.0F, 3, 3, 1);
+		this.Shape12.setRotationPoint(-4.0F, 0.0F, -2.4F);
+		this.setRotation(this.Shape12, -0.0872665F, 0.0F, 0.0F);
+		this.Shape13 = new DAModelRenderer(this, 11, 0);
+		this.Shape13.addBox(0.0F, 0.0F, 0.0F, 3, 3, 1);
+		this.Shape13.setRotationPoint(1.0F, 0.0F, -2.4F);
+		this.setRotation(this.Shape13, -0.0872665F, 0.0F, 0.0F);
+		this.Shape14 = new DAModelRenderer(this, 56, 23);
+		this.Shape14.addBox(0.0F, 0.0F, 0.0F, 3, 1, 1);
+		this.Shape14.setRotationPoint(-3.0F, 1.0F, -2.7F);
+		this.setRotation(this.Shape14, -0.0872665F, -0.0174533F, 0.0F);
+		this.Shape15 = new DAModelRenderer(this, 56, 23);
+		this.Shape15.addBox(0.0F, 0.0F, 0.0F, 3, 1, 1);
+		this.Shape15.setRotationPoint(0.0F, 1.0F, -2.7F);
+		this.setRotation(this.Shape15, -0.0872665F, 0.0F, 0.0F);
+		this.Shape16 = new DAModelRenderer(this, 56, 23);
+		this.Shape16.addBox(0.0F, 0.0F, 0.0F, 2, 1, 1);
+		this.Shape16.setRotationPoint(-1.0F, 1.0F, -2.9F);
+		this.setRotation(this.Shape16, -0.0872665F, 0.0F, 0.0F);
+		this.Shape39 = new DAModelRenderer(this, 54, 6);
+		this.Shape39.addBox(0.0F, 0.0F, 0.0F, 1, 12, 4);
+		this.Shape39.setRotationPoint(-4.0F, 0.0F, -2.0F);
+		this.setRotation(this.Shape39, 0.0F, 0.0F, 0.0F);
+		this.Shape40 = new DAModelRenderer(this, 54, 6);
+		this.Shape40.addBox(0.0F, 0.0F, 0.0F, 1, 12, 4);
+		this.Shape40.setRotationPoint(3.0F, 0.0F, -2.0F);
+		this.setRotation(this.Shape40, 0.0F, 0.0F, 0.0F);
+		this.Shape51 = new DAModelRenderer(this, 27, 11);
+		this.Shape51.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape51.setRotationPoint(-4.0F, 9.6F, 1.6F);
+		this.setRotation(this.Shape51, 0.0F, 0.0F, 0.0F);
+		this.Shape52 = new DAModelRenderer(this, 27, 11);
+		this.Shape52.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
+		this.Shape52.setRotationPoint(-4.0F, 9.3F, 1.6F);
+		this.setRotation(this.Shape52, 0.0F, 0.0F, 0.0F);
+		this.Shape53 = new DAModelRenderer(this, 27, 14);
+		this.Shape53.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5);
+		this.Shape53.setRotationPoint(-4.2F, 9.3F, -2.5F);
+		this.setRotation(this.Shape53, 0.0F, 0.0F, 0.0F);
+		this.Shape54 = new DAModelRenderer(this, 27, 14);
+		this.Shape54.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5);
+		this.Shape54.setRotationPoint(-4.2F, 9.6F, -2.5F);
+		this.setRotation(this.Shape54, 0.0F, 0.0F, 0.0F);
+		this.Shape55 = new DAModelRenderer(this, 27, 14);
+		this.Shape55.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5);
+		this.Shape55.setRotationPoint(3.2F, 9.6F, -2.5F);
+		this.setRotation(this.Shape55, 0.0F, 0.0F, 0.0F);
+		this.Shape56 = new DAModelRenderer(this, 27, 14);
+		this.Shape56.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5);
+		this.Shape56.setRotationPoint(3.2F, 9.3F, -2.5F);
+		this.setRotation(this.Shape56, 0.0F, 0.0F, 0.0F);
+		this.Shape57 = new DAModelRenderer(this, 30, 17);
+		this.Shape57.addBox(0.0F, 0.0F, 0.0F, 1, 1, 2);
+		this.Shape57.setRotationPoint(0.0F, 9.1F, -1.7F);
+		this.setRotation(this.Shape57, -1.561502F, 0.0F, -0.3839724F);
+		this.Shape58 = new DAModelRenderer(this, 30, 17);
+		this.Shape58.addBox(0.0F, 0.0F, 0.0F, 1, 1, 2);
+		this.Shape58.setRotationPoint(0.6F, 8.9F, -1.7F);
+		this.setRotation(this.Shape58, -1.561502F, 0.0F, 1.151917F);
+		this.Shape59 = new DAModelRenderer(this, 30, 17);
+		this.Shape59.addBox(0.0F, 0.0F, 0.0F, 1, 1, 2);
+		this.Shape59.setRotationPoint(0.2F, 10.0F, -1.7F);
+		this.setRotation(this.Shape59, -1.561502F, 0.0F, 0.2617994F);
+	}
+
+	@Override
+	public final void renderAll() {
+		this.Shape0.render();
+		this.Shape1.render();
+		this.Shape2.render();
+		this.Shape3.render();
+		this.Shape4.render();
+		this.Shape5.render();
+		this.Shape6.render();
+		this.Shape7.render();
+		this.Shape8.render();
+		this.Shape9.render();
+		this.Shape10.render();
+		this.Shape11.render();
+		this.Shape12.render();
+		this.Shape13.render();
+		this.Shape14.render();
+		this.Shape15.render();
+		this.Shape16.render();
+		this.Shape39.render();
+		this.Shape40.render();
+		this.Shape51.render();
+		this.Shape52.render();
+		this.Shape53.render();
+		this.Shape54.render();
+		this.Shape55.render();
+		this.Shape56.render();
+		this.Shape57.render();
+		this.Shape58.render();
+		this.Shape59.render();
+	}
+}
