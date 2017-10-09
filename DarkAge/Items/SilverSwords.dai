@@ -1,0 +1,467 @@
+[
+	{
+		"UnlocalizedName": "ADDANDEIDTH",
+		"MaxDurability": 390,
+		"DamageVsEntities": 195,
+		"Weight": 3.8,
+		"Rarity": "Rare",
+		"Texture": "SL01",
+		"EFPRender": {
+			"Position": [ 2.1, -3.55, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.27, -0.925, 0.227 ]
+		}
+	},
+	{
+		"UnlocalizedName": "ZIRAEL",
+		"MaxDurability": 500,
+		"DamageVsEntities": 250,
+		"Weight": 3.5,
+		"Rarity": "Legendary",
+		"Texture": "SL02",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.27, -0.925, 0.227 ]
+		}
+	},
+	{
+		"UnlocalizedName": "GVENNEL",
+		"MaxDurability": 390,
+		"DamageVsEntities": 135,
+		"Weight": 2.7,
+		"Rarity": "Uncommon",
+		"Texture": "SL03",
+		"EFPRender": {
+			"Position": [ 2.2, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.02, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "DISGLAIR",
+		"MaxDurability": 350,
+		"DamageVsEntities": 150,
+		"Weight": 3.2,
+		"Rarity": "Uncommon",
+		"Texture": "SL04",
+		"EFPRender": {
+			"Position": [ 2.2, -3.75, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.3, -0.99, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "TLAREG",
+		"MaxDurability": 900,
+		"DamageVsEntities": 245,
+		"Weight": 2,
+		"Rarity": "Legendary",
+		"Texture": "SL05",
+		"EFPRender": {
+			"Position": [ 2.08, -3.65, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.31, -0.925, 0.221 ]
+		}
+	},
+	{
+		"UnlocalizedName": "WITCHERYSILVER",
+		"MaxDurability": 380,
+		"DamageVsEntities": 140,
+		"Weight": 3,
+		"Rarity": "Usual",
+		"Texture": "SL06",
+		"EFPRender": {
+			"Position": [ 2.08, -3.65, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.315, -0.96, 0.21 ]
+		}
+	},
+	{
+		"UnlocalizedName": "SILVER1",
+		"MaxDurability": 400,
+		"DamageVsEntities": 125,
+		"Weight": 2.8,
+		"Rarity": "Usual",
+		"Texture": "SL07",
+		"EFPRender": {
+			"Position": [ 2.15, -3.8, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.01, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "ERLICHRAD",
+		"MaxDurability": 370,
+		"DamageVsEntities": 140,
+		"Weight": 3,
+		"Rarity": "Rare",
+		"Texture": "SL08",
+		"EFPRender": {
+			"Position": [ 2.15, -3.8, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.01, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "EMMENTAL",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Rarity": "NotEntered",
+		"Texture": "SL09",
+		"EFPRender": {
+			"Position": [ 2.35, -3.9, -0.68 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.34, -1.04, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "GARHWAL",
+		"MaxDurability": 360,
+		"DamageVsEntities": 165,
+		"Weight": 3.5,
+		"Rarity": "Rare",
+		"Texture": "SL10",
+		"EFPRender": {
+			"Position": [ 2.35, -3.9, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.357, -1.06, 0.222 ]
+		}
+	},
+	{
+		"UnlocalizedName": "GVIHIR",
+		"MaxDurability": 440,
+		"DamageVsEntities": 185,
+		"Weight": 4,
+		"Rarity": "Uncommon",
+		"Texture": "SL11",
+		"EFPRender": {
+			"Position": [ 2.35, -3.9, -0.78 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.36, -1.04, 0.263 ]
+		}
+	},
+	{
+		"UnlocalizedName": "PHOENIX",
+		"MaxDurability": 425,
+		"DamageVsEntities": 215,
+		"Weight": 3.4,
+		"Rarity": "Rare",
+		"Texture": "SL12",
+		"EFPRender": {
+			"Position": [ 2.4, -3.9, -0.75 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.36, -1.04, 0.263 ]
+		}
+	},
+	{
+		"UnlocalizedName": "AZUREANGER",
+		"MaxDurability": 495,
+		"DamageVsEntities": 240,
+		"Weight": 3.2,
+		"Rarity": "Legendary",
+		"Texture": "SL13",
+		"EFPRender": {
+			"Position": [ 2.35, -3.9, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.37, -1.03, 0.233 ]
+		}
+	},
+	{
+		"UnlocalizedName": "CLAW",
+		"MaxDurability": 600,
+		"DamageVsEntities": 255,
+		"Weight": 3.4,
+		"Rarity": "Legendary",
+		"Texture": "SL14",
+		"EFPRender": {
+			"Position": [ 2.35, -4.0, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.37, -1.03, 0.233 ]
+		}
+	},
+	{
+		"UnlocalizedName": "SILVER2",
+		"MaxDurability": 480,
+		"DamageVsEntities": 230,
+		"Weight": 2.6,
+		"Rarity": "Rare",
+		"Texture": "SL15",
+		"Model": "SL13",
+		"EFPRender": {
+			"Position": [ 2.35, -3.9, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.37, -1.03, 0.233 ]
+		}
+	},
+	{
+		"UnlocalizedName": "DEITHWEN",
+		"MaxDurability": 400,
+		"DamageVsEntities": 205,
+		"Weight": 3.9,
+		"Rarity": "Uncommon",
+		"Texture": "SL16",
+		"EFPRender": {
+			"Position": [ 2.1, -3.55, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.1, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801SILVER1",
+		"MaxDurability": 630,
+		"DamageVsEntities": 175,
+		"Weight": 4,
+		"Set": "9801",
+		"Rarity": "Uncommon",
+		"Texture": "SL1",
+		"EFPRender": {
+			"Position": [ 2.1, -3.75, -0.73 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.235, -0.945, 0.227 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801SILVER2",
+		"MaxDurability": 650,
+		"DamageVsEntities": 190,
+		"Weight": 3.5,
+		"Set": "9801",
+		"Rarity": "Uncommon",
+		"Texture": "SL2",
+		"EFPRender": {
+			"Position": [ 2.3, -3.75, -0.73 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.33, -1.02, 0.238 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801SILVER3",
+		"MaxDurability": 680,
+		"DamageVsEntities": 210,
+		"Weight": 3,
+		"Set": "9801",
+		"Rarity": "Rare",
+		"Texture": "SL3",
+		"EFPRender": {
+			"Position": [ 2.35, -3.75, -0.74 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.35, -1.02, 0.263 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801SILVER4",
+		"MaxDurability": 690,
+		"DamageVsEntities": 235,
+		"Weight": 2.8,
+		"Set": "9801",
+		"Rarity": "Rare",
+		"Texture": "SL4",
+		"EFPRender": {
+			"Position": [ 2.4, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.37, -1.02, 0.24 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9802SILVER1",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Set": "9802",
+		"Rarity": "NotEntered",
+		"Texture": "SL1",
+		"EFPRender": {
+			"Position": [ 2.15, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.02, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9802SILVER2",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Set": "9802",
+		"Rarity": "NotEntered",
+		"Texture": "SL2",
+		"EFPRender": {
+			"Position": [ 2.15, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.305, -0.99, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9802SILVER3",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Set": "9802",
+		"Rarity": "NotEntered",
+		"Texture": "SL3",
+		"EFPRender": {
+			"Position": [ 2.3, -3.75, -0.8 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.315, -0.98, 0.26 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9802SILVER4",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Set": "9802",
+		"Rarity": "NotEntered",
+		"Texture": "SL4",
+		"EFPRender": {
+			"Position": [ 2.3, -3.75, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.339, -1.0, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803SILVER1",
+		"MaxDurability": 750,
+		"DamageVsEntities": 155,
+		"Weight": 3,
+		"Set": "9803",
+		"Rarity": "Uncommon",
+		"Texture": "SL1",
+		"EFPRender": {
+			"Position": [ 2.2, -3.92, -0.67 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.03, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803SILVER2",
+		"MaxDurability": 770,
+		"DamageVsEntities": 170,
+		"Weight": 2,
+		"Set": "9803",
+		"Rarity": "Uncommon",
+		"Texture": "SL2",
+		"EFPRender": {
+			"Position": [ 2.25, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.3, -0.98, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803SILVER3",
+		"MaxDurability": 800,
+		"DamageVsEntities": 190,
+		"Weight": 1.5,
+		"Set": "9803",
+		"Rarity": "Rare",
+		"Texture": "SL3",
+		"EFPRender": {
+			"Position": [ 2.3, -3.65, -0.74 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.31, -0.98, 0.26 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803SILVER4",
+		"MaxDurability": 800,
+		"DamageVsEntities": 210,
+		"Weight": 1,
+		"Set": "9803",
+		"Rarity": "Rare",
+		"Texture": "SL4",
+		"EFPRender": {
+			"Position": [ 2.35, -3.75, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.33, -0.98, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804SILVER1",
+		"MaxDurability": 700,
+		"DamageVsEntities": 165,
+		"Weight": 3.4,
+		"Set": "9804",
+		"Rarity": "Uncommon",
+		"Texture": "SL1",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.29, -1.024, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804SILVER2",
+		"MaxDurability": 700,
+		"DamageVsEntities": 180,
+		"Weight": 3,
+		"Set": "9804",
+		"Rarity": "Uncommon",
+		"Texture": "SL2",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.33, -1.024, 0.23 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804SILVER3",
+		"MaxDurability": 740,
+		"DamageVsEntities": 200,
+		"Weight": 2.6,
+		"Set": "9804",
+		"Rarity": "Rare",
+		"Texture": "SL3",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.35, -1.02, 0.263 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804SILVER4",
+		"MaxDurability": 760,
+		"DamageVsEntities": 225,
+		"Weight": 1.8,
+		"Set": "9804",
+		"Rarity": "Rare",
+		"Texture": "SL4",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.365, -1.02, 0.23 ]
+		}
+	}
+]

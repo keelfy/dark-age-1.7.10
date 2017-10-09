@@ -1,0 +1,21 @@
+[
+	{
+		"UnlocalizedName": "BEARSCHOOLCHESTPLATE",
+		"Weight": 7,
+		"MaxDurability": 700,
+		"Part": "Chestplate",
+		"BlockingPercent": 11,
+		"ArmorClass": "Heavy",
+		"Rarity": "Rare",
+		"Texture": "01"
+		"ModelRendering": [
+			"Bind": "bearSchool/Armor",
+			"Body": {
+				"Position": [ 0, -0.05, 0],
+				"Scale": 1.05,
+				"Model": "armor.schoolBear.BearSchoolArmor"
+			},
+			
+		]
+	}
+]

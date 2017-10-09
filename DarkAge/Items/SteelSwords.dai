@@ -1,0 +1,570 @@
+[
+	{
+		"UnlocalizedName": "HARDENED",
+		"MaxDurability": 470,
+		"DamageVsEntities": 200,
+		"Weight": 4,
+		"Rarity": "Usual",
+		"Texture": "ST01",
+		"EFPRender": {
+			"Position": [ 2.2, -3.55, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.315, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "OLDESTELVIN",
+		"MaxDurability": 850,
+		"DamageVsEntities": 385,
+		"Weight": 3,
+		"Rarity": "Legendary",
+		"Texture": "ST02",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "DEVINE",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Rarity": "NotEntered",
+		"Texture": "ST03",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -0.98, -0.02, 0.54 ],
+			"Rotation": [ 320, 0, 90 ]
+		}
+	},
+	{
+		"UnlocalizedName": "RUSTY",
+		"MaxDurability": 250,
+		"DamageVsEntities": 125,
+		"Weight": 4,
+		"Rarity": "Usual",
+		"Texture": "ST04",
+		"EntityRender": {
+			"Scale": 0.0415
+		},
+		"EquippedRender": {
+			"Position": [ -2.07, 11.3, -0.1 ],
+			"Scale": 0.0430
+		},	
+		"EFPRender": {
+			"Position": [ 2.2, -2.65, -0.33 ],
+			"Scale":  0.0515
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -0.77, 0.2 ],
+			"Scale": 0.0175
+		}
+	},
+	{
+		"UnlocalizedName": "OLDEST",
+		"MaxDurability": 0,
+		"DamageVsEntities": 0,
+		"Weight": 0,
+		"Rarity": "NotEntered",
+		"Texture": "ST05",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "VIKOVARO",
+		"MaxDurability": 535,
+		"DamageVsEntities": 265,
+		"Weight": 4.5,
+		"Rarity": "Uncommon",
+		"Texture": "ST06",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "NAZAIR",
+		"MaxDurability": 490,
+		"DamageVsEntities": 250,
+		"Weight": 4.2,
+		"Rarity": "Usual",
+		"Texture": "ST07",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "WITCHERYSTEEL",
+		"MaxDurability": 300,
+		"DamageVsEntities": 260,
+		"Weight": 2,
+		"Rarity": "Usual",
+		"Texture": "ST08",
+		"EFPRender": {
+			"Position": [ 2.2, -3.75, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.34, -1.04, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "RUSTYELVIN",
+		"MaxDurability": 520,
+		"DamageVsEntities": 225,
+		"Weight": 3,
+		"Rarity": "Usual",
+		"Texture": "ST09",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.05, -0.32, 0.42 ],
+			"Rotation": [ 320, 0, -90]
+		}
+	},
+	{
+		"UnlocalizedName": "OFIR",
+		"MaxDurability": 900,
+		"DamageVsEntities": 360,
+		"Weight": 2,
+		"Rarity": "Rare",
+		"Texture": "ST10",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "ELLANDER",
+		"MaxDurability": 580,
+		"DamageVsEntities": 235,
+		"Weight": 4,
+		"Rarity": "Usual",
+		"Texture": "ST11",
+		"EFPRender": {
+			"Position": [ 2.3, -3.75, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.11, -0.98, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "NOVIGRAD1",
+		"MaxDurability": 630,
+		"DamageVsEntities": 270,
+		"Weight": 4.5,
+		"Rarity": "Usual",
+		"Texture": "ST12",
+		"EFPRender": {
+			"Position": [ 2.17, -3.65, -0.84 ],
+			"Scale": 1.9515
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "NOVIGRAD2",
+		"MaxDurability": 415,
+		"DamageVsEntities": 335,
+		"Weight": 9,
+		"Rarity": "Usual",
+		"Icon": "ST13",
+		"Texture": "ST12",
+		"Model": "ST12",
+		"EFPRender": {
+			"Position": [ 2.17, -3.65, -0.84 ],
+			"Scale": 1.9515
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "NOVIGRAD3",
+		"MaxDurability": 540,
+		"DamageVsEntities": 245,
+		"Weight": 5,
+		"Rarity": "Usual",
+		"Icon": "ST14",
+		"Texture": "ST12",
+		"Model": "ST12",
+		"EFPRender": {
+			"Position": [ 2.17, -3.65, -0.84 ],
+			"Scale": 1.9515
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "IRONY",
+		"MaxDurability": 380,
+		"DamageVsEntities": 150,
+		"Weight": 3.5,
+		"Rarity": "Usual",
+		"Texture": "ST15",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "MARIBOR",
+		"MaxDurability": 500,
+		"DamageVsEntities": 260,
+		"Weight": 5,
+		"Rarity": "Usual",
+		"Texture": "ST18",
+		"Model": "ST18",
+		"Icon": "ST16",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "AEDIRN",
+		"MaxDurability": 400,
+		"DamageVsEntities": 330,
+		"Weight": 11,
+		"Rarity": "Usual",
+		"Texture": "ST17",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "VENGERBERG",
+		"MaxDurability": 400,
+		"DamageVsEntities": 340,
+		"Weight": 8,
+		"Rarity": "Usual",
+		"Texture": "ST18",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "ELVIN",
+		"MaxDurability": 730,
+		"DamageVsEntities": 360,
+		"Weight": 3,
+		"Rarity": "Rare",
+		"Icon": "ST19",
+		"Texture": "ST03",
+		"Model": "ST03",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.18, -1.02, 0.24 ]
+		}
+	},
+	{
+		"UnlocalizedName": "MAHAKAM1",
+		"MaxDurability": 780,
+		"DamageVsEntities": 370,
+		"Weight": 2.5,
+		"Rarity": "Rare",
+		"Texture": "ST20",
+		"EFPRender": {
+			"Position": [ 2.0, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.1, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "MAHAKAM2",
+		"MaxDurability": 900,
+		"DamageVsEntities": 400,
+		"Weight": 3,
+		"Rarity": "Legendary",
+		"Icon": "ST21",
+		"Texture": "ST20",
+		"Model": "ST20",
+		"EFPRender": {
+			"Position": [ 2.0, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.1, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801STEEL1",
+		"MaxDurability": 700,
+		"DamageVsEntities": 300,
+		"Weight": 6,
+		"Rarity": "Usual",
+		"Set": "9801",
+		"Texture": "ST1",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801STEEL2",
+		"MaxDurability": 700,
+		"DamageVsEntities": 330,
+		"Weight": 6,
+		"Rarity": "Uncommon",
+		"Set": "9801",
+		"Texture": "ST2",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801STEEL3",
+		"MaxDurability": 700,
+		"DamageVsEntities": 370,
+		"Weight": 5,
+		"Rarity": "Uncommon",
+		"Set": "9801",
+		"Texture": "ST3",
+		"EFPRender": {
+			"Position": [ 2.1, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.17, -1.02, 0.255 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9801STEEL4",
+		"MaxDurability": 700,
+		"DamageVsEntities": 390,
+		"Weight": 5,
+		"Rarity": "Legendary",
+		"Set": "9801",
+		"Texture": "ST4",
+		"EFPRender": {
+			"Position": [ 2.1, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.16, -1.02, 0.235 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803STEEL1",
+		"MaxDurability": 700,
+		"DamageVsEntities": 250,
+		"Weight": 2.6,
+		"Rarity": "Usual",
+		"Set": "9803",
+		"Texture": "ST1",
+		"EFPRender": {
+			"Position": [ 2.15, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803STEEL2",
+		"MaxDurability": 700,
+		"DamageVsEntities": 270,
+		"Weight": 2,
+		"Rarity": "Uncommon",
+		"Set": "9803",
+		"Texture": "ST2",
+		"EFPRender": {
+			"Position": [ 2.15, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803STEEL3",
+		"MaxDurability": 700,
+		"DamageVsEntities": 300,
+		"Weight": 2,
+		"Rarity": "Uncommon",
+		"Set": "9803",
+		"Texture": "ST3",
+		"EFPRender": {
+			"Position": [ 2.15, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9803STEEL4",
+		"MaxDurability": 700,
+		"DamageVsEntities": 320,
+		"Weight": 2,
+		"Rarity": "Legendary",
+		"Set": "9803",
+		"Texture": "ST4",
+		"EFPRender": {
+			"Position": [ 2.15, -3.55, -0.6 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -0.96, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804STEEL1",
+		"MaxDurability": 700,
+		"DamageVsEntities": 275,
+		"Weight": 4,
+		"Rarity": "Usual",
+		"Set": "9804",
+		"Texture": "ST1",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.16, -1.04, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804STEEL2",
+		"MaxDurability": 700,
+		"DamageVsEntities": 310,
+		"Weight": 3.6,
+		"Rarity": "Uncommon",
+		"Set": "9804",
+		"Texture": "ST2",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.14, -1.04, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804STEEL3",
+		"MaxDurability": 700,
+		"DamageVsEntities": 340,
+		"Weight": 3,
+		"Rarity": "Uncommon",
+		"Set": "9804",
+		"Texture": "ST3",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.16, -1.04, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9804STEEL4",
+		"MaxDurability": 700,
+		"DamageVsEntities": 360,
+		"Weight": 3,
+		"Rarity": "Legendary",
+		"Set": "9804",
+		"Texture": "ST4",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.17, -1.08, 0.222 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9805STEEL1",
+		"MaxDurability": 402,
+		"DamageVsEntities": 175,
+		"Weight": 4,
+		"Rarity": "Usual",
+		"Texture": "ST22",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.15, -1.06, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9805STEEL2",
+		"MaxDurability": 620,
+		"DamageVsEntities": 240,
+		"Weight": 5.2,
+		"Rarity": "Usual",
+		"Texture": "ST22",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.15, -1.06, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9805STEEL3",
+		"MaxDurability": 450,
+		"DamageVsEntities": 310,
+		"Weight": 9,
+		"Rarity": "Usual",
+		"Texture": "ST22",
+		"EFPRender": {
+			"Position": [ 2.3, -3.85, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.15, -1.06, 0.22 ]
+		}
+	},
+	{
+		"UnlocalizedName": "9809STEEL1",
+		"MaxDurability": 620,
+		"DamageVsEntities": 240,
+		"Weight": 4.5,
+		"Rarity": "Usual",
+		"Texture": "ST23",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	},
+		{
+		"UnlocalizedName": "9809STEEL2",
+		"MaxDurability": 670,
+		"DamageVsEntities": 295,
+		"Weight": 4,
+		"Rarity": "Rare",
+		"Texture": "ST24",
+		"EFPRender": {
+			"Position": [ 2.1, -3.8, -0.64 ]
+		},
+		"InScabbardRender": {
+			"Position": [ -1.13, -1.02, 0.22 ]
+		}
+	}
+]
