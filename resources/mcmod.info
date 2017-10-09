@@ -1,0 +1,16 @@
+[
+{
+  "modid": "witchercore",
+  "name": "Dark Age Mod",
+  "description": "Mod for Dark Age project.",
+  "version": "13.8c",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["keelfy"],
+  "credits": "Rubedo team",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

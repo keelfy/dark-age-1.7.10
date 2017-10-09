@@ -1,0 +1,258 @@
+{
+  "magic.charge": {
+    "category": "player",
+    "sounds": ["magic/charge"]
+  },
+  "magic.shot": {
+    "category": "player",
+    "sounds": ["magic/shot"]
+  },
+  "misc.old_explode": {
+    "category": "player",
+    "sounds": ["misc/old_explode"]
+  },
+  "misc.swosh": {
+    "category": "player",
+    "sounds": ["misc/swosh"]
+  },
+  "human.female.evil.attack": {
+    "category": "player",
+    "sounds": ["human/female/evil/Attack 1","human/female/evil/Attack 2"]
+  },
+  "human.female.evil.death": {
+    "category": "player",
+    "sounds": ["human/female/evil/Death 1","human/female/evil/Death 2"]
+  },
+  "human.female.evil.hurt": {
+    "category": "player",
+    "sounds": ["human/female/evil/Hurt 1","human/female/evil/Hurt 2"]
+  },
+  "human.female.heroic.attack": {
+    "category": "player",
+    "sounds": ["human/female/heroic/Attack 1","human/female/heroic/Attack 2"]
+  },
+  "human.female.heroic.death": {
+    "category": "player",
+    "sounds": ["human/female/heroic/Death 1","human/female/heroic/Death 2"]
+  },
+  "human.female.heroic.hurt": {
+    "category": "player",
+    "sounds": ["human/female/heroic/Hurt 1","human/female/heroic/Hurt 2"]
+  },
+  "human.female.villager.attack": {
+    "category": "player",
+    "sounds": ["human/female/villager/Attack 1","human/female/villager/Attack 2"]
+  },
+  "human.female.villager.death": {
+    "category": "player",
+    "sounds": ["human/female/villager/Death 1","human/female/villager/Death 2"]
+  },
+  "human.female.villager.hurt": {
+    "category": "player",
+    "sounds": ["human/female/villager/Hurt 1","human/female/villager/Hurt 2"]
+  },
+  "human.girl.evil.attack": {
+    "category": "player",
+    "sounds": ["human/girl/evil/Attack 1","human/girl/evil/Attack 2"]
+  },
+  "human.girl.evil.death": {
+    "category": "player",
+    "sounds": ["human/girl/evil/Death 1","human/girl/evil/Death 2"]
+  },
+  "human.girl.evil.hurt": {
+    "category": "player",
+    "sounds": ["human/girl/evil/Hurt 1","human/girl/evil/Hurt 2"]
+  },
+  "human.girl.heroic.attack": {
+    "category": "player",
+    "sounds": ["human/girl/heroic/Attack 1","human/girl/heroic/Attack 2"]
+  },
+  "human.girl.heroic.death": {
+    "category": "player",
+    "sounds": ["human/girl/heroic/Death 1","human/girl/heroic/Death 2"]
+  },
+  "human.girl.heroic.hurt": {
+    "category": "player",
+    "sounds": ["human/girl/heroic/Hurt 1","human/girl/heroic/Hurt 2"]
+  },
+  "human.girl.villager.attack": {
+    "category": "player",
+    "sounds": ["human/girl/villager/Attack 1","human/girl/villager/Attack 2"]
+  },
+  "human.girl.villager.death": {
+    "category": "player",
+    "sounds": ["human/girl/villager/Death 1","human/girl/villager/Death 2"]
+  },
+  "human.girl.villager.hurt": {
+    "category": "player",
+    "sounds": ["human/girl/villager/Hurt 1","human/girl/villager/Hurt 2"]
+  },
+  "human.male.evil.attack": {
+    "category": "player",
+    "sounds": ["human/male/evil/Attack 1","human/male/evil/Attack 2"]
+  },
+  "human.male.evil.death": {
+    "category": "player",
+    "sounds": ["human/male/evil/Death 1","human/male/evil/Death 2"]
+  },
+  "human.male.evil.hurt": {
+    "category": "player",
+    "sounds": ["human/male/evil/Hurt 1","human/male/evil/Hurt 2"]
+  },
+  "human.male.heroic.attack": {
+    "category": "player",
+    "sounds": ["human/male/heroic/Attack 1","human/male/heroic/Attack 2"]
+  },
+  "human.male.heroic.death": {
+    "category": "player",
+    "sounds": ["human/male/heroic/Death 1","human/male/heroic/Death 2"]
+  },
+  "human.male.heroic.hurt": {
+    "category": "player",
+    "sounds": ["human/male/heroic/Hurt 1","human/male/heroic/Hurt 2"]
+  },
+  "human.male.villager.attack": {
+    "category": "player",
+    "sounds": ["human/male/villager/Attack 1","human/male/villager/Attack 2"]
+  },
+  "human.male.villager.death": {
+    "category": "player",
+    "sounds": ["human/male/villager/Death 1","human/male/villager/Death 2"]
+  },
+  "human.male.villager.hurt": {
+    "category": "player",
+    "sounds": ["human/male/villager/Hurt 1","human/male/villager/Hurt 2"]
+  },
+  "monster.ghost1.beg": {
+    "category": "player",
+    "sounds": ["monster/ghost1/beg"]
+  },
+  "monster.ghost1.death": {
+    "category": "player",
+    "sounds": ["monster/ghost1/death"]
+  },
+  "monster.ghost1.hurt": {
+    "category": "player",
+    "sounds": ["monster/ghost1/hurt"]
+  },
+  "monster.ghost1.say": {
+    "category": "player",
+    "sounds": ["monster/ghost1/say"]
+  },
+  "monster.ghost1.tame": {
+    "category": "player",
+    "sounds": ["monster/ghost1/tame"]
+  },
+  "monster.ghost2.attack": {
+    "category": "player",
+    "sounds": ["monster/ghost2/beg"]
+  },
+  "monster.ghost2.beg": {
+    "category": "player",
+    "sounds": ["monster/ghost2/beg"]
+  },
+  "monster.ghost2.death": {
+    "category": "player",
+    "sounds": ["monster/ghost2/death"]
+  },
+  "monster.ghost2.hurt": {
+    "category": "player",
+    "sounds": ["monster/ghost2/hurt"]
+  },
+  "monster.ghost2.jump": {
+    "category": "player",
+    "sounds": ["monster/ghost2/jump"]
+  },
+  "monster.ghost2.say": {
+    "category": "player",
+    "sounds": ["monster/ghost2/say"]
+  },
+  "monster.ghost2.tame": {
+    "category": "player",
+    "sounds": ["monster/ghost2/tame"]
+  },
+  "monster.ghost3.attack": {
+    "category": "player",
+    "sounds": ["monster/ghost3/beg"]
+  },
+  "monster.ghost3.beg": {
+    "category": "player",
+    "sounds": ["monster/ghost3/beg"]
+  },
+  "monster.ghost3.death": {
+    "category": "player",
+    "sounds": ["monster/ghost3/death"]
+  },
+  "monster.ghost3.hurt": {
+    "category": "player",
+    "sounds": ["monster/ghost3/hurt"]
+  },
+  "monster.ghost3.jump": {
+    "category": "player",
+    "sounds": ["monster/ghost3/jump"]
+  },
+  "monster.ghost3.say": {
+    "category": "player",
+    "sounds": ["monster/ghost3/say"]
+  },
+  "monster.ghost3.tame": {
+    "category": "player",
+    "sounds": ["monster/ghost3/tame"]
+  },
+  "effect.fear": {
+    "category": "player",
+    "sounds": ["effects/fear"]
+  },
+  "effect.stoneFall": {
+    "category": "player",
+    "sounds": ["effects/stoneFall1","effects/stoneFall2","effects/stoneFall3","effects/stoneFall4"]
+  },
+   "signs.aard": {
+    "category": "player",
+    "sounds": ["signs/Aard"]
+  },
+   "signs.aksi": {
+    "category": "player",
+    "sounds": ["signs/Aksi"]
+  },
+ "signs.igni": {
+    "category": "player",
+    "sounds": ["signs/Igni"]
+  },
+ "signs.irden": {
+    "category": "player",
+    "sounds": ["signs/Irden"]
+  },
+  "signs.kven": {
+    "category": "player",
+    "sounds": ["signs/Kven"]
+  },
+  "songs.carBoss": {
+    "category": "player",
+    "sounds": [{"name": "songs/CarrBoss", "stream": true}]
+  },
+  "songs.carBoss2": {
+    "category": "player",
+    "sounds": [{"name": "songs/CarrBoss2", "stream": true}]
+  },
+  "songs.stoneFallMusic": {
+    "category": "player",
+    "sounds": [{"name": "songs/stoneFallMusic", "stream": true}]
+  },
+  "songs.believe": {
+    "category": "player",
+    "sounds": [{"name": "songs/believe", "stream": true}]
+  },
+  "songs.Tavern1": {
+    "category": "player",
+    "sounds": [{"name": "songs/Tavern1", "stream": true}]
+  },
+  "songs.Tavern2": {
+    "category": "player",
+    "sounds": [{"name": "songs/Tavern2", "stream": true}]
+  },
+  "songs.Tavern3": {
+    "category": "player",
+    "sounds": [{"name": "songs/Tavern3", "stream": true}]
+  }
+}
