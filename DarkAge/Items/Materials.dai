@@ -1,0 +1,1270 @@
+[
+	{
+		"UnlocalizedName": "blueprint1",
+		"Texture": "bp1"
+	},
+    {
+		"UnlocalizedName": "package",
+		"Texture": "SmallChest"
+    },
+    {
+		"UnlocalizedName": "flax",
+		"Texture": "Flax"
+    },
+	{
+		"UnlocalizedName": "flaxCloth",
+		"Texture": "FlaxCloth"
+	},
+	{
+		"UnlocalizedName": "chainmail",
+		"Texture": "Chainmail"
+	},
+	{
+		"UnlocalizedName": "morionCrystal",
+		"Texture": "MorionCrystal"
+	},
+	{
+		"UnlocalizedName": "morionRitual",
+		"Texture": "MorionRitual"
+	},
+	{
+		"UnlocalizedName": "feathers",
+		"Texture": "Feathers"
+	},
+	{
+		"UnlocalizedName": "hay",
+		"Texture": "Hay"
+	},
+    {
+		"UnlocalizedName": "leather",
+		"Texture": "Leather"
+	},
+	{
+		"UnlocalizedName": "leatherScraps",
+		"Texture": "LeatherScraps"
+	},
+	{
+		"UnlocalizedName": "glass",
+		"Texture": "Glass"
+	},
+	{
+		"UnlocalizedName": "sweetPepperRoot",
+		"Texture": "SweetPepperRoot"
+	},
+	{
+		"UnlocalizedName": "arenaria",
+		"Texture": "Arenaria"
+	},
+	{
+		"UnlocalizedName": "ballistaFruit",
+		"Texture": "BallistaFruit"
+	},
+	{
+		"UnlocalizedName": "dvoerogFlower",
+		"Texture": "DvoerogFlower"
+	},
+	{
+		"UnlocalizedName": "berbekaFruit",
+		"Texture": "BerbekaFruit"
+	},
+	{
+		"UnlocalizedName": "zubrovkaGrass",
+		"Texture": "ZubrovkaGrass"
+	},
+	{
+		"UnlocalizedName": "magicalDust",
+		"Texture": "MagicalDust"
+	},
+	{
+		"UnlocalizedName": "krovostoy",
+		"Texture": "Krovostoy"
+	},
+	{
+		"UnlocalizedName": "dandelion",
+		"Texture": "Dandelion"
+	},
+	{
+		"UnlocalizedName": "hulwort",
+		"Texture": "Hulwort"
+	},
+	{
+		"UnlocalizedName": "buckthorn",
+		"Texture": "Buckthorn"
+	},
+	{
+		"UnlocalizedName": "swallowGrass",
+		"Texture": "SwallowGrass"
+	},
+	{
+		"UnlocalizedName": "cortinarius",
+		"Texture": "Cortinarius"
+	},
+	{
+		"UnlocalizedName": "crowEye",
+		"Texture": "CrowEye"
+	},
+	{
+		"UnlocalizedName": "ergotSeeds",
+		"Texture": "ErgotSeeds"
+	},
+	{
+		"UnlocalizedName": "dogParsleyLeaves",
+		"Texture": "DogParsleyLeaves"
+	},
+	{
+		"UnlocalizedName": "ginatsiyaPetals",
+		"Texture": "GinatsiyaPetals"
+	},
+	{
+		"UnlocalizedName": "mold",
+		"Texture": "Mold"
+	},
+	{
+		"UnlocalizedName": "khanFibers",
+		"Texture": "KhanFibers"
+	},
+	{
+		"UnlocalizedName": "chaericalPetals",
+		"Texture": "ChaericalPetals"
+	},
+	{
+		"UnlocalizedName": "capry",
+		"Texture": "Capry"
+	},
+	{
+		"UnlocalizedName": "hopCones",
+		"Texture": "HopCones"
+	},
+	{
+		"UnlocalizedName": "hornwort",
+		"Texture": "Hornwort"
+	},
+	{
+		"UnlocalizedName": "measurelessness",
+		"Texture": "Measurelessness"
+	},
+	{
+		"UnlocalizedName": "mandrakeRoot",
+		"Texture": "MandrakeRoot"
+	},
+	{
+		"UnlocalizedName": "mistletoe",
+		"Texture": "Mistletoe"
+	},
+	{
+		"UnlocalizedName": "mousewheel",
+		"Texture": "Mousewheel"
+	},
+	{
+		"UnlocalizedName": "fogCrawlerTooth",
+		"Texture": "FogCrawlerTooth"
+	},
+	{
+		"UnlocalizedName": "atrix",
+		"Texture": "Atrix"
+	},
+	{
+		"UnlocalizedName": "raincoatMushroom",
+		"Texture": "RaincoatMushroom"
+	},
+	{
+		"UnlocalizedName": "sensorigron",
+		"Texture": "Sensorigron"
+	},
+	{
+		"UnlocalizedName": "ranog",
+		"Texture": "Ranog"
+	},
+	{
+		"UnlocalizedName": "skorotsel",
+		"Texture": "Skorotsel"
+	},
+	{
+		"UnlocalizedName": "shibaltsyMushrooms",
+		"Texture": "ShibaltsyMushrooms"
+	},
+	{
+		"UnlocalizedName": "verbena",
+		"Texture": "Verbena"
+	},
+	{
+		"UnlocalizedName": "whiteMyrtlePetals",
+		"Texture": "WhiteMyrtlePetals"
+	},
+	{
+		"UnlocalizedName": "volkoboy",
+		"Texture": "Volkoboy"
+	},
+	{
+		"UnlocalizedName": "steelCandlestick",
+		"Texture": "SteelCandlestick"
+	},
+	{
+		"UnlocalizedName": "poison",
+		"Texture": "Poison"
+	},
+	{
+		"UnlocalizedName": "silverCandlestick",
+		"Texture": "SilverCandlestick"
+	},
+	{
+		"UnlocalizedName": "candle",
+		"Texture": "Candle"
+	},
+	{
+		"UnlocalizedName": "casket",
+		"Texture": "Casket"
+	},
+	{
+		"UnlocalizedName": "doll",
+		"Texture": "Doll"
+	},
+	{
+		"UnlocalizedName": "laddan",
+		"Texture": "Laddan"
+	},
+	{
+		"UnlocalizedName": "barban",
+		"Texture": "Barban"
+	},
+	{
+		"UnlocalizedName": "harpyFeathers",
+		"Texture": "HarpyFeathers"
+	},
+	{
+		"UnlocalizedName": "tsep",
+		"Texture": "Tsep"
+	},
+	{
+		"UnlocalizedName": "dwarvenShackles",
+		"Texture": "DwarvenShackles"
+	},
+	{
+		"UnlocalizedName": "nets",
+		"Texture": "Nets"
+	},
+	{
+		"UnlocalizedName": "fishingRod",
+		"Texture": "FishingRod"
+	},
+	{
+		"UnlocalizedName": "flowers_1",
+		"Texture": "Flowers_1"
+	},
+	{
+		"UnlocalizedName": "flowers_2",
+		"Texture": "Flowers_2"
+	},
+	{
+		"UnlocalizedName": "flute",
+		"Texture": "Flute"
+	},
+	{
+		"UnlocalizedName": "magicalScrap",
+		"Texture": "MagicalScrap"
+	},
+	{
+		"UnlocalizedName": "amber_1",
+		"Texture": "Amber_1"
+	},
+	{
+		"UnlocalizedName": "amberDust",
+		"Texture": "AmberDust"
+	},
+	{
+		"UnlocalizedName": "pureAmber",
+		"Texture": "PureAmber"
+	},
+	{
+		"UnlocalizedName": "amber_2",
+		"Texture": "Amber_2"
+	},
+	{
+		"UnlocalizedName": "amber_3",
+		"Texture": "Amber_3"
+	},
+	{
+		"UnlocalizedName": "amethyst",
+		"Texture": "Amethyst"
+	},
+	{
+		"UnlocalizedName": "amethystDust",
+		"Texture": "AmethystDust"
+	},
+	{
+		"UnlocalizedName": "pureAmethyst",
+		"Texture": "PureAmethyst"
+	},
+	{
+		"UnlocalizedName": "diamond",
+		"Texture": "Diamond"
+	},
+	{
+		"UnlocalizedName": "diamondDust",
+		"Texture": "DiamondDust"
+	},
+	{
+		"UnlocalizedName": "pureDiamond",
+		"Texture": "PureDiamond"
+	},
+	{
+		"UnlocalizedName": "limon",
+		"Texture": "Limon"
+	},
+	{
+		"UnlocalizedName": "emerald",
+		"Texture": "Emerald"
+	},
+	{
+		"UnlocalizedName": "emeraldDust",
+		"Texture": "EmeraldDust"
+	},
+	{
+		"UnlocalizedName": "pureEmerald",
+		"Texture": "PureEmerald"
+	},
+	{
+		"UnlocalizedName": "glowDust",
+		"Texture": "GlowDust"
+	},
+	{
+		"UnlocalizedName": "glowScraps",
+		"Texture": "GlowScraps"
+	},
+	{
+		"UnlocalizedName": "pearl",
+		"Texture": "Pearl"
+	},
+	{
+		"UnlocalizedName": "blackPearl",
+		"Texture": "BlackPearl"
+	},
+	{
+		"UnlocalizedName": "blackPoundedPearl",
+		"Texture": "BlackPoundedPearl"
+	},
+	{
+		"UnlocalizedName": "poundedPearl",
+		"Texture": "PoundedPearl"
+	},
+	{
+		"UnlocalizedName": "ruby",
+		"Texture": "Ruby"
+	},
+	{
+		"UnlocalizedName": "rubyDust",
+		"Texture": "RubyDust"
+	},
+	{
+		"UnlocalizedName": "pureRuby",
+		"Texture": "PureRuby"
+	},
+	{
+		"UnlocalizedName": "sapphire",
+		"Texture": "Sapphire"
+	},
+	{
+		"UnlocalizedName": "sapphireDust",
+		"Texture": "SapphireDust"
+	},
+	{
+		"UnlocalizedName": "pureSapphire",
+		"Texture": "PureSapphire"
+	},
+	{
+		"UnlocalizedName": "flask",
+		"Texture": "Flask"
+	},
+	{
+		"UnlocalizedName": "blackPowder",
+		"Texture": "BlackPowder"
+	},
+	{
+		"UnlocalizedName": "ink",
+		"Texture": "Ink"
+	},
+	{
+		"UnlocalizedName": "flacon",
+		"Texture": "Flacon"
+	},
+	{
+		"UnlocalizedName": "perfume",
+		"Texture": "Perfume"
+	},
+	{
+		"UnlocalizedName": "phial",
+		"Texture": "Phial"
+	},
+	{
+		"UnlocalizedName": "nilfgaardIcon",
+		"Texture": "NilfgaardIcon"
+	},
+	{
+		"UnlocalizedName": "witchHuntersIcon",
+		"Texture": "WitchHuntersIcon"
+	},
+	{
+		"UnlocalizedName": "temerIcon",
+		"Texture": "TemerIcon"
+	},
+	{
+		"UnlocalizedName": "wineglass",
+		"Texture": "Wineglass"
+	},
+	{
+		"UnlocalizedName": "nails",
+		"Texture": "Nails"
+	},
+	{
+		"UnlocalizedName": "razor",
+		"Texture": "Razor"
+	},
+	{
+		"UnlocalizedName": "service",
+		"Texture": "Service"
+	},
+	{
+		"UnlocalizedName": "sawing",
+		"Texture": "Sawing"
+	},
+	{
+		"UnlocalizedName": "censer",
+		"Texture": "Censer"
+	},
+	{
+		"UnlocalizedName": "pipe_1",
+		"Texture": "Pipe_1"
+	},
+	{
+		"UnlocalizedName": "meliteleStatuette",
+		"Texture": "MeliteleStatuette"
+	},
+	{
+		"UnlocalizedName": "canvas",
+		"Texture": "Canvas"
+	},
+	{
+		"UnlocalizedName": "lute",
+		"Texture": "Lute"
+	},
+	{
+		"UnlocalizedName": "woodenMug",
+		"Texture": "WoodenMug"
+	},
+	{
+		"UnlocalizedName": "goldenMug",
+		"Texture": "GoldenMug"
+	},
+	{
+		"UnlocalizedName": "silverMug",
+		"Texture": "SilverMug"
+	},
+	{
+		"UnlocalizedName": "sapphireNecklace",
+		"Texture": "SapphireNecklace"
+	},
+	{
+		"UnlocalizedName": "goldenNecklace",
+		"Texture": "GoldenNecklace"
+	},
+	{
+		"UnlocalizedName": "amethystNecklace",
+		"Texture": "AmethystNecklace"
+	},
+	{
+		"UnlocalizedName": "amberNecklace",
+		"Texture": "AmberNecklace"
+	},
+	{
+		"UnlocalizedName": "emeraldNecklace",
+		"Texture": "EmeraldNecklace"
+	},
+	{
+		"UnlocalizedName": "rubyNecklace",
+		"Texture": "RubyNecklace"
+	},
+	{
+		"UnlocalizedName": "parchment",
+		"Texture": "Parchment"
+	},
+	{
+		"UnlocalizedName": "pipe_2",
+		"Texture": "pipe_2"
+	},
+	{
+		"UnlocalizedName": "woodenDish",
+		"Texture": "WoodenDish"
+	},
+	{
+		"UnlocalizedName": "goldenDish",
+		"Texture": "GoldenDish"
+	},
+	{
+		"UnlocalizedName": "silverDish",
+		"Texture": "SilverDish"
+	},
+	{
+		"UnlocalizedName": "resin",
+		"Texture": "Resin"
+	},
+	{
+		"UnlocalizedName": "diamondRing",
+		"Texture": "DiamondRing"
+	},
+	{
+		"UnlocalizedName": "rubyRing",
+		"Texture": "RubyRing"
+	},
+	{
+		"UnlocalizedName": "sapphireRing",
+		"Texture": "SapphireRing"
+	},
+	{
+		"UnlocalizedName": "goldenRing",
+		"Texture": "GoldenRing"
+	},
+	{
+		"UnlocalizedName": "emeraldRing",
+		"Texture": "EmeraldRing"
+	},
+	{
+		"UnlocalizedName": "amethystRing",
+		"Texture": "AmethystRing"
+	},
+	{
+		"UnlocalizedName": "fogCrawlerHeart",
+		"Texture": "FogCrawlerHeart"
+	},
+	{
+		"UnlocalizedName": "rope",
+		"Texture": "Rope"
+	},
+	{
+		"UnlocalizedName": "jumpRope",
+		"Texture": "JumpRope"
+	},
+	{
+		"UnlocalizedName": "bearWool",
+		"Texture": "BearWool"
+	},
+	{
+		"UnlocalizedName": "shell_1",
+		"Texture": "Shell_1"
+	},
+	{
+		"UnlocalizedName": "shell_2",
+		"Texture": "Shell_2"
+	},
+	{
+		"UnlocalizedName": "silk",
+		"Texture": "Silk"
+	},
+	{
+		"UnlocalizedName": "silverPants",
+		"Texture": "SilverPants"
+	},
+	{
+		"UnlocalizedName": "pureSilver",
+		"Texture": "PureSilver"
+	},
+	{
+		"UnlocalizedName": "silverIcon",
+		"Texture": "SilverIcon"
+	},
+	{
+		"UnlocalizedName": "decoratedSwords",
+		"Texture": "DecoratedSwords"
+	},
+	{
+		"UnlocalizedName": "ghoulHeart",
+		"Texture": "GhoulHeart"
+	},
+	{
+		"UnlocalizedName": "silverTeapot",
+		"Texture": "SilverTeapot"
+	},
+	{
+		"UnlocalizedName": "silverCutlery",
+		"Texture": "SilverCutlery"
+	},
+	{
+		"UnlocalizedName": "skull",
+		"Texture": "Skull"
+	},
+	{
+		"UnlocalizedName": "bluntAxe",
+		"Texture": "BluntAxe"
+	},
+	{
+		"UnlocalizedName": "haft",
+		"Texture": "Haft"
+	},
+	{
+		"UnlocalizedName": "chains",
+		"Texture": "Chains"
+	},
+	{
+		"UnlocalizedName": "hammerHead",
+		"Texture": "HammerHead"
+	},
+	{
+		"UnlocalizedName": "kylo_1",
+		"Texture": "Kylo_1"
+	},
+	{
+		"UnlocalizedName": "kylo_2",
+		"Texture": "Kylo_2"
+	},
+	{
+		"UnlocalizedName": "kyloHaft",
+		"Texture": "KyloHaft"
+	},
+	{
+		"UnlocalizedName": "cable",
+		"Texture": "Cable"
+	},
+	{
+		"UnlocalizedName": "lace",
+		"Texture": "Lace"
+	},
+	{
+		"UnlocalizedName": "twine",
+		"Texture": "Twine"
+	},
+    {
+		"UnlocalizedName": "twineCoil",
+		"Texture": "TwineCoil"
+	},
+	{
+		"UnlocalizedName": "cobble",
+		"Texture": "Cobble"
+	},
+    {
+		"UnlocalizedName": "cobbleCoil",
+		"Texture": "CobbleCoil"
+	},
+	{
+		"UnlocalizedName": "bag",
+		"Texture": "Bag"
+	},
+	{
+		"UnlocalizedName": "burrow",
+		"Texture": "Burrow"
+	},
+	{
+		"UnlocalizedName": "elvenBurrow",
+		"Texture": "ElvenBurrow"
+	},
+	{
+		"UnlocalizedName": "krasnoludskyBurrow",
+		"Texture": "KrasnoludskyBurrow"
+	},
+	{
+		"UnlocalizedName": "silverLace",
+		"Texture": "SilverLace"
+	},
+	{
+		"UnlocalizedName": "wire",
+		"Texture": "Wire"
+	},
+	{
+		"UnlocalizedName": "bearSkin_1",
+		"Texture": "BearSkin_1"
+	},
+	{
+		"UnlocalizedName": "cowSkin",
+		"Texture": "CowSkin"
+	},
+	{
+		"UnlocalizedName": "calfSkin",
+		"Texture": "CalfSkin"
+	},
+	{
+		"UnlocalizedName": "deerSkin_1",
+		"Texture": "DeerSkin_1"
+	},
+	{
+		"UnlocalizedName": "cowOldSkin",
+		"Texture": "CowOldSkin"
+	},
+	{
+		"UnlocalizedName": "horseSkin",
+		"Texture": "HorseSkin"
+	},
+	{
+		"UnlocalizedName": "pigSkin",
+		"Texture": "PigSkin"
+	},
+	{
+		"UnlocalizedName": "treatedSkin",
+		"Texture": "TreatedSkin"
+	},
+	{
+		"UnlocalizedName": "draconianSkin",
+		"Texture": "DraconianSkin"
+	},
+	{
+		"UnlocalizedName": "reinforcedSkin",
+		"Texture": "ReinforcedSkin"
+	},
+	{
+		"UnlocalizedName": "wood",
+		"Texture": "Wood"
+	},
+	{
+		"UnlocalizedName": "skinPruning",
+		"Texture": "SkinPruning"
+	},
+	{
+		"UnlocalizedName": "bearSkin_2",
+		"Texture": "BearSkin_2"
+	},
+	{
+		"UnlocalizedName": "deerSkin_2",
+		"Texture": "DeerSkin_2"
+	},
+	{
+		"UnlocalizedName": "wornSkin",
+		"Texture": "WornSkin"
+	},
+	{
+		"UnlocalizedName": "bearSkin_3",
+		"Texture": "BearSkin_3"
+	},
+	{
+		"UnlocalizedName": "oldSkin",
+		"Texture": "OldSkin"
+	},
+	{
+		"UnlocalizedName": "bearOldSkin",
+		"Texture": "BearOldSkin"
+	},
+	{
+		"UnlocalizedName": "wolfOldSkin",
+		"Texture": "WolfOldSkin"
+	},
+	{
+		"UnlocalizedName": "whiteWolfOldSkin",
+		"Texture": "WhiteWolfOldSkin"
+	},
+	{
+		"UnlocalizedName": "wolfSkin",
+		"Texture": "WolfSkin"
+	},
+    {
+		"UnlocalizedName": "wolfTusk",
+		"Texture": "WolfTusk"
+	},
+	{
+		"UnlocalizedName": "straw",
+		"Texture": "Straw"
+	},
+	{
+		"UnlocalizedName": "leatherStrips",
+		"Texture": "LeatherStrips"
+	},
+	{
+		"UnlocalizedName": "goldOre",
+		"Texture": "GoldOre"
+	},
+	{
+		"UnlocalizedName": "blackMetalIngot",
+		"Texture": "BlackMetalIngot"
+	},
+	{
+		"UnlocalizedName": "blackIronIngot",
+		"Texture": "BlackIronIngot"
+	},
+	{
+		"UnlocalizedName": "dwarvenIngot",
+		"Texture": "DwarvenIngot"
+	},
+	{
+		"UnlocalizedName": "glowOreIngot",
+		"Texture": "GlowOreIngot"
+	},
+	{
+		"UnlocalizedName": "ironIngot",
+		"Texture": "IronIngot"
+	},
+	{
+		"UnlocalizedName": "meteoricIronIngot",
+		"Texture": "MeteoricIronIngot"
+	},
+	{
+		"UnlocalizedName": "meteoricSilverIngot",
+		"Texture": "MeteoricSilverIngot"
+	},
+	{
+		"UnlocalizedName": "silverIngot",
+		"Texture": "SilverIngot"
+	},
+	{
+		"UnlocalizedName": "steelIngot",
+		"Texture": "SteelIngot"
+	},
+	{
+		"UnlocalizedName": "gold",
+		"Texture": "Gold"
+	},
+	{
+		"UnlocalizedName": "silver",
+		"Texture": "Silver"
+	},
+	{
+		"UnlocalizedName": "coal",
+		"Texture": "Coal"
+	},
+	{
+		"UnlocalizedName": "darkIronOre",
+		"Texture": "DarkIronOre"
+	},
+	{
+		"UnlocalizedName": "dwarvenOre",
+		"Texture": "DwarvenOre"
+	},
+	{
+		"UnlocalizedName": "glowOre",
+		"Texture": "GlowOre"
+	},
+	{
+		"UnlocalizedName": "goldIngot",
+		"Texture": "GoldIngot"
+	},
+	{
+		"UnlocalizedName": "ironOre",
+		"Texture": "IronOre"
+	},
+	{
+		"UnlocalizedName": "leadOre",
+		"Texture": "LeadOre"
+	},
+	{
+		"UnlocalizedName": "meteoricOre",
+		"Texture": "MeteoricOre"
+	},
+	{
+		"UnlocalizedName": "silverOre",
+		"Texture": "SilverOre"
+	},
+	{
+		"UnlocalizedName": "darkIronPlate",
+		"Texture": "DarkIronPlate"
+	},
+	{
+		"UnlocalizedName": "darkSteelPlate",
+		"Texture": "DarkSteelPlate"
+	},
+	{
+		"UnlocalizedName": "dwarvenPlate",
+		"Texture": "DwarvenPlate"
+	},
+	{
+		"UnlocalizedName": "meteoricPlate",
+		"Texture": "MeteoricPlate"
+	},
+	{
+		"UnlocalizedName": "meteoricSilverPlate",
+		"Texture": "MeteoricSilverPlate"
+	},
+	{
+		"UnlocalizedName": "silverPlate",
+		"Texture": "SilverPlate"
+	},
+	{
+		"UnlocalizedName": "steelPlate",
+		"Texture": "SteelPlate"
+	},
+	{
+		"UnlocalizedName": "monsterBlood",
+		"Texture": "MonsterBlood"
+	},
+	{
+		"UnlocalizedName": "ghoulBlood",
+		"Texture": "GhoulBlood"
+	},
+	{
+		"UnlocalizedName": "nekkerBlood",
+		"Texture": "NekkerBlood"
+	},
+	{
+		"UnlocalizedName": "leszyResin",
+		"Texture": "LeszyResin"
+	},
+	{
+		"UnlocalizedName": "rotfiendBlood",
+		"Texture": "RotfiendBlood"
+	},
+	{
+		"UnlocalizedName": "devourerBlood",
+		"Texture": "DevourerBlood"
+	},
+	{
+		"UnlocalizedName": "alghoulBoneMarrow",
+		"Texture": "AlghoulBoneMarrow"
+	},
+	{
+		"UnlocalizedName": "monsterBone",
+		"Texture": "MonsterBone"
+	},
+	{
+		"UnlocalizedName": "drownerBrain",
+		"Texture": "DrownerBrain"
+	},
+	{
+		"UnlocalizedName": "monsterBrain",
+		"Texture": "MonsterBrain"
+	},
+	{
+		"UnlocalizedName": "alghoulClaw",
+		"Texture": "AlghoulClaw"
+	},
+	{
+		"UnlocalizedName": "dogTallow",
+		"Texture": "DogTallow"
+	},
+	{
+		"UnlocalizedName": "monsterClaw",
+		"Texture": "MonsterClaw"
+	},
+	{
+		"UnlocalizedName": "nekkerClaw",
+		"Texture": "NekkerClaw"
+	},
+	{
+		"UnlocalizedName": "harpyClaw",
+		"Texture": "HarpyClaw"
+	},
+	{
+		"UnlocalizedName": "remains",
+		"Texture": "Remains"
+	},
+	{
+		"UnlocalizedName": "monsterPoundedFlash",
+		"Texture": "MonsterPoundedFlash"
+	},
+	{
+		"UnlocalizedName": "ghostlyDust",
+		"Texture": "GhostlyDust"
+	},
+	{
+		"UnlocalizedName": "graveHagEar",
+		"Texture": "GraveHagEar"
+	},
+	{
+		"UnlocalizedName": "monsterEar",
+		"Texture": "MonsterEar"
+	},
+	{
+		"UnlocalizedName": "kuroliszekEgg",
+		"Texture": "KuroliszekEgg"
+	},
+	{
+		"UnlocalizedName": "monsterEgg",
+		"Texture": "MonsterEgg"
+	},
+	{
+		"UnlocalizedName": "harpyEgg",
+		"Texture": "HarpyEgg"
+	},
+	{
+		"UnlocalizedName": "wyvernEgg",
+		"Texture": "WyvernEgg"
+	},
+	{
+		"UnlocalizedName": "embryo",
+		"Texture": "Embryo"
+	},
+	{
+		"UnlocalizedName": "ellementalEssence",
+		"Texture": "EllementalEssence"
+	},
+	{
+		"UnlocalizedName": "monsterEssence",
+		"Texture": "MonsterEssence"
+	},
+	{
+		"UnlocalizedName": "darkDust",
+		"Texture": "DarkDust"
+	},
+	{
+		"UnlocalizedName": "ghostEssence",
+		"Texture": "GhostEssence"
+	},
+	{
+		"UnlocalizedName": "waterEssence",
+		"Texture": "WaterEssence"
+	},
+	{
+		"UnlocalizedName": "cyclopsEye",
+		"Texture": "CyclopsEye"
+	},
+	{
+		"UnlocalizedName": "fiendEye",
+		"Texture": "FiendEye"
+	},
+	{
+		"UnlocalizedName": "nekkerEye",
+		"Texture": "NekkerEye"
+	},
+	{
+		"UnlocalizedName": "monsterEye",
+		"Texture": "MonsterEye"
+	},
+	{
+		"UnlocalizedName": "ghoulEye",
+		"Texture": "GhoulEye"
+	},
+	{
+		"UnlocalizedName": "eryniaEye",
+		"Texture": "EryniaEye"
+	},
+	{
+		"UnlocalizedName": "drownerTonque",
+		"Texture": "DrownerTonque"
+	},
+	{
+		"UnlocalizedName": "arachasEye",
+		"Texture": "ArachasEye"
+	},
+	{
+		"UnlocalizedName": "vampireFang",
+		"Texture": "VampireFang"
+	},
+	{
+		"UnlocalizedName": "gryfFeathers",
+		"Texture": "GryfFeathers"
+	},
+	{
+		"UnlocalizedName": "monsterFeathers",
+		"Texture": "MonsterFeathers"
+	},
+	{
+		"UnlocalizedName": "echidnaHairClap",
+		"Texture": "EchidnaHairClap"
+	},
+	{
+		"UnlocalizedName": "noonwraithHair",
+		"Texture": "NoonwraithHair"
+	},
+	{
+		"UnlocalizedName": "monsterHair",
+		"Texture": "MonsterHair"
+	},
+	{
+		"UnlocalizedName": "endregaHeart",
+		"Texture": "EndregaHeart"
+	},
+	{
+		"UnlocalizedName": "ellementalHeart",
+		"Texture": "EllementalHeart"
+	},
+	{
+		"UnlocalizedName": "monsterHeart",
+		"Texture": "MonsterHeart"
+	},
+	{
+		"UnlocalizedName": "nekkerHeart",
+		"Texture": "NekkerHeart"
+	},
+	{
+		"UnlocalizedName": "monsterSkin",
+		"Texture": "MonsterSkin"
+	},
+	{
+		"UnlocalizedName": "ekimmaSkin",
+		"Texture": "EkimmaSkin"
+	},
+	{
+		"UnlocalizedName": "rotfiendSkin",
+		"Texture": "RotfiendSkin"
+	},
+	{
+		"UnlocalizedName": "trollSkin",
+		"Texture": "TrollSkin"
+	},
+	{
+		"UnlocalizedName": "caveTrollStomach",
+		"Texture": "CaveTrollStomach"
+	},
+	{
+		"UnlocalizedName": "monsterLiver",
+		"Texture": "MonsterLiver"
+	},
+	{
+		"UnlocalizedName": "nekkerWarriorLiver",
+		"Texture": "NekkerWarriorLiver"
+	},
+	{
+		"UnlocalizedName": "endregaStomach",
+		"Texture": "EndregaStomach"
+	},
+	{
+		"UnlocalizedName": "kuroliszekStomach",
+		"Texture": "KuroliszekStomach"
+	},
+	{
+		"UnlocalizedName": "basiliskSkin",
+		"Texture": "BasiliskSkin"
+	},
+	{
+		"UnlocalizedName": "endregaSkin",
+		"Texture": "EndregaSkin"
+	},
+	{
+		"UnlocalizedName": "forktailSkin",
+		"Texture": "ForktailSkin"
+	},
+	{
+		"UnlocalizedName": "monsterShell",
+		"Texture": "MonsterShell"
+	},
+	{
+		"UnlocalizedName": "arachasSkin",
+		"Texture": "ArachasSkin"
+	},
+	{
+		"UnlocalizedName": "wyvernSkin",
+		"Texture": "WyvernSkin"
+	},
+	{
+		"UnlocalizedName": "monsterSaliva",
+		"Texture": "MonsterSaliva"
+	},
+	{
+		"UnlocalizedName": "vampireSaliva",
+		"Texture": "VampireSaliva"
+	},
+	{
+		"UnlocalizedName": "wilkolakSaliva",
+		"Texture": "WilkolakSaliva"
+	},
+	{
+		"UnlocalizedName": "draconianSquama",
+		"Texture": "DraconianSquama"
+	},
+	{
+		"UnlocalizedName": "waterHagTooth",
+		"Texture": "WaterHagTooth"
+	},
+	{
+		"UnlocalizedName": "monsterTooth",
+		"Texture": "MonsterTooth"
+	},
+	{
+		"UnlocalizedName": "butter",
+		"Texture": "Butter"
+	},
+	{
+		"UnlocalizedName": "redanAcorn",
+		"Texture": "RedanAcorn"
+	},
+	{
+		"UnlocalizedName": "stairs",
+		"Texture": "Stairs"
+	},
+	{
+		"UnlocalizedName": "brokenOar",
+		"Texture": "BrokenOar"
+	},
+	{
+		"UnlocalizedName": "crest",
+		"Texture": "Crest"
+	},
+	{
+		"UnlocalizedName": "boards",
+		"Texture": "Boards"
+	},
+	{
+		"UnlocalizedName": "fifthEssence",
+		"Texture": "FifthEssence"
+	},
+	{
+		"UnlocalizedName": "moonDust",
+		"Texture": "MoonDust"
+	},
+	{
+		"UnlocalizedName": "optimaMater",
+		"Texture": "OptimaMater"
+	},
+	{
+		"UnlocalizedName": "wax",
+		"Texture": "Wax"
+	},
+	{
+		"UnlocalizedName": "alcohest",
+		"Texture": "Alcohest"
+	},
+	{
+		"UnlocalizedName": "emptyBottle",
+		"Texture": "EmptyBottle"
+	},
+	{
+		"UnlocalizedName": "krasnoludskyAlcohol",
+		"Texture": "KrasnoludskyAlcohol"
+	},
+	{
+		"UnlocalizedName": "whiteGull",
+		"Texture": "WhiteGull"
+	},
+	{
+		"UnlocalizedName": "calciumEquum",
+		"Texture": "CalciumEquum"
+	},
+	{
+		"UnlocalizedName": "princelyWater",
+		"Texture": "PrincelyWater"
+	},
+	{
+		"UnlocalizedName": "phosphorus",
+		"Texture": "Phosphorus"
+	},
+	{
+		"UnlocalizedName": "sulfur",
+		"Texture": "Sulfur"
+	},
+	{
+		"UnlocalizedName": "wineStone",
+		"Texture": "WineStone"
+	},
+	{
+		"UnlocalizedName": "alchemicalPowder_1",
+		"Texture": "AlchemicalPowder_1"
+	},
+	{
+		"UnlocalizedName": "bearTallow",
+		"Texture": "BearTallow"
+	},
+	{
+		"UnlocalizedName": "ether",
+		"Texture": "Ether"
+	},
+	{
+		"UnlocalizedName": "albedo",
+		"Texture": "Albedo"
+	},
+	{
+		"UnlocalizedName": "alchemicalPowder_2",
+		"Texture": "AlchemicalPowder_2"
+	},
+	{
+		"UnlocalizedName": "hydragen",
+		"Texture": "Hydragen"
+	},
+	{
+		"UnlocalizedName": "cinnabar",
+		"Texture": "Cinnabar"
+	},
+	{
+		"UnlocalizedName": "quibette",
+		"Texture": "Quibette"
+	},
+	{
+		"UnlocalizedName": "rebis",
+		"Texture": "Rebis"
+	},
+	{
+		"UnlocalizedName": "rubedo",
+		"Texture": "Rubedo"
+	}
+]

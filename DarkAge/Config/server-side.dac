@@ -1,0 +1,10 @@
+{
+	"Allowed CNPCS Commands": [
+		"tp", "give", "spawnpoint", "/tp", "/give", "/spawnpoint", "noppes", "noppes quest", "/noppes", "tpw", "/tpw"
+	],
+	"Guard Faction Ids": [
+		24, 5, 6
+	],
+	"Carreras Faction ID": 24,
+	"Radius Of Reputation Decreasing": 15.0
+}
