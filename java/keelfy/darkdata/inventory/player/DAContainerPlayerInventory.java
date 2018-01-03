@@ -79,30 +79,6 @@ public final class DAContainerPlayerInventory extends Container {
 			}
 		}
 	}
-
-	@Override
-	public final ItemStack transferStackInSlot(final EntityPlayer player, final int slotId) {
-		ItemStack itemstack = null;
-		
-		if (this.inventorySlots.get(slotId) != null && ((Slot)this.inventorySlots.get(slotId)).getHasStack()) {
-			final Slot slot = (Slot) this.inventorySlots.get(slotId);
-			final ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
-			
-			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
-			} else {
-				slot.onSlotChanged();
-			}
-
-			if (itemstack1.stackSize == itemstack.stackSize)
-				return null;
-
-			slot.onPickupFromSlot(player, itemstack1);
-		}
-
-		return null;
-	}
 	
 	@Override
 	public final boolean canInteractWith(final EntityPlayer player) {

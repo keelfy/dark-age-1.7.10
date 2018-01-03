@@ -23,7 +23,7 @@ public final class DarkData {
 
 	public static final String MOD_ID = "witchercore";
 	public static final String MOD_NAME = "Dark Data";
-	public static final String MOD_VERSION = "14.0a";
+	public static final String MOD_VERSION = "14.1";
 
 	public static final String PROXY_SERVER = "keelfy.darkdata.server.DAServer";
 	public static final String PROXY_CLIENT = "keelfy.darkdata.client.DAClient";

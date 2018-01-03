@@ -21,7 +21,7 @@ public class DarkCore {
 
 	public static final String MOD_ID = "darkcore";
 	public static final String MOD_NAME = "Dark Core";
-	public static final String MOD_VERSION = "14.0a";
+	public static final String MOD_VERSION = "14.1";
 
 	public static final String MOD_CHANNEL = "darkcore_channel";
 

@@ -75,7 +75,8 @@ public final class KUtils {
 			for (final Class<?> clazz : registeredCommandHandlers) {
 				for (final Method method : clazz.getMethods()) {
 					if (method.isAnnotationPresent(KCommand.class)) {
-						final KBaseCommand command = new KBaseCommand(method.getAnnotation(KCommand.class).onlyByPlayer()) {
+						final KBaseCommand command = new KBaseCommand(
+								method.getAnnotation(KCommand.class).onlyByPlayer()) {
 							@Override
 							public void processCommand(final ICommandSender sender, final String[] args) {
 								if (KUtils.PROTECT_SERVER) {

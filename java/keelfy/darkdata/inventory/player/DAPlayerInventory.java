@@ -67,7 +67,13 @@ public final class DAPlayerInventory implements IInventory {
 							|| NoppesUtilPlayer.compareItems(is, player.inventory.armorInventory[0], false, false)
 							|| NoppesUtilPlayer.compareItems(is, player.inventory.armorInventory[1], false, false)
 							|| NoppesUtilPlayer.compareItems(is, player.inventory.armorInventory[2], false, false)
-							|| NoppesUtilPlayer.compareItems(is, player.inventory.armorInventory[3], false, false)) {
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.armorInventory[3], false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(8), false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(9), false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(10), false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(11), false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(6), false, false)
+							|| NoppesUtilPlayer.compareItems(is, player.inventory.getStackInSlot(3), false, false)) {
 						continue;
 					}
 

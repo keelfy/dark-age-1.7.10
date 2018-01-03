@@ -152,7 +152,7 @@ public final class DASignHandler {
 
 			if (dap.energy.get() > dap.energy.getMax() - dap.energy.getMin()) {
 				SignsManager.useSign("kven", owner);
-				dap.effects.perform(EnumEffect.Resistance, 100, 1.0F, false);
+				dap.effects.perform(EnumEffect.Resistance, 400, 1.0F, false);
 				dap.energy.tire();
 			}
 		}

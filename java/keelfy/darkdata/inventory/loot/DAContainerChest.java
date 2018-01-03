@@ -7,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -54,30 +53,11 @@ public class DAContainerChest extends ContainerChest {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(final EntityPlayer player, final int slotId) {
-		if (isVanilla)
-			return super.transferStackInSlot(player, slotId);
-
-		ItemStack itemstack = null;
-		Slot slot = (Slot) this.inventorySlots.get(slotId);
-
-		if (slot != null && slot.getHasStack()) {
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
-
-			if (slotId < this.numRows * 9) {
-				if (!this.mergeItemStack(itemstack1, this.numRows * 9, this.inventorySlots.size(), true))
-					return null;
-			} else if (!this.mergeItemStack(itemstack1, 0, this.numRows * 9, false))
-				return null;
-
-			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
-			} else {
-				slot.onSlotChanged();
-			}
+	public ItemStack transferStackInSlot(EntityPlayer player, int meta) {
+		if (isVanilla) {
+			return super.transferStackInSlot(player, meta);
 		}
 
-		return itemstack;
+		return null;
 	}
 }

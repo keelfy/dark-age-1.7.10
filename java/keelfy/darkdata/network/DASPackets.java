@@ -237,7 +237,7 @@ public class DASPackets {
 				final int entityId = buffer.readInt();
 				final int signId = buffer.readInt();
 
-				if (dap.playerClass.equals(EnumPlayerClass.HUMAN) || signId < 0 || signId > 4)
+				if (dap.playerClass.equals(EnumPlayerClass.HUMAN) || signId < 0 || signId > 4 || signId == EnumSign.Irden.ordinal())
 					return;
 
 				final EnumSign id = EnumSign.values()[signId];

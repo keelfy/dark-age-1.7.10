@@ -74,8 +74,8 @@ public final class Elexir extends DAItem implements IFastUsable, IItemWithRender
 					data.effects.perform(EnumEffect.WaterBreathing, 1800, 1, false);
 					break;
 				case Cat:
-					addEffect(player, Potion.nightVision, 180, 1);
-					data.effects.perform(EnumEffect.NightVision, 180, 1, false);
+					addEffect(player, Potion.nightVision, 6000, 1);
+					data.effects.perform(EnumEffect.NightVision, 6000, 1, false);
 					break;
 				case Swallow:
 					data.effects.perform(EnumEffect.Heal, 400, 1.5F, false);

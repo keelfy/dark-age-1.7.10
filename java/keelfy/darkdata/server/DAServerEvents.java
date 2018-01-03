@@ -24,6 +24,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.boss.EntityDragonPart;
@@ -77,8 +78,10 @@ public enum DAServerEvents {
 				return;
 			}
 
-			if (player.capabilities.isCreativeMode && target != null && target instanceof EntityPlayer && !((EntityPlayer) target).capabilities.isCreativeMode) {
-				KServer.sendMessage(player, Brush.DARK_AQUA + "[Dark Age] " + Brush.RED + "Вы не можете бить игрока, находясь в творческом режиме!");
+			if (player.capabilities.isCreativeMode && target != null && target instanceof EntityPlayer
+					&& !((EntityPlayer) target).capabilities.isCreativeMode) {
+				KServer.sendMessage(player, Brush.DARK_AQUA + "[Dark Age] " + Brush.RED
+						+ "Вы не можете бить игрока, находясь в творческом режиме!");
 				event.setCanceled(true);
 			}
 
@@ -99,7 +102,8 @@ public enum DAServerEvents {
 					if (!(target instanceof EntityPlayer)) {
 						if (target instanceof EntityNPCInterface) {
 							EnumCreatureAttribute creature = ((EntityNPCInterface) target).stats.creatureType;
-							flag3 = !(creature == EnumCreatureAttribute.ARTHROPOD || creature == EnumCreatureAttribute.UNDEFINED);
+							flag3 = !(creature == EnumCreatureAttribute.ARTHROPOD
+									|| creature == EnumCreatureAttribute.UNDEFINED);
 						} else {
 							flag3 = true;
 						}
@@ -110,7 +114,8 @@ public enum DAServerEvents {
 						flag3 = true;
 					} else if (target instanceof EntityNPCInterface) {
 						EnumCreatureAttribute creature = ((EntityNPCInterface) target).stats.creatureType;
-						flag3 = (creature == EnumCreatureAttribute.ARTHROPOD || creature == EnumCreatureAttribute.UNDEFINED);
+						flag3 = (creature == EnumCreatureAttribute.ARTHROPOD
+								|| creature == EnumCreatureAttribute.UNDEFINED);
 					}
 					break;
 
@@ -126,7 +131,9 @@ public enum DAServerEvents {
 				}
 
 				if (f > 0.0F || f1 > 0.0F) {
-					boolean flag = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder() && !player.isInWater() && !player.isPotionActive(Potion.blindness) && player.ridingEntity == null && target instanceof EntityLivingBase;
+					boolean flag = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder()
+							&& !player.isInWater() && !player.isPotionActive(Potion.blindness)
+							&& player.ridingEntity == null && target instanceof EntityLivingBase;
 
 					if (flag && f > 0.0F) {
 						f *= 1.5F;
@@ -171,13 +178,16 @@ public enum DAServerEvents {
 
 						final double r = DAServerConfig.Instance.radiusOfReputationDecreasing;
 						final List<Integer> guards = DAServerConfig.Instance.guardFactionIds;
-						List<EntityNPCInterface> npcs = player.worldObj.getEntitiesWithinAABB(EntityNPCInterface.class, player.boundingBox.expand(r, r, r));
+						List<EntityNPCInterface> npcs = player.worldObj.getEntitiesWithinAABB(EntityNPCInterface.class,
+								player.boundingBox.expand(r, r, r));
 
 						for (EntityNPCInterface npc : npcs) {
 							if (npc.faction == null) {
 								continue;
+							} else if(((EntityNPCInterface)target).faction.id != npc.faction.id) {
+								continue;
 							}
-
+							
 							if (guards.contains(npc.faction.id)) {
 								npc.setLastAttacker(player);
 								npc.onAttack(player);
@@ -198,14 +208,19 @@ public enum DAServerEvents {
 						if (counter != 0) {
 							cdata.saveNBTData(null);
 							factionsInfo = KLocalization.replaceLastChars(sb.toString(), "", 2);
-							KServer.sendMessage(player, Brush.AQUA + "[Dark Age] " + Brush.RED + "Отношение с фракци" + (counter == 1 ? "ей" : "ями") + " " + factionsInfo + " понижено на " + decr + "!");
+							KServer.sendMessage(player,
+									Brush.AQUA + "[Dark Age] " + Brush.RED + "Отношение с фракци"
+											+ (counter == 1 ? "ей" : "ями") + " " + factionsInfo + " понижено на "
+											+ decr + "!");
 						}
 					}
 
 					if (flag2) {
 
 						if (i > 0) {
-							target.addVelocity(-MathHelper.sin(player.rotationYaw * (float) Math.PI / 180.0F) * i * 0.5F, 0.1D, MathHelper.cos(player.rotationYaw * (float) Math.PI / 180.0F) * i * 0.5F);
+							target.addVelocity(
+									-MathHelper.sin(player.rotationYaw * (float) Math.PI / 180.0F) * i * 0.5F, 0.1D,
+									MathHelper.cos(player.rotationYaw * (float) Math.PI / 180.0F) * i * 0.5F);
 							player.motionX *= 0.6D;
 							player.motionZ *= 0.6D;
 							player.setSprinting(false);
@@ -294,7 +309,8 @@ public enum DAServerEvents {
 				if (event.entity instanceof EntityLivingBase) {
 					final EntityLivingBase living = (EntityLivingBase) event.entity;
 
-					living.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.knockbackResistance).setBaseValue(1f);
+					living.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.knockbackResistance)
+							.setBaseValue(1f);
 
 					if (living instanceof EntitySlime) {
 						event.setCanceled(true);

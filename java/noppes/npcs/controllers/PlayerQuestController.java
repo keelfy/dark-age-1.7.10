@@ -81,6 +81,10 @@ public class PlayerQuestController {
 
 	public static Vector<Quest> getActiveQuests(EntityPlayer player) {
 		Vector<Quest> quests = new Vector<Quest>();
+
+		if (PlayerDataController.instance == null || PlayerDataController.instance.getPlayerData(player) == null)
+			return quests;
+
 		PlayerQuestData data = PlayerDataController.instance.getPlayerData(player).questData;
 		for (QuestData questdata : data.activeQuests.values()) {
 			if (questdata == null || questdata.quest == null)
