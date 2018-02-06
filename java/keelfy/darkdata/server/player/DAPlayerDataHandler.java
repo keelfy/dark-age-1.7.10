@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkdata.constants.EnumArmorClass;
 import keelfy.darkdata.constants.EnumEffect;
 import keelfy.darkdata.constants.EnumPlayerClass;

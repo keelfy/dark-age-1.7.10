@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkcore.network.DANetwork;
 import keelfy.darkdata.client.gui.DAIngameGui;
 import keelfy.darkdata.client.gui.DAInventoryGui;
@@ -79,6 +79,14 @@ public final class DACPackets {
 				return;
 			}
 			data.loadNBTData(tagPlayer);
+			break;
+		case SyncSkills:
+			final NBTTagCompound tagPlayerSkills = KNetwork.readNBTFromBuffer(buffer);
+			if (tagPlayerSkills == null) {
+				KLog.err("Cannot synchronize player's skills. Player " + player.getCommandSenderName());
+				return;
+			}
+			data.skills.loadNBTData(tagPlayerSkills);
 			break;
 		case EffectDuration:
 			final PlayerEffect effect = data.effects.get(EnumEffect.values()[buffer.readInt()]);

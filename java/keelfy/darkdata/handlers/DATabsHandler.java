@@ -22,6 +22,7 @@ public final class DATabsHandler {
 	private static final String Elixirs = "elixirs";
 	private static final String Money = "money";
 	private static final String Blocks = "blocks";
+	private static final String Nature = "nature";
 
 	public static final CreativeTabs silverSwords = new CreativeTabs(CreativeTabs.getNextID(), Silver_Swords) {
 
@@ -91,6 +92,14 @@ public final class DATabsHandler {
 
 		@Override
 		public Item getTabIconItem() {
+			return Item.getItemFromBlock(net.minecraft.init.Blocks.bed);
+		}
+	};
+
+	public static final CreativeTabs nature = new CreativeTabs(CreativeTabs.getNextID(), Nature) {
+
+		@Override
+		public Item getTabIconItem() {
 			return Item.getItemFromBlock(net.minecraft.init.Blocks.grass);
 		}
 	};
@@ -104,6 +113,7 @@ public final class DATabsHandler {
 		LanguageRegistry.instance().addStringLocalization("itemGroup." + Elixirs, "Эликсиры");
 		LanguageRegistry.instance().addStringLocalization("itemGroup." + Money, "Валюта");
 		LanguageRegistry.instance().addStringLocalization("itemGroup." + Blocks, "Блоки");
+		LanguageRegistry.instance().addStringLocalization("itemGroup." + Nature, "Природа");
 	}
 
 }

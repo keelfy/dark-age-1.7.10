@@ -13,8 +13,8 @@ import keelfy.darkcore.network.DACNetwork;
 import keelfy.darkdata.blocks.BlockSentinel.TileEntitySentinel;
 import keelfy.darkdata.network.EnumSPackets;
 import keelfyutils.KUtils;
-import keelfyutils.blocks.Point3D;
 import keelfyutils.blocks.KBlocks;
+import keelfyutils.blocks.Point3D;
 import keelfyutils.client.KGui;
 import keelfyutils.str.Brush;
 import keelfyutils.str.KString;
@@ -60,7 +60,7 @@ public final class DASentinelGui extends DAScreenGui {
 
 			final TileEntity te = KBlocks.getTileEntity(mc.theWorld, blockPos);
 
-			addButton(buttonDone = new GuiButton(1, width - 80, height - 80, 50, 18, "Готово"));
+			this.buttonList.add(buttonDone = new GuiButton(1, width - 80, height - 80, 50, 18, "Готово"));
 		}
 	}
 
@@ -111,13 +111,12 @@ public final class DASentinelGui extends DAScreenGui {
 	protected final void actionPerformed(final GuiButton button) {
 		if (KUtils.PROTECT_CLIENT) {
 			switch (button.id) {
-				case 1:
-					if (!error) {
-						DACNetwork.sendToServer(EnumSPackets.EditSentinel, blockPos, radiusValue,
-								factionIdValue);
-						KGui.closeGui();
-					}
-					break;
+			case 1:
+				if (!error) {
+					DACNetwork.sendToServer(EnumSPackets.EditSentinel, blockPos, radiusValue, factionIdValue);
+					KGui.closeGui();
+				}
+				break;
 			}
 		}
 	}

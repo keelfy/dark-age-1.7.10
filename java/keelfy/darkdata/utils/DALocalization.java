@@ -48,6 +48,7 @@ public final class DALocalization {
 	public static final String Key_Otherslot_1 = "key.otherslot.1";
 	public static final String Key_Otherslot_2 = "key.otherslot.2";
 	public static final String Key_Select_Sign = "key.select.sign";
+	public static final String Key_Skills = "key.skills";
 
 	public static final String Effect_Heal = "effect.heal";
 	public static final String Effect_Resistance = "effect.resistance";
@@ -59,11 +60,9 @@ public final class DALocalization {
 
 	public static final void addNameToItem(final DAItem item, final EnumItemType type) {
 		if (item.getUnlocalizedName().contains("item")) {
-			LanguageRegistry.addName(item, KLocalization
-					.localize(item.getUnlocalizedName().replaceAll("item", "darkage." + type.name().toLowerCase())));
+			LanguageRegistry.addName(item, KLocalization.localize(item.getUnlocalizedName().replaceAll("item", "darkage." + type.name().toLowerCase())));
 		} else {
-			LanguageRegistry.addName(item,
-					KLocalization.localize("darkage." + type.name().toLowerCase() + "." + item.getUnlocalizedName()));
+			LanguageRegistry.addName(item, KLocalization.localize("darkage." + type.name().toLowerCase() + "." + item.getUnlocalizedName()));
 		}
 	}
 }

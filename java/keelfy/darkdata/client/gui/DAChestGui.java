@@ -42,14 +42,10 @@ public final class DAChestGui extends DAContainerGui {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(final int mouseX, final int mouseY) {
-		this.fontRendererObj.drawString(
-				this.lowerChestInventory.hasCustomInventoryName() ? this.lowerChestInventory.getInventoryName()
-						: I18n.format(this.lowerChestInventory.getInventoryName(), new Object[0]),
-				8, 5, KColors.WHITE_COLOR);
-		this.fontRendererObj.drawString(
-				this.upperChestInventory.hasCustomInventoryName() ? this.upperChestInventory.getInventoryName()
-						: I18n.format(this.upperChestInventory.getInventoryName(), new Object[0]),
-				8, this.ySize - 96 + 1, KColors.WHITE_COLOR);
+		this.fontRendererObj.drawString(this.lowerChestInventory.hasCustomInventoryName() ? this.lowerChestInventory.getInventoryName() : I18n.format(this.lowerChestInventory.getInventoryName(), new Object[0]), 8, 5,
+				KColors.WHITE_COLOR);
+		this.fontRendererObj.drawString(this.upperChestInventory.hasCustomInventoryName() ? this.upperChestInventory.getInventoryName() : I18n.format(this.upperChestInventory.getInventoryName(), new Object[0]), 8,
+				this.ySize - 96 + 1, KColors.WHITE_COLOR);
 	}
 
 	@Override

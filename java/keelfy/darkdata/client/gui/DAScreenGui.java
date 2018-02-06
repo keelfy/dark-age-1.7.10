@@ -11,7 +11,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfyutils.client.KGL;
 import keelfyutils.client.KGui;
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.ResourceLocation;
@@ -28,10 +27,6 @@ public abstract class DAScreenGui extends GuiScreen {
 	protected final void addTextField(final GuiTextField textField, final int maxStringLenght) {
 		textField.setMaxStringLength(maxStringLenght);
 		textFields.add(textField);
-	}
-
-	protected final void addButton(final GuiButton button) {
-		this.buttonList.add(button);
 	}
 
 	@Override

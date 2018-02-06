@@ -11,7 +11,7 @@ import api.player.server.ServerPlayerAPI;
 import api.player.server.ServerPlayerBase;
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.HealthManager;
+import keelfy.darkcore.common.player.managers.HealthManager;
 import keelfy.darkdata.DarkData;
 import keelfy.darkdata.constants.EnumSwordMaterial;
 import keelfy.darkdata.inventory.loot.DAContainerChest;

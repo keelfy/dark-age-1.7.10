@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkdata.DarkData;
 import keelfy.darkdata.client.DAFontHandler;
 import keelfy.darkdata.client.DAResources;
@@ -51,7 +51,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.scoreboard.Score;
 import net.minecraft.scoreboard.ScoreObjective;
 import net.minecraft.scoreboard.ScorePlayerTeam;
+import net.minecraft.util.Direction;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 /**
@@ -72,6 +74,8 @@ public final class DAIngameGui extends GuiIngame {
 
 	public boolean loaded = false;
 
+	private DAPlayerData data;
+
 	private String desc_sword_silver, desc_sword_steel, gui_saturation;
 
 	public DAIngameGui(final Minecraft mc) {
@@ -79,11 +83,12 @@ public final class DAIngameGui extends GuiIngame {
 
 		if (KUtils.PROTECT_CLIENT) {
 			if (mc != null && mc.thePlayer != null) {
-				final DAPlayerData dap = DADataManager.getPlayer(mc.thePlayer);
 
-				smoothHealth = dap.health.get();
-				smoothIntox = dap.intox.get();
-				smoothEnergy = dap.energy.get();
+				data = DADataManager.getPlayer(mc.thePlayer);
+
+				smoothHealth = data.health.get();
+				smoothIntox = data.intox.get();
+				smoothEnergy = data.energy.get();
 			} else {
 				smoothHealth = -1;
 				smoothIntox = -1;
@@ -112,11 +117,12 @@ public final class DAIngameGui extends GuiIngame {
 		updateResolution();
 		DARenderFont font = DAFontHandler.Instance.getFont(EnumFont.Verdana_18);
 		int fheight = font.getStringHeight();
+		data = DADataManager.getPlayer(mc.thePlayer);
 
 		if (mc.thePlayer.capabilities.isCreativeMode) {
 			super.renderGameOverlay(time, p_73830_2_, mouseX, mouseY);
 
-			String s1 = String.valueOf(Brush.YELLOW + "ЗБТ Dark Age - " + DarkData.MOD_VERSION);
+			String s1 = String.valueOf(Brush.YELLOW + "ОБТ Dark Age - " + DarkData.MOD_VERSION);
 			font.drawStringWithShadow(s1, w - 10 - font.getStringWidth(s1), 2, KColors.HUD_COLOR);
 			return;
 		}
@@ -127,18 +133,16 @@ public final class DAIngameGui extends GuiIngame {
 
 		GL11.glColor4f(1, 1, 1, 1);
 
-		final DAPlayerData dap = DADataManager.getPlayer(mc.thePlayer);
-
 		if (smoothHealth == -1) {
-			dap.health.get();
+			data.health.get();
 		}
 
 		if (smoothIntox == -1) {
-			dap.intox.get();
+			data.intox.get();
 		}
 
 		if (smoothEnergy == -1) {
-			dap.energy.get();
+			data.energy.get();
 		}
 
 		String s;
@@ -152,7 +156,7 @@ public final class DAIngameGui extends GuiIngame {
 
 		GL11.glPushMatrix();
 
-		s = String.valueOf(Brush.YELLOW + "ЗБТ " + DarkData.MOD_NAME + " - " + DarkData.MOD_VERSION);
+		s = String.valueOf(Brush.YELLOW + "ОБТ " + DarkData.MOD_NAME + " - " + DarkData.MOD_VERSION);
 		font.drawStringWithShadow(s, w - font.getStringWidth(s) - 4, 2, KColors.HUD_COLOR);
 		GL11.glPopMatrix();
 
@@ -167,10 +171,8 @@ public final class DAIngameGui extends GuiIngame {
 		GL11.glPushMatrix();
 
 		DARenderFont verdana15 = DAFontHandler.Instance.getFont(EnumFont.Verdana_15);
-		s = String.valueOf(
-				gui_saturation + KString.SPACE + (int) dap.saturation.get() + "/" + (int) dap.saturation.getMax());
-		verdana15.drawStringWithShadow(s, w - verdana15.getStringWidth(s) - 4, h - 15 - verdana15.getStringHeight(),
-				KColors.HUD_COLOR);
+		s = String.valueOf(gui_saturation + KString.SPACE + (int) data.saturation.get() + "/" + (int) data.saturation.getMax());
+		verdana15.drawStringWithShadow(s, w - verdana15.getStringWidth(s) - 4, h - 15 - verdana15.getStringHeight(), KColors.HUD_COLOR);
 
 		GL11.glTranslatef(-20, -5, 0);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -178,23 +180,23 @@ public final class DAIngameGui extends GuiIngame {
 		final byte b = 4, c = 4;
 		KGL.drawTexturedRectZ(b, c, 0, 0, 75, 50, 0);
 		KGL.drawTexturedRectZ(b, c, 0, 50, 75, 50, -2);
-		final int energy = Math.round((getEnergy(mc, dap, time) / dap.energy.getMax() * 38));
+		final int energy = Math.round((getEnergy(mc, data, time) / data.energy.getMax() * 38));
 		KGL.drawTexturedRectZ(b - 2, 42 + c, 0, 120, 21 + energy, 20, 1);
 
-		final int value = (int) (getHealth(mc, dap, time) / dap.health.getMax() * 141.0F);
+		final int value = (int) (getHealth(mc, data, time) / data.health.getMax() * 141.0F);
 		KGL.drawTexturedRectZ(b + 65, 19 - c, 110, 29, value, 20, -1);
 		KGL.drawTexturedRectZ(b + 65, 16 - c, 110, 0, 141, 25, -2);
 
-		if (dap.playerClass.equals(EnumPlayerClass.WITCHER)) {
+		if (data.playerClass.equals(EnumPlayerClass.WITCHER)) {
 			KGL.drawTexturedRectZ(b - 2, 44 + c, 0, 100, 100, 20, 0);
-			final int intox = Math.round((int) getIntox(mc, dap, time));
+			final int intox = Math.round((int) getIntox(mc, data, time));
 			KGL.drawTexturedRectZ(b + 96, 47 - c, 163, 72, intox, 10, 1);
 			KGL.drawTexturedRectZ(b + 80, 42 - c, 132, 62, 18, 20, 2);
 			KGL.drawTexturedRectZ(b + 96, 47 - c, 163, 60, 100, 10, 0);
 		}
 
-		renderSign(dap);
-		renderEffects(dap);
+		renderSign(data);
+		renderEffects(data);
 		GL11.glPopMatrix();
 
 		renderCurrentSwordMaterial(fr);
@@ -202,8 +204,7 @@ public final class DAIngameGui extends GuiIngame {
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
 
 		if (!this.mc.thePlayer.isPotionActive(Potion.confusion)) {
-			float f1 = this.mc.thePlayer.prevTimeInPortal
-					+ (this.mc.thePlayer.timeInPortal - this.mc.thePlayer.prevTimeInPortal) * time;
+			float f1 = this.mc.thePlayer.prevTimeInPortal + (this.mc.thePlayer.timeInPortal - this.mc.thePlayer.prevTimeInPortal) * time;
 
 			if (f1 > 0.0F) {
 				this.func_130015_b(f1, w, h);
@@ -267,17 +268,34 @@ public final class DAIngameGui extends GuiIngame {
 		if (this.mc.gameSettings.showDebugInfo) {
 			this.mc.mcProfiler.startSection("debug");
 			GL11.glPushMatrix();
+
+			// FPS
 			GL11.glTranslatef(0, 0, 10);
 			s = Brush.BOLD + "Дебаг: " + mc.debug;
 			verdana15.drawString(s, 4, 65, KColors.HUD_COLOR);
+
+			// Memory
 			long i5 = Runtime.getRuntime().maxMemory();
 			long j5 = Runtime.getRuntime().totalMemory();
 			long k5 = Runtime.getRuntime().freeMemory();
 			long l5 = j5 - k5;
-			s = Brush.BOLD + "Память: " + l5 * 100L / i5 + "% (" + l5 / 1024L / 1024L + "МБ) из " + i5 / 1024L / 1024L
-					+ "МБ";
+			s = Brush.BOLD + "Память: " + l5 * 100L / i5 + "% (" + l5 / 1024L / 1024L + "МБ) из " + i5 / 1024L / 1024L + "МБ";
 			i3 = 14737632;
 			verdana15.drawString(s, 4, 65 + verdana15.getStringHeight() + 2, KColors.HUD_COLOR);
+
+			// Compass
+			String dir = Direction.directions[MathHelper.floor_double(this.mc.thePlayer.rotationYaw * 4.0F / 360.0F + 0.5D) & 3];
+			if (dir.equalsIgnoreCase("NORTH")) {
+				dir = "Север";
+			} else if (dir.equalsIgnoreCase("SOUTH")) {
+				dir = "Юг";
+			} else if (dir.equalsIgnoreCase("WEST")) {
+				dir = "Запад";
+			} else if (dir.equalsIgnoreCase("EAST")) {
+				dir = "Восток";
+			}
+			verdana15.drawString(Brush.BOLD + "Компасс: " + dir, 4, 81, KColors.HUD_COLOR);
+
 			GL11.glPopMatrix();
 			this.mc.mcProfiler.endSection();
 		}
@@ -302,8 +320,7 @@ public final class DAIngameGui extends GuiIngame {
 					l1 = Color.HSBtoRGB(f3 / 50.0F, 0.7F, 0.6F) & 16777215;
 				}
 
-				fr.drawString(this.recordPlaying, -fr.getStringWidth(this.recordPlaying) / 2, -4,
-						l1 + (k1 << 24 & -16777216));
+				fr.drawString(this.recordPlaying, -fr.getStringWidth(this.recordPlaying) / 2, -4, l1 + (k1 << 24 & -16777216));
 				GL11.glDisable(GL11.GL_BLEND);
 				GL11.glPopMatrix();
 			}
@@ -327,8 +344,7 @@ public final class DAIngameGui extends GuiIngame {
 		GL11.glPopMatrix();
 		scoreobjective = this.mc.theWorld.getScoreboard().func_96539_a(0);
 
-		if (this.mc.gameSettings.keyBindPlayerList.getIsKeyPressed()
-				&& (!this.mc.isIntegratedServerRunning() || scoreobjective != null)) {
+		if (this.mc.gameSettings.keyBindPlayerList.getIsKeyPressed() && (!this.mc.isIntegratedServerRunning() || scoreobjective != null)) {
 			this.mc.mcProfiler.startSection("playerList");
 			NetHandlerPlayClient nethandlerplayclient = this.mc.thePlayer.sendQueue;
 			List list = nethandlerplayclient.playerInfoList;
@@ -358,8 +374,7 @@ public final class DAIngameGui extends GuiIngame {
 
 				if (i3 < list.size()) {
 					GuiPlayerInfo guiplayerinfo = (GuiPlayerInfo) list.get(i3);
-					ScorePlayerTeam scoreplayerteam = this.mc.theWorld.getScoreboard()
-							.getPlayersTeam(guiplayerinfo.name);
+					ScorePlayerTeam scoreplayerteam = this.mc.theWorld.getScoreboard().getPlayersTeam(guiplayerinfo.name);
 					String s4 = ScorePlayerTeam.formatPlayerName(scoreplayerteam, guiplayerinfo.name);
 					fr.drawStringWithShadow(s4, j3, k3, 16777215);
 
@@ -368,8 +383,7 @@ public final class DAIngameGui extends GuiIngame {
 						int k4 = j3 + i6 - 12 - 5;
 
 						if (k4 - j4 > 5) {
-							Score score = scoreobjective.getScoreboard().func_96529_a(guiplayerinfo.name,
-									scoreobjective);
+							Score score = scoreobjective.getScoreboard().func_96529_a(guiplayerinfo.name, scoreobjective);
 							String s1 = EnumChatFormatting.YELLOW + "" + score.getScorePoints();
 							fr.drawStringWithShadow(s1, k4 - fr.getStringWidth(s1), k3, 16777215);
 						}
@@ -477,12 +491,10 @@ public final class DAIngameGui extends GuiIngame {
 		if (current != null && current.getItem() instanceof Sword) {
 			switch (((Sword) current.getItem()).getType()) {
 			case SILVER:
-				font.drawStringWithShadow(desc_sword_silver, w - 4 - font.getStringWidth(desc_sword_silver), h - 11,
-						KColors.HUD_COLOR);
+				font.drawStringWithShadow(desc_sword_silver, w - 4 - font.getStringWidth(desc_sword_silver), h - 11, KColors.HUD_COLOR);
 				break;
 			case STEEL:
-				font.drawStringWithShadow(desc_sword_steel, w - 4 - font.getStringWidth(desc_sword_steel), h - 11,
-						KColors.HUD_COLOR);
+				font.drawStringWithShadow(desc_sword_steel, w - 4 - font.getStringWidth(desc_sword_steel), h - 11, KColors.HUD_COLOR);
 				break;
 			}
 		}
@@ -536,8 +548,7 @@ public final class DAIngameGui extends GuiIngame {
 			}
 			return smoothHealth * value;
 		} else if (Math.round(smoothHealth) != Math.round(healthReal)) {
-			smoothHealth = smoothHealth
-					+ (healthReal - smoothHealth) * (animationDelay(mc, time) * BAR_ANIMATION_FACTOR);
+			smoothHealth = smoothHealth + (healthReal - smoothHealth) * (animationDelay(mc, time) * BAR_ANIMATION_FACTOR);
 		} else {
 			smoothHealth = healthReal;
 		}

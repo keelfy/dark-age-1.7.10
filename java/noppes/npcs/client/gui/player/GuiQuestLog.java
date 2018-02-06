@@ -16,7 +16,6 @@ import keelfyutils.str.Brush;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.NPCGuiHelper;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -39,7 +38,6 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener, 
 
 	private final ResourceLocation resource = new ResourceLocation("customnpcs", "textures/gui/standardbg.png");
 
-	private EntityPlayer player;
 	private GuiCustomScroll scroll;
 	// private Map<Integer, GuiMenuSideButton> sideButtons = new HashMap();
 	private static final LinkedList<GuiMenuSideButton> sideButtons = new LinkedList();
@@ -48,8 +46,7 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener, 
 
 	protected Minecraft mc = Minecraft.getMinecraft();
 
-	public GuiQuestLog(final EntityPlayer player) {
-		this.player = player;
+	public GuiQuestLog() {
 		xSize = 280;
 		ySize = 180;
 		NoppesUtilPlayer.sendData(EnumPlayerPacket.QuestLog);
@@ -241,7 +238,8 @@ public class GuiQuestLog extends GuiNPCInterface implements ITopButtonListener, 
 
 	@Override
 	public void keyTyped(final char c, final int i) {
-		if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) // inventory key
+		if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) // inventory
+																			// key
 		{
 			mc.displayGuiScreen(null);
 			mc.setIngameFocus();

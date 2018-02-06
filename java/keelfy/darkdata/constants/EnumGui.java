@@ -10,12 +10,5 @@ package keelfy.darkdata.constants;
  * @created 6 июн. 2017 г.
  */
 public enum EnumGui {
-	Inventory,
-	LootBag,
-	StoryBook,
-	SelectClass,
-	Quests,
-	Factions,
-	Sentinel,
-	SelectSign;
+	Inventory, LootBag, StoryBook, SelectClass, Quests, Factions, Sentinel, SelectSign, Skills;
 }

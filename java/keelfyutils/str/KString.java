@@ -17,6 +17,10 @@ public final class KString {
 		return str == null || EMPTY.equals(str);
 	}
 
+	public static final String formatFloat(float f, int i) {
+		return f % 1 == 0 ? String.valueOf((int) f) : String.format("%." + i + "f", f);
+	}
+
 	public static final boolean reformat(final String string, final String format, final List<String> output) {
 		int formatIndex = 0;
 		int stringIndex = 0;
@@ -24,10 +28,8 @@ public final class KString {
 		while (formatIndex < format.length()) {
 			final char formatChar = format.charAt(formatIndex);
 
-			if ((formatChar == '%') && (formatIndex + 1 < format.length())
-					&& ((format.charAt(formatIndex + 1) == 's') || (format.charAt(formatIndex + 1) == 'd')
-							|| (format.charAt(formatIndex + 1) == 'i') || (format.charAt(formatIndex + 1) == 'f')
-							|| (format.charAt(formatIndex + 1) == 'c'))) {
+			if ((formatChar == '%') && (formatIndex + 1 < format.length()) && ((format.charAt(formatIndex + 1) == 's') || (format.charAt(formatIndex + 1) == 'd') || (format.charAt(formatIndex + 1) == 'i')
+					|| (format.charAt(formatIndex + 1) == 'f') || (format.charAt(formatIndex + 1) == 'c'))) {
 
 				formatIndex += 2;
 				String input = "";

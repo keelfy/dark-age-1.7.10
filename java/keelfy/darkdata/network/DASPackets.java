@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.FMLNetworkEvent.ServerCustomPacketEvent;
 import io.netty.buffer.ByteBuf;
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkcore.network.DANetwork;
 import keelfy.darkcore.network.DASNetwork;
 import keelfy.darkdata.DarkData;

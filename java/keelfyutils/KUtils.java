@@ -27,10 +27,10 @@ import net.minecraft.server.MinecraftServer;
 @Mod(modid = "keelfyutils", name = "Keelfy's Utils")
 public final class KUtils {
 
-	public static final boolean SERVER = true;
-	public static final boolean DEBUG = false;
+	public static final boolean SERVER = false;
+	public static final boolean DEBUG = true;
 
-	public static final boolean SINGLEPLAYER = false;
+	public static final boolean SINGLEPLAYER = true;
 
 	public static final boolean PROTECT_SERVER = SERVER || DEBUG;
 	public static final boolean PROTECT_CLIENT = !SERVER || DEBUG;

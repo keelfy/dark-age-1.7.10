@@ -8,15 +8,7 @@ import keelfyutils.client.KGL;
  */
 public enum DASlotIcon {
 
-	SWORD_STEEL(0),
-	SWORD_SILVER(0),
-	CHESTPLATE(0),
-	GLOVES(0),
-	OTHER(0),
-	PANTS(0),
-	BOOTS(0),
-	HOT(1),
-	DEFAULT(1, false);
+	SWORD_STEEL(0), SWORD_SILVER(0), CHESTPLATE(0), GLOVES(0), OTHER(0), PANTS(0), BOOTS(0), HOT(1), DEFAULT(1, false);
 
 	public static final int SLOT_SIZE = 16;
 	public static final int SLOT_HEIGHT = 29;

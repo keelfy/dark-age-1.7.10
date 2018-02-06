@@ -24,7 +24,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * @author keelfy
@@ -75,4 +74,5 @@ public final class DATransformer {
 	public static boolean canBlockStay(BlockMushroom parent, World world, int x, int y, int z) {
 		return true;
 	}
+
 }

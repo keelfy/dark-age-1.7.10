@@ -61,20 +61,17 @@ public final class KGL {
 		return (alpha << 24) | (red << 16) | (blue << 8) | (green << 0);
 	}
 
-	public static final void string(final FontRenderer font, final String string, final int x, final int y,
-			final int argb, final boolean shadow) {
+	public static final void string(final FontRenderer font, final String string, final int x, final int y, final int argb, final boolean shadow) {
 		if (font != null) {
 			font.drawString(string, x, y, fontColor(argb), shadow);
 		}
 	}
 
-	public static final void string(final FontRenderer font, final String string, final int x, final int y,
-			final int argb) {
+	public static final void string(final FontRenderer font, final String string, final int x, final int y, final int argb) {
 		string(font, string, x, y, argb, false);
 	}
 
-	public static final void string(final String string, final int x, final int y, final int argb,
-			final boolean shadow) {
+	public static final void string(final String string, final int x, final int y, final int argb, final boolean shadow) {
 		string(font(), string, x, y, argb, shadow);
 	}
 
@@ -120,8 +117,7 @@ public final class KGL {
 		}
 	}
 
-	public static final void texturedRect(final int x, final int y, final float z, final int width, final int height,
-			final int srcX, final int srcY, final int srcWidth, final int srcHeight) {
+	public static final void texturedRect(final int x, final int y, final float z, final int width, final int height, final int srcX, final int srcY, final int srcWidth, final int srcHeight) {
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
 		Tessellator tessellator = Tessellator.instance;
@@ -133,18 +129,15 @@ public final class KGL {
 		tessellator.draw();
 	}
 
-	public static final void texturedRect(final int x, final int y, final float z, final int srcX, final int srcY,
-			final int width, final int height) {
+	public static final void texturedRect(final int x, final int y, final float z, final int srcX, final int srcY, final int width, final int height) {
 		texturedRect(x, y, z, width, height, srcX, srcY, width, height);
 	}
 
-	public static final void texturedRect(final int x, final int y, final int width, final int height, final int srcX,
-			final int srcY, final int srcWidth, final int srcHeight) {
+	public static final void texturedRect(final int x, final int y, final int width, final int height, final int srcX, final int srcY, final int srcWidth, final int srcHeight) {
 		texturedRect(x, y, 0, width, height, srcX, srcY, srcWidth, srcHeight);
 	}
 
-	public static final void texturedRect(final int x, final int y, final int srcX, final int srcY, final int width,
-			final int height) {
+	public static final void texturedRect(final int x, final int y, final int srcX, final int srcY, final int width, final int height) {
 		texturedRect(x, y, 0, srcX, srcY, width, height);
 	}
 
@@ -170,21 +163,16 @@ public final class KGL {
 		}
 	}
 
-	public static final void drawTexturedRectZ(final int posXScreen, final int posYScreen, final int posXTexture,
-			final int posYTexture, final int allocX, final int allocY, final float zLevel) {
+	public static final void drawTexturedRectZ(final int posXScreen, final int posYScreen, final int posXTexture, final int posYTexture, final int allocX, final int allocY, final float zLevel) {
 		if (KUtils.PROTECT_CLIENT) {
 			final float f = 0.00390625F;
 			final float f1 = 0.00390625F;
 			final Tessellator tessellator = Tessellator.instance;
 			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(posXScreen + 0, posYScreen + allocY, zLevel, (posXTexture + 0) * f,
-					(posYTexture + allocY) * f1);
-			tessellator.addVertexWithUV(posXScreen + allocX, posYScreen + allocY, zLevel, (posXTexture + allocX) * f,
-					(posYTexture + allocY) * f1);
-			tessellator.addVertexWithUV(posXScreen + allocX, posYScreen + 0, zLevel, (posXTexture + allocX) * f,
-					(posYTexture + 0) * f1);
-			tessellator.addVertexWithUV(posXScreen + 0, posYScreen + 0, zLevel, (posXTexture + 0) * f,
-					(posYTexture + 0) * f1);
+			tessellator.addVertexWithUV(posXScreen + 0, posYScreen + allocY, zLevel, (posXTexture + 0) * f, (posYTexture + allocY) * f1);
+			tessellator.addVertexWithUV(posXScreen + allocX, posYScreen + allocY, zLevel, (posXTexture + allocX) * f, (posYTexture + allocY) * f1);
+			tessellator.addVertexWithUV(posXScreen + allocX, posYScreen + 0, zLevel, (posXTexture + allocX) * f, (posYTexture + 0) * f1);
+			tessellator.addVertexWithUV(posXScreen + 0, posYScreen + 0, zLevel, (posXTexture + 0) * f, (posYTexture + 0) * f1);
 			tessellator.draw();
 		}
 	}

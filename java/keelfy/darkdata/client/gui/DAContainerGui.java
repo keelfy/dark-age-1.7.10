@@ -88,10 +88,10 @@ public abstract class DAContainerGui extends GuiContainer {
 			}
 
 			this.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
-			RenderHelper.disableStandardItemLighting();
-			GL11.glDisable(GL11.GL_DEPTH_TEST);
+
 			GL11.glPushMatrix();
 			GL11.glTranslatef(k, l, 0.0F);
+			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 			this.theSlot = null;
 			final short short1 = 240;
@@ -99,7 +99,8 @@ public abstract class DAContainerGui extends GuiContainer {
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, short1 / 1.0F, short2 / 1.0F);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 			int k1;
-			RenderHelper.enableStandardItemLighting();
+
+			GL11.glDisable(GL11.GL_LIGHTING);
 			for (int i1 = 0; i1 < this.inventorySlots.inventorySlots.size(); ++i1) {
 				final Slot slot = (Slot) this.inventorySlots.inventorySlots.get(i1);
 				this.drawSlot(slot);
@@ -109,13 +110,16 @@ public abstract class DAContainerGui extends GuiContainer {
 					if (isLightingOfActiveSlotEnabled()) {
 						final int j1 = slot.xDisplayPosition;
 						k1 = slot.yDisplayPosition;
+						GL11.glDisable(GL11.GL_LIGHTING);
+						GL11.glDisable(GL11.GL_DEPTH_TEST);
 						GL11.glColorMask(true, true, true, false);
 						this.drawGradientRect(j1, k1, j1 + 16, k1 + 16, -2130706433, -2130706433);
 						GL11.glColorMask(true, true, true, true);
+						GL11.glEnable(GL11.GL_LIGHTING);
+						GL11.glEnable(GL11.GL_DEPTH_TEST);
 					}
 				}
 			}
-			RenderHelper.disableStandardItemLighting();
 			this.drawGuiContainerForegroundLayer(mouseX, mouseY);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			final InventoryPlayer inventoryplayer = this.mc.thePlayer.inventory;
@@ -138,7 +142,9 @@ public abstract class DAContainerGui extends GuiContainer {
 					}
 				}
 
+				GL11.glDisable(GL11.GL_LIGHTING);
 				KGui.drawItemStack(itemRender, itemstack, mouseX - k - b0, mouseY - l - k1, 0, s);
+				GL11.glEnable(GL11.GL_LIGHTING);
 			}
 
 			if (this.returningStack != null) {
@@ -163,6 +169,7 @@ public abstract class DAContainerGui extends GuiContainer {
 				this.renderToolTip(itemstack1, mouseX, mouseY);
 			}
 
+			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
 			RenderHelper.enableStandardItemLighting();
 		}
@@ -216,8 +223,7 @@ public abstract class DAContainerGui extends GuiContainer {
 
 				if (nbttagcompound.hasKey("color", 3)) {
 					if (advancedTooltip) {
-						arraylist.add(
-								"Color: #" + Integer.toHexString(nbttagcompound.getInteger("color")).toUpperCase());
+						arraylist.add("Color: #" + Integer.toHexString(nbttagcompound.getInteger("color")).toUpperCase());
 					} else {
 						arraylist.add(Brush.ITALIC + StatCollector.translateToLocal("item.dyed"));
 					}
@@ -240,6 +246,7 @@ public abstract class DAContainerGui extends GuiContainer {
 
 	protected void drawSlot(final Slot slot) {
 		if (KUtils.PROTECT_CLIENT) {
+			GL11.glDisable(GL11.GL_LIGHTING);
 			final int i = slot.xDisplayPosition;
 			final int j = slot.yDisplayPosition;
 			ItemStack itemstack = slot.getStack();
@@ -258,8 +265,7 @@ public abstract class DAContainerGui extends GuiContainer {
 				if (Container.func_94527_a(slot, itemstack1, true) && this.inventorySlots.canDragIntoSlot(slot)) {
 					itemstack = itemstack1.copy();
 					flag = true;
-					Container.func_94525_a(this.field_147008_s, this.dragSplittingLimit, itemstack,
-							slot.getStack() == null ? 0 : slot.getStack().stackSize);
+					Container.func_94525_a(this.field_147008_s, this.dragSplittingLimit, itemstack, slot.getStack() == null ? 0 : slot.getStack().stackSize);
 
 					if (itemstack.stackSize > itemstack.getMaxStackSize()) {
 						s = String.valueOf(Brush.YELLOW + String.valueOf(itemstack.getMaxStackSize()));
@@ -299,14 +305,14 @@ public abstract class DAContainerGui extends GuiContainer {
 				}
 
 				GL11.glEnable(GL11.GL_DEPTH_TEST);
-				itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i,
-						j);
-				itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j,
-						s);
+				itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j);
+				itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j, s);
 			}
 
 			itemRender.zLevel = 0.0F;
 			this.zLevel = 0.0F;
+
+			GL11.glEnable(GL11.GL_LIGHTING);
 		}
 	}
 
@@ -319,8 +325,7 @@ public abstract class DAContainerGui extends GuiContainer {
 				ItemStack itemstack1;
 				int i;
 
-				for (final Iterator iterator = this.field_147008_s.iterator(); iterator
-						.hasNext(); this.dragSplittingRemnant -= itemstack1.stackSize - i) {
+				for (final Iterator iterator = this.field_147008_s.iterator(); iterator.hasNext(); this.dragSplittingRemnant -= itemstack1.stackSize - i) {
 					final Slot slot = (Slot) iterator.next();
 					itemstack1 = itemstack.copy();
 					i = slot.getStack() == null ? 0 : slot.getStack().stackSize;

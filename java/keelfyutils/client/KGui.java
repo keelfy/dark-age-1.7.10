@@ -1,21 +1,6 @@
 package keelfyutils.client;
 
-import static org.lwjgl.opengl.GL11.GL_ALPHA_TEST;
-import static org.lwjgl.opengl.GL11.GL_BLEND;
-import static org.lwjgl.opengl.GL11.GL_COLOR_MATERIAL;
-import static org.lwjgl.opengl.GL11.GL_FLAT;
-import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
-import static org.lwjgl.opengl.GL11.GL_SMOOTH;
-import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glDisable;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glRotatef;
-import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glShadeModel;
-import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.*;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -48,8 +33,7 @@ public final class KGui {
 		MC.setIngameFocus();
 	}
 
-	public static final void drawItemStack(final RenderItem itemRenderer, final ItemStack itemstack, final int x,
-			final int y, final float ticks) {
+	public static final void drawItemStack(final RenderItem itemRenderer, final ItemStack itemstack, final int x, final int y, final float ticks) {
 		if (KUtils.PROTECT_CLIENT) {
 			if (itemstack != null) {
 				final float f1 = itemstack.animationsToGo - ticks;
@@ -70,8 +54,7 @@ public final class KGui {
 		}
 	}
 
-	public static final void drawItemStack(final RenderItem itemRender, final ItemStack itemstack, final int x,
-			final int y, final float z, final String altText) {
+	public static final void drawItemStack(final RenderItem itemRender, final ItemStack itemstack, final int x, final int y, final float z, final String altText) {
 		if (KUtils.PROTECT_CLIENT) {
 			glPushMatrix();
 			glTranslatef(0.0F, 0.0F, 32.0F);
@@ -93,8 +76,7 @@ public final class KGui {
 		}
 	}
 
-	public static final void renderLabel(final TileEntity tileEntity, final String text, final int visibleDistance,
-			final double x, final double y, final double z, final int textWidth, final int lines) {
+	public static final void renderLabel(final TileEntity tileEntity, final String text, final int visibleDistance, final double x, final double y, final double z, final int textWidth, final int lines) {
 		if (KUtils.PROTECT_CLIENT) {
 			final EntityLivingBase player = renderManager.livingPlayer;
 			final double distanceToEntity = tileEntity.getDistanceFrom(player.posX, player.posY, player.posZ);
@@ -146,49 +128,48 @@ public final class KGui {
 		}
 	}
 
-	public static final void drawEntityLivingBase(final int x, final int y, final float scale, final float par3,
-			final float par4, final EntityLivingBase entity, float par6) {
+	public static final void drawEntityLivingBase(final int x, final int y, final float scale, final float par3, final float par4, final EntityLivingBase entity, float par6) {
 		if (KUtils.PROTECT_CLIENT) {
-			glEnable(GL11.GL_COLOR_MATERIAL);
-	        glPushMatrix();
-	        glTranslatef(x - par6, y, 50.0F);
-	        glScalef(-scale, scale, scale);
-	        glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-	        glRotatef(par6, 0, 1, 0);
-	        float f2 = entity.renderYawOffset;
-	        float f3 = entity.rotationYaw;
-	        float f4 = entity.rotationPitch;
-	        float f5 = entity.prevRotationYawHead;
-	        float f6 = entity.rotationYawHead;
-	        glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
-	        RenderHelper.enableStandardItemLighting();
-	        glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
-	        glRotatef(-((float)Math.atan((double)(par4 / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-	        entity.renderYawOffset = (float)Math.atan((double)(par3 / 40.0F)) * 20.0F;
-	        entity.rotationYaw = (float)Math.atan((double)(par3 / 40.0F)) * 40.0F;
-	        entity.rotationPitch = -((float)Math.atan((double)(par4 / 40.0F))) * 20.0F;
-	        entity.rotationYawHead = entity.rotationYaw;
-	        entity.prevRotationYawHead = entity.rotationYaw;
-	        glTranslatef(0.0F, entity.yOffset, 0.0F);
-	        RenderManager.instance.playerViewY = 180.0F;
-	        RenderManager.instance.renderEntityWithPosYaw(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
-	        entity.renderYawOffset = f2;
-	        entity.rotationYaw = f3;
-	        entity.rotationPitch = f4;
-	        entity.prevRotationYawHead = f5;
-	        entity.rotationYawHead = f6;
-	        glPopMatrix();
-	        RenderHelper.disableStandardItemLighting();
-	        glDisable(GL12.GL_RESCALE_NORMAL);
-	        OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);
-	        glDisable(GL_TEXTURE_2D);
-	        OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
+			glEnable(GL_COLOR_MATERIAL);
+			glPushMatrix();
+			glTranslatef(x - par6, y, 50.0F);
+			glScalef(-scale, scale, scale);
+			glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
+			glRotatef(par6, 0, 1, 0);
+			float f2 = entity.renderYawOffset;
+			float f3 = entity.rotationYaw;
+			float f4 = entity.rotationPitch;
+			float f5 = entity.prevRotationYawHead;
+			float f6 = entity.rotationYawHead;
+			glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
+			RenderHelper.enableStandardItemLighting();
+			glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
+			glRotatef(-((float) Math.atan(par4 / 40.0F)) * 20.0F, 1.0F, 0.0F, 0.0F);
+			entity.renderYawOffset = (float) Math.atan(par3 / 40.0F) * 20.0F;
+			entity.rotationYaw = (float) Math.atan(par3 / 40.0F) * 40.0F;
+			entity.rotationPitch = -((float) Math.atan(par4 / 40.0F)) * 20.0F;
+			entity.rotationYawHead = entity.rotationYaw;
+			entity.prevRotationYawHead = entity.rotationYaw;
+			glTranslatef(0.0F, entity.yOffset, 0.0F);
+			RenderManager.instance.playerViewY = 180.0F;
+			RenderManager.instance.renderEntityWithPosYaw(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
+			entity.renderYawOffset = f2;
+			entity.rotationYaw = f3;
+			entity.rotationPitch = f4;
+			entity.prevRotationYawHead = f5;
+			entity.rotationYawHead = f6;
+			glPopMatrix();
+			RenderHelper.disableStandardItemLighting();
+			glDisable(GL12.GL_RESCALE_NORMAL);
+			OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+			glDisable(GL_TEXTURE_2D);
+			OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
+			glDisable(GL_COLOR_MATERIAL);
 		}
 	}
 
-	public static final void drawGradientRect(final int x, final int y, final int width, final int heigth,
-			final float red1, final float blue1, final float green1, final float alpha1, final float red2,
-			final float blue2, final float green2, final float alpha2) {
+	public static final void drawGradientRect(final int x, final int y, final int width, final int heigth, final float red1, final float blue1, final float green1, final float alpha1, final float red2, final float blue2,
+			final float green2, final float alpha2) {
 		if (KUtils.PROTECT_CLIENT) {
 			glDisable(GL_TEXTURE_2D);
 			glEnable(GL_BLEND);
@@ -211,8 +192,7 @@ public final class KGui {
 		}
 	}
 
-	public static final void drawGradientRect(final int x, final int y, final int width, final int height,
-			final int p_73733_5_, final int p_73733_6_) {
+	public static final void drawGradientRect(final int x, final int y, final int width, final int height, final int p_73733_5_, final int p_73733_6_) {
 		if (KUtils.PROTECT_CLIENT) {
 			final float f = (p_73733_5_ >> 24 & 255) / 255.0F;
 			final float f1 = (p_73733_5_ >> 16 & 255) / 255.0F;

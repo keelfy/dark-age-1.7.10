@@ -14,7 +14,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkcore.network.DACNetwork;
 import keelfy.darkdata.client.DAFontHandler;
 import keelfy.darkdata.client.DAResources.Texture;
@@ -61,6 +61,7 @@ public final class DAInventoryGui extends DAContainerGui {
 	private static final ResourceLocation Texture_Inventory = Texture.get(EnumTexturePath.Inventory, "newInventory");
 
 	private DAPlayerInventory inventory;
+	private DAPlayerData data;
 	public static EntityPlayer player;
 
 	private boolean repairing;
@@ -93,6 +94,7 @@ public final class DAInventoryGui extends DAContainerGui {
 		if (KUtils.PROTECT_CLIENT) {
 			super.initGui();
 
+			data = DADataManager.getPlayer(mc.thePlayer);
 			this.xSize = 512;
 			this.ySize = 256;
 			this.repairing = false;
@@ -113,7 +115,6 @@ public final class DAInventoryGui extends DAContainerGui {
 	protected final void drawGuiContainerBackgroundLayer(final float partialTicks, final int mouseX, final int mouseY) {
 		if (KUtils.PROTECT_CLIENT) {
 			final FontRenderer fr = super.fontRendererObj;
-			final DAPlayerData dap = DADataManager.getPlayer(mc.thePlayer);
 			float scale;
 
 			guiLeft = (this.width - this.xSize) / 2;
@@ -205,7 +206,7 @@ public final class DAInventoryGui extends DAContainerGui {
 			KGL.texturedRect((int) (weightOffsetX / scale), (int) (weightOffsetY / scale), 0, 0, 7, 7);
 			GL11.glPopMatrix();
 
-			s = String.valueOf(String.format("%.1f кг", dap.weight.get()));
+			s = String.valueOf((data.weight.get() > 60 ? Brush.RED : Brush.WHITE) + KString.formatFloat(data.weight.get(), 1) + Brush.WHITE + "/60 кг");
 			trebuchet15.drawString(s, weightOffsetX + 10, weightOffsetY + 2, KColors.WHITE_COLOR);
 			// Weight end
 
@@ -218,35 +219,31 @@ public final class DAInventoryGui extends DAContainerGui {
 			s = String.valueOf(gui_nickname + KString.SPACE + player.getDisplayName());
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 10, KColors.WHITE_COLOR);
 
-			s = String.valueOf("Класс: " + dap.playerClass.get().getLocalizedName());
+			s = String.valueOf("Класс: " + data.playerClass.get().getLocalizedName());
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 20, KColors.WHITE_COLOR);
 
-			s = String.valueOf(gui_health + KString.SPACE + String.format("%.1f", dap.health.get()) + "/"
-					+ (int) dap.health.getMax() + " ед.");
+			s = String.valueOf(gui_health + KString.SPACE + KString.formatFloat(data.health.get(), 1) + "/" + (int) data.health.getMax() + " ед.");
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 34, KColors.WHITE_COLOR);
 
 			s = String.valueOf(gui_armor + KString.SPACE + getTotalBlockingPercent());
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 44, KColors.WHITE_COLOR);
 
-			s = String.valueOf("Интоксикация: "
-					+ (dap.intox.get() == 0 ? "0,0" : String.format("%.1f", dap.intox.get() / dap.intox.getMax() * 100))
-					+ "%");
+			s = String.valueOf("Интоксикация: " + KString.formatFloat(data.intox.get() / data.intox.getMax() * 100, 1) + "%");
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 54, KColors.WHITE_COLOR);
 
-			s = String.valueOf("Энергия: " + String.format("%.1f",
-					(dap.energy.get() - dap.energy.getMin()) / (dap.energy.getMax() - dap.energy.getMin()) * 100)
-					+ "%");
+			s = String.valueOf("Энергия: " + KString.formatFloat((data.energy.get() - data.energy.getMin()) / (data.energy.getMax() - data.energy.getMin()) * 100, 1) + "%");
 			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 64, KColors.WHITE_COLOR);
+
+			s = String.valueOf("Сытость: " + KString.formatFloat(data.saturation.get(), 1) + " ед.");
+			trebuchet15.drawString(s, characterOffsetX, characterOffsetY + 74, KColors.WHITE_COLOR);
 			// Character end
 
 			// Repairing start
 			if (repairing) {
 				s = String.valueOf(gui_repairing_2);
-				trebuchet15.drawString(s, this.width - KGL.stringWidth(fr, s),
-						this.height - (10 + KGL.stringHeight(fr)), KColors.WHITE_COLOR);
+				trebuchet15.drawString(s, this.width - KGL.stringWidth(fr, s), this.height - (10 + KGL.stringHeight(fr)), KColors.WHITE_COLOR);
 				s = String.valueOf(gui_repairing_1 + KString.SPACE + Brush.UNDERLINE + repairingPercent + "%");
-				trebuchet15.drawString(s, this.width - (5 + KGL.stringWidth(fr, s)),
-						this.height - (20 + KGL.stringHeight(fr)), KColors.WHITE_COLOR);
+				trebuchet15.drawString(s, this.width - (5 + KGL.stringWidth(fr, s)), this.height - (20 + KGL.stringHeight(fr)), KColors.WHITE_COLOR);
 			}
 			// Repairing end
 
@@ -274,8 +271,8 @@ public final class DAInventoryGui extends DAContainerGui {
 			boolean flag1 = slot == this.clickedSlot && this.draggedStack != null && !this.isRightMouseClick;
 			final ItemStack itemstack1 = this.mc.thePlayer.inventory.getItemStack();
 			String s = null;
+			GL11.glDisable(GL11.GL_LIGHTING);
 
-			RenderHelper.disableStandardItemLighting();
 			GL11.glPushMatrix();
 			KGL.bindTexture(Texture_Slots);
 			DASlotIcon ic = slot.getIcon();
@@ -283,9 +280,9 @@ public final class DAInventoryGui extends DAContainerGui {
 			GL11.glScalef(scale, scale, scale);
 			int icX = (int) (i / scale);
 			int icY = (int) (j / scale);
+			GL11.glColor4f(1, 1, 1, 1);
 			ic.draw(slot, icX, icY);
 			GL11.glPopMatrix();
-			RenderHelper.enableGUIStandardItemLighting();
 
 			if (slot == this.clickedSlot && this.draggedStack != null && this.isRightMouseClick && itemstack != null) {
 				itemstack = itemstack.copy();
@@ -297,8 +294,7 @@ public final class DAInventoryGui extends DAContainerGui {
 				if (Container.func_94527_a(slot, itemstack1, true) && this.inventorySlots.canDragIntoSlot(slot)) {
 					itemstack = itemstack1.copy();
 					flag = true;
-					Container.func_94525_a(this.field_147008_s, this.dragSplittingLimit, itemstack,
-							slot.getStack() == null ? 0 : slot.getStack().stackSize);
+					Container.func_94525_a(this.field_147008_s, this.dragSplittingLimit, itemstack, slot.getStack() == null ? 0 : slot.getStack().stackSize);
 
 					if (itemstack.stackSize > itemstack.getMaxStackSize()) {
 						s = String.valueOf(Brush.YELLOW + String.valueOf(itemstack.getMaxStackSize()));
@@ -322,6 +318,7 @@ public final class DAInventoryGui extends DAContainerGui {
 				final IIcon iicon = slot.getBackgroundIconIndex();
 
 				if (iicon != null) {
+					GL11.glColor4f(1, 1, 1, 1);
 					GL11.glDisable(GL11.GL_LIGHTING);
 					GL11.glEnable(GL11.GL_BLEND);
 					KGL.bindTexture(TextureMap.locationItemsTexture);
@@ -333,18 +330,18 @@ public final class DAInventoryGui extends DAContainerGui {
 			}
 
 			if (!flag1) {
-				if (flag) {
-					// drawRect(i, j, i + 16, j + 16, -2130706433);
-				}
 
-				itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i,
-						j);
-				itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j,
-						s);
+				GL11.glEnable(GL11.GL_DEPTH_TEST);
+				itemRender.renderItemAndEffectIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j);
+				itemRender.renderItemOverlayIntoGUI(this.fontRendererObj, this.mc.getTextureManager(), itemstack, i, j, s);
 			}
 
 			itemRender.zLevel = 0.0F;
 			this.zLevel = 0.0F;
+
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glEnable(GL11.GL_DEPTH_TEST);
+			RenderHelper.enableStandardItemLighting();
 		}
 	}
 
@@ -378,8 +375,7 @@ public final class DAInventoryGui extends DAContainerGui {
 	}
 
 	@Override
-	protected final void handleMouseClick(final Slot slotIn, final int slotId, final int clickedButton,
-			final int clickType) {
+	protected final void handleMouseClick(final Slot slotIn, final int slotId, final int clickedButton, final int clickType) {
 		if (KUtils.PROTECT_CLIENT) {
 			if (!isRepairing()) {
 				super.handleMouseClick(slotIn, slotId, clickedButton, clickType);
@@ -392,26 +388,21 @@ public final class DAInventoryGui extends DAContainerGui {
 		if (KUtils.PROTECT_CLIENT) {
 			Slot slot = getSlotAtPosition(mouseX, mouseY);
 
-			if (!isRepairing() && getSlotAtPosition(mouseX, mouseY) != null
-					&& getSlotAtPosition(mouseX, mouseY).getHasStack() && isCtrlKeyDown()
+			if (!isRepairing() && getSlotAtPosition(mouseX, mouseY) != null && getSlotAtPosition(mouseX, mouseY).getHasStack() && isCtrlKeyDown()
 					&& getSlotAtPosition(mouseX, mouseY).getStack().getItem() instanceof RepairKit) {
 				enableRepairing(getSlotAtPosition(mouseX, mouseY));
 			} else if (isRepairing() && isCtrlKeyDown()) {
 				disableRepairing();
 			} else if (isRepairing()) {
 				if (slot != null && slot.getHasStack()) {
-					System.out.println("Sent: " + slot.getSlotIndex());
-					DACNetwork.sendToServer(EnumSPackets.Repair, repairingPercent, repairingType, slot.getSlotIndex(),
-							repairKit);
+					DACNetwork.sendToServer(EnumSPackets.Repair, repairingPercent, repairingType, slot.getSlotIndex(), repairKit);
 					return;
 				}
-			} else if (getSlotAtPosition(mouseX, mouseY) != null && getSlotAtPosition(mouseX, mouseY).getHasStack()
-					&& getSlotAtPosition(mouseX, mouseY).getStack().getItem() instanceof Money
+			} else if (getSlotAtPosition(mouseX, mouseY) != null && getSlotAtPosition(mouseX, mouseY).getHasStack() && getSlotAtPosition(mouseX, mouseY).getStack().getItem() instanceof Money
 					&& (isCtrlKeyDown() || isShiftKeyDown())) {
 				if (!(isCtrlKeyDown() && isShiftKeyDown())) {
 					final Money clickedItem = (Money) getSlotAtPosition(mouseX, mouseY).getStack().getItem();
-					DACNetwork.sendToServer(EnumSPackets.MoneyClick, isShiftKeyDown(), isCtrlKeyDown(),
-							clickedItem.getValueInOrenes());
+					DACNetwork.sendToServer(EnumSPackets.MoneyClick, isShiftKeyDown(), isCtrlKeyDown(), clickedItem.getValueInOrenes());
 				}
 			} else {
 				super.mouseClicked(mouseX, mouseY, mouseButton);
@@ -472,7 +463,7 @@ public final class DAInventoryGui extends DAContainerGui {
 				}
 			}
 
-			return String.format("%.1f", r) + "%";
+			return KString.formatFloat(r, 1) + "%";
 		}
 		return KString.EMPTY;
 	}

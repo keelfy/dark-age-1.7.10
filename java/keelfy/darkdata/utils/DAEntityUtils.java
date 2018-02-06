@@ -13,12 +13,12 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import keelfy.darkcore.common.player.DADataManager;
 import keelfy.darkcore.common.player.DAPlayerData;
-import keelfy.darkcore.common.player.EffectsManager.PlayerEffect;
+import keelfy.darkcore.common.player.managers.EnergyManager;
+import keelfy.darkcore.common.player.managers.HealthManager;
+import keelfy.darkcore.common.player.managers.EffectsManager.PlayerEffect;
 import keelfy.darkdata.constants.EnumEffect;
 import keelfy.darkdata.items.Armor;
 import keelfy.darkdata.items.Sword;
-import keelfy.darkcore.common.player.EnergyManager;
-import keelfy.darkcore.common.player.HealthManager;
 import keelfyutils.KUtils;
 import keelfyutils.bukkit.KBukkitHandler;
 import net.minecraft.entity.Entity;

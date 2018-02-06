@@ -18,6 +18,7 @@ import keelfy.darkdata.client.gui.DALootBagGui;
 import keelfy.darkdata.client.gui.DASelectClassGui;
 import keelfy.darkdata.client.gui.DASelectSignGui;
 import keelfy.darkdata.client.gui.DASentinelGui;
+import keelfy.darkdata.client.gui.DASkillsGui;
 import keelfy.darkdata.client.gui.DAStoryBookGui;
 import keelfy.darkdata.constants.EnumGui;
 import keelfy.darkdata.inventory.loot.ContainerLoot;
@@ -42,8 +43,7 @@ public enum DAGuiHandler implements IGuiHandler {
 	}
 
 	@Override
-	public Object getServerGuiElement(final int ID, final EntityPlayer player, final World world, final int x,
-			final int y, final int z) {
+	public Object getServerGuiElement(final int ID, final EntityPlayer player, final World world, final int x, final int y, final int z) {
 		if (KUtils.PROTECT_SERVER) {
 			final EnumGui selectedGui = EnumGui.values()[ID];
 
@@ -61,8 +61,7 @@ public enum DAGuiHandler implements IGuiHandler {
 	}
 
 	@Override
-	public Object getClientGuiElement(final int ID, final EntityPlayer player, final World world, final int x,
-			final int y, final int z) {
+	public Object getClientGuiElement(final int ID, final EntityPlayer player, final World world, final int x, final int y, final int z) {
 		if (KUtils.PROTECT_CLIENT) {
 			final EnumGui selectedGui = EnumGui.values()[ID];
 
@@ -87,7 +86,7 @@ public enum DAGuiHandler implements IGuiHandler {
 			mc.displayGuiScreen(new GuiFaction());
 			break;
 		case Quests:
-			mc.displayGuiScreen(new GuiQuestLog(mc.thePlayer));
+			mc.displayGuiScreen(new GuiQuestLog());
 			break;
 		case SelectClass:
 			mc.displayGuiScreen(new DASelectClassGui());
@@ -100,6 +99,9 @@ public enum DAGuiHandler implements IGuiHandler {
 			break;
 		case SelectSign:
 			mc.displayGuiScreen(new DASelectSignGui());
+			break;
+		case Skills:
+			mc.displayGuiScreen(new DASkillsGui());
 			break;
 		default:
 			DACNetwork.sendToServer(EnumSPackets.OpenGui, gui);

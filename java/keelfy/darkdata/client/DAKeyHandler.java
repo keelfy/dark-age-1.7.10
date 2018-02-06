@@ -40,17 +40,12 @@ public enum DAKeyHandler {
 
 	private static final Minecraft MC = Minecraft.getMinecraft();
 
-	private final String[] descriptions = { KLocalization.localize(DALocalization.Key_Hotslot_1),
-			KLocalization.localize(DALocalization.Key_Hotslot_2), KLocalization.localize(DALocalization.Key_Hotslot_3),
-			KLocalization.localize(DALocalization.Key_Hotslot_4), KLocalization.localize(DALocalization.Key_Use_Sign),
-			KLocalization.localize(DALocalization.Key_Quest_List),
-			KLocalization.localize(DALocalization.Key_Sword_Steel),
-			KLocalization.localize(DALocalization.Key_Sword_Silver),
-			KLocalization.localize(DALocalization.Key_Otherslot_1),
-			KLocalization.localize(DALocalization.Key_Otherslot_2) };
+	private final String[] descriptions = { KLocalization.localize(DALocalization.Key_Hotslot_1), KLocalization.localize(DALocalization.Key_Hotslot_2), KLocalization.localize(DALocalization.Key_Hotslot_3),
+			KLocalization.localize(DALocalization.Key_Hotslot_4), KLocalization.localize(DALocalization.Key_Use_Sign), KLocalization.localize(DALocalization.Key_Quest_List),
+			KLocalization.localize(DALocalization.Key_Sword_Steel), KLocalization.localize(DALocalization.Key_Sword_Silver), KLocalization.localize(DALocalization.Key_Otherslot_1),
+			KLocalization.localize(DALocalization.Key_Otherslot_2), KLocalization.localize(DALocalization.Key_Skills) };
 
-	private final int[] values = { Keyboard.KEY_R, Keyboard.KEY_T, Keyboard.KEY_F, Keyboard.KEY_G, Keyboard.KEY_Q,
-			Keyboard.KEY_L, Keyboard.KEY_1, Keyboard.KEY_2, Keyboard.KEY_3, Keyboard.KEY_4 };
+	private final int[] values = { Keyboard.KEY_R, Keyboard.KEY_T, Keyboard.KEY_F, Keyboard.KEY_G, Keyboard.KEY_Q, Keyboard.KEY_L, Keyboard.KEY_1, Keyboard.KEY_2, Keyboard.KEY_3, Keyboard.KEY_4, Keyboard.KEY_K };
 
 	public final KeyBinding[] keys = new KeyBinding[descriptions.length];
 
@@ -98,8 +93,7 @@ public enum DAKeyHandler {
 						final Entity entity = KClient.getLookingEntity(MC.objectMouseOver);
 						if (entity != null && entity instanceof EntityLivingBase) {
 							DACNetwork.sendToServer(EnumSPackets.UseSign, entity.getEntityId(), dap.signs.getCurrent());
-						} else if (dap.signs.getCurrentSign() == EnumSign.Irden
-								|| dap.signs.getCurrentSign() == EnumSign.Kven) {
+						} else if (dap.signs.getCurrentSign() == EnumSign.Irden || dap.signs.getCurrentSign() == EnumSign.Kven) {
 							DACNetwork.sendToServer(EnumSPackets.UseSign, -1, dap.signs.getCurrent());
 						}
 					} else if (keys[6].isPressed()) {
@@ -126,11 +120,9 @@ public enum DAKeyHandler {
 						} else {
 							MC.thePlayer.inventory.currentItem = 3;
 						}
-					}
-					// else if (keys[10].isPressed()) {
-					// DAGuiHandler.openGui(EnumGui.SELECT_SIGN);
-					// }
-					else if (gs.keyBindsHotbar[4].isPressed()) {
+					} else if (keys[10].isPressed()) {
+						DAGuiHandler.openGui(EnumGui.Skills);
+					} else if (gs.keyBindsHotbar[4].isPressed()) {
 						KClient.unpressKey(gs.keyBindsHotbar[4]);
 					} else if (gs.keyBindsHotbar[5].isPressed()) {
 						KClient.unpressKey(gs.keyBindsHotbar[5]);

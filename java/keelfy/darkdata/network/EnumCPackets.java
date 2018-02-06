@@ -6,6 +6,6 @@ package keelfy.darkdata.network;
  */
 public enum EnumCPackets {
 
-	Repair, SyncEffects, SyncPlayerClass, SyncData, Loaded, EffectDuration;
+	Repair, SyncEffects, SyncPlayerClass, SyncData, Loaded, EffectDuration, SyncSkills;
 
 }

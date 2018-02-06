@@ -4,6 +4,15 @@
 
 package keelfy.darkcore.common.player;
 
+import keelfy.darkcore.common.player.managers.EffectsManager;
+import keelfy.darkcore.common.player.managers.EnergyManager;
+import keelfy.darkcore.common.player.managers.HealthManager;
+import keelfy.darkcore.common.player.managers.IntoxicationManager;
+import keelfy.darkcore.common.player.managers.PlayerClassManager;
+import keelfy.darkcore.common.player.managers.SaturationManager;
+import keelfy.darkcore.common.player.managers.SignsManager;
+import keelfy.darkcore.common.player.managers.SkillsManager;
+import keelfy.darkcore.common.player.managers.WeightManager;
 import keelfy.darkcore.network.DASNetwork;
 import keelfy.darkdata.DarkData;
 import keelfy.darkdata.inventory.player.DAPlayerInventory;
@@ -36,6 +45,7 @@ public final class DAPlayerData implements IExtendedEntityProperties {
 	public EffectsManager effects;
 	public PlayerClassManager playerClass;
 	public DAPlayerInventory inventory;
+	public SkillsManager skills;
 
 	public DAPlayerData(final EntityPlayer player) {
 		this.player = player;
@@ -49,6 +59,7 @@ public final class DAPlayerData implements IExtendedEntityProperties {
 		this.saturation = new SaturationManager(this);
 		this.playerClass = new PlayerClassManager(this);
 		this.effects = new EffectsManager(this);
+		this.skills = new SkillsManager(this);
 	}
 
 	@Override
@@ -64,6 +75,7 @@ public final class DAPlayerData implements IExtendedEntityProperties {
 			saturation.saveNBTData(properties);
 			playerClass.saveNBTData(properties);
 			effects.saveNBTData(properties);
+			skills.saveNBTData(properties);
 
 			compound.setTag(NBT_Name, properties);
 		}
@@ -81,6 +93,7 @@ public final class DAPlayerData implements IExtendedEntityProperties {
 		this.saturation.loadNBTData(properties);
 		this.playerClass.loadNBTData(properties);
 		this.effects.loadNBTData(properties);
+		this.skills.loadNBTData(properties);
 	}
 
 	public final void copy(final EntityPlayer oldPlayer) {
