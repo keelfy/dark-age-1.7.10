@@ -1,6 +1,6 @@
 # The Witcher: Dark Age
 Main modification for The Witcher Minecraft server  
-![Screenshot](/screenshot.png)
+![Screenshot](/VlLsyoPqpUc.jpg)
 ![Overview](https://www.youtube.com/watch?v=4IlgCKrvoLs)  
 
 # Why is this public?
